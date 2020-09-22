@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //HorizontalInput = Input.GetAxis("Horizontal");
-
+        transform.Translate(Vector3.right  * Time.deltaTime * speed);
         VerticalInput = Input.GetAxis("Vertical");
 
         if(Input.GetAxis("Vertical") > 0.0f)
@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(Vector3.up * VerticalInput * Time.deltaTime * speed);
             //moveDirection = Input.GetAxis("Vertical") * speed;
             //rigidbody.AddRelativeForce(0, 0, moveDirection);
-
 
         }
     }
