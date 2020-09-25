@@ -18,22 +18,23 @@ public class Shoot : MonoBehaviour
     //    }
     //}
 
-    public Transform firePoint;
-    public GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject bulletPrefab;
 
 
   
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+
         if (Input.GetButtonDown("Fire1"))
         {
             Fire();
         }
     }
 
-    void Fire()
+    private void Fire()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }

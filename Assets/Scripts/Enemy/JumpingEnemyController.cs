@@ -5,6 +5,7 @@ using UnityEngine;
 public class JumpingEnemyController : MonoBehaviour
 {
     [SerializeField] float baseSpeed = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class JumpingEnemyController : MonoBehaviour
     {
         baseSpeed += 1f * Time.deltaTime;
         transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
+       
     }
 
    IEnumerator Jump()
@@ -28,4 +30,6 @@ public class JumpingEnemyController : MonoBehaviour
 
         }
     }
+
+
 }
