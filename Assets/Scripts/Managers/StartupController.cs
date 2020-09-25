@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class StartupController : MonoBehaviour
 {
     [SerializeField] private Slider progressBar;
+  
 
     private void Awake()
     {
         Messenger<int, int>.AddListener(StartupEvent.MANAGERS_PROGRESS, OnManagerProgress);
         Messenger.AddListener(StartupEvent.MANAGERS_STARTED, OnManagerStarted);
-
+     
     }
 
     private void OnDestroy()
