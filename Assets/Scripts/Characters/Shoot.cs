@@ -20,6 +20,7 @@ public class Shoot : MonoBehaviour
 
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private AudioClip shootSound;
 
 
   
@@ -37,5 +38,6 @@ public class Shoot : MonoBehaviour
     private void Fire()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Managers.Audio.PlaySound(shootSound);
     }
 }
