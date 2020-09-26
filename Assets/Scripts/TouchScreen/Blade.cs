@@ -7,7 +7,7 @@ public class Blade : MonoBehaviour {
 	public GameObject bladeTrailPrefab;
 	public float minCuttingVelocity = .001f;
 
-	bool isCutting = false;
+	
 
 	Vector2 previousPosition;
 
@@ -26,7 +26,7 @@ public class Blade : MonoBehaviour {
 
 	void StartCutting ()
 	{
-		isCutting = true;
+		
 		currentBladeTrail = Instantiate(bladeTrailPrefab, transform);
 		previousPosition = cam.ScreenToWorldPoint(Input.mousePosition);
 		circleCollider.enabled = false;
