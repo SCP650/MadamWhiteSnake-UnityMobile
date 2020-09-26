@@ -45,7 +45,7 @@ static internal class MessengerInternal
         eventTable[eventType] = Delegate.Combine(eventTable[eventType], callback);
     }
 
-    static public void RemoveListener(string eventType, Delegate handler)
+    static public void RemoveListener(string eventType, Delegate handler)  
     {
         MessengerInternal.OnListenerRemoving(eventType, handler);
         eventTable[eventType] = Delegate.Remove(eventTable[eventType], handler);

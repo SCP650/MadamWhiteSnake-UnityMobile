@@ -14,14 +14,14 @@ public class PlayerManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Player Manage is starting up...");
         _network = network;
-        UpdataData(50, 100);
+        UpdataData(50, 100);   //   初始血量  和最高血量
         status = ManagerStatus.Started;
 
     }
 
     public void UpdataData(int health, int maxHealth)
     {
-        this.health = health;
+        this.health = health;  //  指的是自己 
         this.maxHealth = maxHealth;
     }
 
@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
         }
         else if(health <= 0)
         {
-            Messenger.Broadcast(GameEvent.LEVEL_FAILED);
+            Messenger.Broadcast(GameEvent.LEVEL_FAILED);  // Broadcast  
             health = 0;
 
         }

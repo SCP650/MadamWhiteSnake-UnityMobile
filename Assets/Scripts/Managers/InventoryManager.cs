@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour, IGameManager
     public ManagerStatus status { get; private set; }
     public string equippedItem { get; private set; }
 
-    private Dictionary<string,int> _item;
+    private Dictionary<string,int> _item;   //   左边是物品名字，右边是数量 
     private NetworkService _network;
 
     public void Startup(NetworkService network)
@@ -25,7 +25,7 @@ public class InventoryManager : MonoBehaviour, IGameManager
 
     public Dictionary<string,int> GetData()
     {
-        return _item;
+        return _item;  // 新的背copy包
     }
 
     public void DisplayItems()
@@ -47,7 +47,7 @@ public class InventoryManager : MonoBehaviour, IGameManager
         }
         else
         {
-            _item[newItem] = 1;
+            _item[newItem] = 1;   //  从0开始 
         }
 
         DisplayItems();
