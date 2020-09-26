@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour, IGameManager
 {
-    [SerializeField] private AudioSource source;
-    [SerializeField] private AudioSource BGMSource;
+    [SerializeField] private AudioSource source;  //play sound effect for UI button
+    [SerializeField] private AudioSource BGMSource; //play background music
     [SerializeField] private AudioSource Music2Source; // fading out and in music
     [SerializeField] private string introBGMLocation;
     [SerializeField] private string levelBGMLocation;
@@ -112,7 +112,7 @@ public class AudioManager : MonoBehaviour, IGameManager
     }
 
 
-    //play sound effect for UI button
+   
     public void PlaySound(AudioClip clip)
     {
         source.PlayOneShot(clip);
