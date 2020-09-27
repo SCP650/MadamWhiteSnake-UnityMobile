@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class Damagezone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Managers.Player.ChangeHealth(-10);
+        }
+
+        //PlayerManager damage = other.GetComponent<PlayerManager>();
+            //if(damage!= null)
+            //{
+            //    damage.ChangeHealth(-1);
+            //}
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        void OnTriggerEnter2D(Collider2D zone)
-        {
-            PlayerManager damage = zone.GetComponent<PlayerManager>();
-            if(damage!= null)
-            {
-                damage.ChangeHealth(-1);
-            }
-        }
-    }
+
+
 }
