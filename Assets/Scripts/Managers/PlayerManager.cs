@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Player Manage is starting up...");
         _network = network;
-        UpdataData(50, 100);   //   初始血量  和最高血量
+        UpdataData(50, 100);   
         status = ManagerStatus.Started;
 
     }
