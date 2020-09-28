@@ -8,7 +8,6 @@ public class PlayerJumpMove : MonoBehaviour
     private bool shouldJump;
     private bool canJump;
     private Rigidbody2D rb;
- 
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +17,7 @@ public class PlayerJumpMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canJump && (Input.GetAxis("Vertical") > 0.0f))
+        if (canJump && Input.GetAxis("Vertical") > 0.0f)
         {
             canJump = false;
             shouldJump = true;
@@ -27,11 +26,11 @@ public class PlayerJumpMove : MonoBehaviour
     // apply physics movement based on input values
     private void FixedUpdate()
     {
-      
+
         // jump
         if (shouldJump)
         {
-            //TODO:Call juming animation 
+            //Call juming animation 
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             shouldJump = false;
         }
@@ -40,11 +39,8 @@ public class PlayerJumpMove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         // allow jumping again whe nhit ground 
-      
-        //if(col.otherCollider.gameObject.tag == "Ground")
-        //{
-            canJump = true;
-        //}
+        //should also check whether col is ground
+        canJump = true;
       
     }
 }

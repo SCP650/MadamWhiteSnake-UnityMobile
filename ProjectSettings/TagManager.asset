@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - CountBox
+  - SlidePoint
+  - BladeTrail
+  - Blade
   - Enemy
   layers:
   - Default
@@ -15,11 +19,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - SlidePoint
+  - CountBox
+  - BladeTrail
+  - Blade
   - 
   - 
   - 
@@ -42,4 +46,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 310616581
+    locked: 0
+  - name: SlidePoint
+    uniqueID: 160923939
+    locked: 0
+  - name: BladeTrail
+    uniqueID: 3863248979
+    locked: 0
+  - name: CountBox
+    uniqueID: 1623923531
     locked: 0
