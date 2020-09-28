@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8078832498444073589}
-  - component: {fileID: 8078832498444073590}
   - component: {fileID: 8078832498444073588}
   m_Layer: 0
   m_Name: PlayerView
@@ -117,20 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8078832498444073590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8078832498444073591}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea2f785ff083fe34290cf36cf54a8eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VerticalInput: 40
-  speed: 5
 --- !u!114 &8078832498444073588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,10 +254,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 5
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 0.5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -309,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3aad12a11a95945bebd2f73da0c172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 5
+  jumpSpeed: 60
   firePoint: {fileID: 8078832499641365792}
   bulletPrefab: {fileID: 3335332101470800219, guid: 7ea1145f4c7e9c546a71f2ce683bd792,
     type: 3}

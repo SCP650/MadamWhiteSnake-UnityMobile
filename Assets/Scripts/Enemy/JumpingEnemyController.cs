@@ -6,9 +6,11 @@ public class JumpingEnemyController : MonoBehaviour
 {
     [SerializeField] float baseSpeed = 5f;
 
+    private Collider2D collider;
     // Start is called before the first frame update
     void Start()
     {
+        collider = GetComponent<Collider2D>();
         StartCoroutine(Jump());
     }
 
@@ -28,6 +30,15 @@ public class JumpingEnemyController : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 100);
             yield return new WaitForSeconds(seconds);
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Coolide with another enemy");
+            Physics2D.IgnoreCollision(collision.collider, collider,true);
         }
     }
 
