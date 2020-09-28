@@ -24,16 +24,18 @@ public class MoveByTouch : MonoBehaviour
     // shoot
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
+
     void Start()
     {
         Debug.Log("in");
         rb = GetComponent<Rigidbody2D>();
         canJump = true;
+        width = Screen.width;
+        MidWidth = width / 2;
     }
     void Update()
     {
-        width = Screen.width;
-        MidWidth = width /2;
+
        
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -59,8 +61,17 @@ public class MoveByTouch : MonoBehaviour
                 }
                 
 
-            }
+            } 
             
+        }
+        else if(canJump && Input.GetAxis("Vertical") > 0.0f) // For editor testing
+        {
+            canJump = false;
+            shouldJump = true;
+        }
+        else if (Input.GetButtonDown("Fire1"))
+        {
+            Fire();
         }
     }
 
@@ -79,9 +90,9 @@ public class MoveByTouch : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         // allow jumping again whe nhit ground 
-        //should also check whether col is ground
-        canJump = true;
-      
+        canJump |= col.gameObject.tag == "Ground";
+
+
     }
 
     private void Fire()
