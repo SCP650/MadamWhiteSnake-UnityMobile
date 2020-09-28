@@ -28,6 +28,7 @@ public class MoveByTouch : MonoBehaviour
     {
         Debug.Log("in");
         rb = GetComponent<Rigidbody2D>();
+        canJump = true;
     }
     void Update()
     {
@@ -51,7 +52,7 @@ public class MoveByTouch : MonoBehaviour
             {
                 //attack
                 Debug.Log("Right click");
-                if (canJump && Input.GetAxis("Vertical") > 0.0f)
+                if (canJump)
                 {
                     canJump = false;
                     shouldJump = true;
