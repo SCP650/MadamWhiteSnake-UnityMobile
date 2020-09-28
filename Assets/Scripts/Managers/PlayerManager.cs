@@ -47,5 +47,16 @@ public class PlayerManager : MonoBehaviour, IGameManager
         UpdataData(50, 100);
     }
 
+    private void Start()
+    {
 
+        Managers.Player.UpdataData(100, 100);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Managers.Player.ChangeHealth(-10);
+        }
+    }
 }
