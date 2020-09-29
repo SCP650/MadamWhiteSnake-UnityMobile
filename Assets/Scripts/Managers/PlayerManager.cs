@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Player Manage is starting up...");
         _network = network;
-        UpdataData(50, 100);
+        UpdataData(100, 100);
         status = ManagerStatus.Started;
 
     }
@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
     }
     public void Respawn()
     {
-        UpdataData(50, 100);
+        UpdataData(100, 100);
     }
 
 
