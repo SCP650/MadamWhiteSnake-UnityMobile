@@ -753,6 +753,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -831.99133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4422670674410607339, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
         type: 3}
       propertyPath: m_Name
@@ -760,3 +780,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167f5f30685bb2d4880b9fd6e3c2304b, type: 3}
+--- !u!1 &2468158807769420933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4244049358590817621, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2468158807769420932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2468158807769420934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468158807769420933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e232d8478c87c4a438e5b5efcde066b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

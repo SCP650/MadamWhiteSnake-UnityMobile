@@ -9,12 +9,5 @@ public class CharacterController : MonoBehaviour
 
         Managers.Player.UpdataData(100, 100);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "enemy")
-        {
-            Managers.Player.ChangeHealth(-10);
-            Messenger<float>.Broadcast("damage");
-        }
-    }
+   
 }
