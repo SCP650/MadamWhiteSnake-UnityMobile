@@ -2,7 +2,7 @@
 using UnityEngine.UI; using System.Collections;
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private Text healthLabel;
+    [SerializeField] private Image healthBar;
 
     void Awake()
     {
@@ -17,7 +17,11 @@ public class UIController : MonoBehaviour
      
 private void OnHealthUpdated()
     {
-        string message = "Health: " + Managers.Player.health + "/" + Managers.
-        Player.maxHealth; healthLabel.text = message;
+
+        Debug.Log("Change the UI!!!!");
+        float newX = ((float)Managers.Player.health) / Managers.
+        Player.maxHealth;
+        Debug.Log(newX);
+        healthBar.transform.localScale   = new Vector3(newX,transform.localScale.y,transform.localScale.z);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class JumpingEnemyController : MonoBehaviour
 {
     [SerializeField] float baseSpeed = 5f;
+    [SerializeField] int damageToPlayer = 10;
 
     private Collider2D collider;
     // Start is called before the first frame update
@@ -35,9 +36,13 @@ public class JumpingEnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        string whatHitMe = collision.gameObject.tag;
+        if ( whatHitMe == "Enemy")
         {
             Physics2D.IgnoreCollision(collision.collider, collider,true);
+        } else if(whatHitMe == "Player")
+        {
+            Managers.Player.ChangeHealth(-damageToPlayer);
         }
     }
 
