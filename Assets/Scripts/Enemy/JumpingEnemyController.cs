@@ -37,7 +37,6 @@ public class JumpingEnemyController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Coolide with another enemy");
             Physics2D.IgnoreCollision(collision.collider, collider,true);
         }
     }
