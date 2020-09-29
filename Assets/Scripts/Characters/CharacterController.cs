@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour
         if(other.gameObject.tag == "enemy")
         {
             Managers.Player.ChangeHealth(-10);
+            Messenger<float>.Broadcast("damage");
         }
     }
 }
