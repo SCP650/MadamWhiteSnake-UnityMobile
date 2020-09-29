@@ -5,12 +5,17 @@ using UnityEngine;
 public class MoveByTouch : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+
     // Update is called once per frame
 
     // Jump
+    //public float jumpSpeed;
+    [SerializeField] float jumpHeight;
+    private Vector3 jumpTarget;
+
+   
     private Rigidbody2D rb;
-    public float jumpSpeed;
+
     private bool shouldJump;
     private bool canJump;
  
@@ -56,8 +61,7 @@ public class MoveByTouch : MonoBehaviour
                 Debug.Log("Right click");
                 if (canJump)
                 {
-                    canJump = false;
-                    shouldJump = true;
+                    Jump();
                 }
                 
 
@@ -66,13 +70,20 @@ public class MoveByTouch : MonoBehaviour
         }
         else if(canJump && Input.GetAxis("Vertical") > 0.0f) // For editor testing
         {
-            canJump = false;
-            shouldJump = true;
+            Jump();
         }
         else if (Input.GetButtonDown("Fire1"))
         {
             Fire();
         }
+    }
+
+    private void Jump()
+    {
+        Vector3 curr = transform.position;
+        jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
+        canJump = false;
+        shouldJump = true;
     }
 
     private void FixedUpdate()
@@ -82,10 +93,15 @@ public class MoveByTouch : MonoBehaviour
         if (shouldJump)
         {
             //Call juming animation 
-            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-            shouldJump = false;
+            Vector3 delta = jumpTarget - transform.position;
+            transform.position += delta * 0.1f;
+            Debug.Log(delta.y);
+            //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            shouldJump &= delta.y > 3f;
+
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D col)
     {

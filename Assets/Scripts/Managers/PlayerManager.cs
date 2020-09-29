@@ -14,14 +14,14 @@ public class PlayerManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Player Manage is starting up...");
         _network = network;
-        UpdataData(50, 100);   
+        UpdataData(100, 100);
         status = ManagerStatus.Started;
 
     }
 
     public void UpdataData(int health, int maxHealth)
     {
-        this.health = health;  //  指的是自己 
+        this.health = health;
         this.maxHealth = maxHealth;
     }
 
@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
         }
         else if(health <= 0)
         {
-            Messenger.Broadcast(GameEvent.LEVEL_FAILED);  // Broadcast  
+            Messenger.Broadcast(GameEvent.LEVEL_FAILED);
             health = 0;
 
         }
@@ -44,19 +44,8 @@ public class PlayerManager : MonoBehaviour, IGameManager
     }
     public void Respawn()
     {
-        UpdataData(50, 100);
+        UpdataData(100, 100);
     }
 
-    private void Start()
-    {
 
-        Managers.Player.UpdataData(100, 100);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Managers.Player.ChangeHealth(-10);
-        }
-    }
 }
