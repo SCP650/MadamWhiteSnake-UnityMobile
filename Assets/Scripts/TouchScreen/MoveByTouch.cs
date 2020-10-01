@@ -11,6 +11,7 @@ public class MoveByTouch : MonoBehaviour
     // Jump
     //public float jumpSpeed;
     [SerializeField] float jumpHeight;
+    private Animator _animator;
     private Vector3 jumpTarget;
 
    
@@ -37,6 +38,7 @@ public class MoveByTouch : MonoBehaviour
         canJump = true;
         width = Screen.width;
         MidWidth = width / 2;
+        _animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -80,6 +82,7 @@ public class MoveByTouch : MonoBehaviour
 
     private void Jump()
     {
+        _animator.SetBool("Jumping", true);
         Vector3 curr = transform.position;
         jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
         canJump = false;
@@ -106,13 +109,18 @@ public class MoveByTouch : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         // allow jumping again whe nhit ground 
-        canJump |= col.gameObject.tag == "Ground";
+        if (col.gameObject.tag == "Ground")
+        {
+            canJump = true;
+            _animator.SetBool("Jumping", false);
+        }
 
 
     }
 
     private void Fire()
     {
+        _animator.SetTrigger("Attacking");
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
