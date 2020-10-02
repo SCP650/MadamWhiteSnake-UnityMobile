@@ -61,11 +61,16 @@ public class Managers : MonoBehaviour
                 {
                     numReady++;
                 }
+      
             }
+      
+           
             if(numReady > lastReady)
             {
                 Debug.Log("Progress : " + numReady + " / " + numModule);
                 Messenger<int, int>.Broadcast(StartupEvent.MANAGERS_PROGRESS, numReady, numModule);
+                yield return new WaitForSeconds(1); //intentional slow the loading process to show case loading screen
+
 
             }
             yield return null;

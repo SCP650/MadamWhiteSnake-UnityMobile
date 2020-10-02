@@ -16,8 +16,18 @@ public class PlayerManager : MonoBehaviour, IGameManager
         _network = network;
         UpdataData(100, 100);
         status = ManagerStatus.Started;
-
     }
+    //    StartCoroutine(slowLoading());
+
+    //}
+
+    ////This is super uncessary
+    //private IEnumerator slowLoading()
+    //{
+    //    yield return new WaitForSeconds(1); //intentional slow the loading process to show case loading screen
+
+    //    status = ManagerStatus.Started;
+    //}
 
     public void UpdataData(int health, int maxHealth)
     {
