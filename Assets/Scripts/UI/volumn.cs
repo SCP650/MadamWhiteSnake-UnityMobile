@@ -14,8 +14,8 @@ public class volumn : MonoBehaviour
     private void Start()
     {
         BGMSlider.maxValue = Managers.Audio.BGMVolume;
-        FXSlider.maxValue = 5; //fx cannot be continouse or else testclip will play too many times 
-        Managers.Audio.PlayIntroMusic();
+     
+      
     }
     public void updateBGMVolumn()
     {
