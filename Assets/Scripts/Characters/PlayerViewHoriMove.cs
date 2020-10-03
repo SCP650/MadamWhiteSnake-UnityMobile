@@ -18,12 +18,12 @@ public class PlayerViewHoriMove : MonoBehaviour
                 yield return new WaitForSeconds(1.0f);
             speed = 5.0f;
             }
-         }
-         StartCoroutine(invincible());
+        }   //  先entercollider 然后 start放在里面， 之后出来rntercollider，再写 IEnumerator 
+        StartCoroutine(invincible());
             IEnumerator invincible()
             {
                 if (other.gameObject.tag == "Invincible");
-           
+            
                 yield return new WaitForSeconds(2.0f);
             }            
     }
