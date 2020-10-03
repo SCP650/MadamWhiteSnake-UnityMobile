@@ -320,7 +320,11 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
+<<<<<<< Updated upstream
   m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
+=======
+  m_ChunkCullingBounds: {x: 1.8499999, y: 3.36, z: 0}
+>>>>>>> Stashed changes
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -10872,9 +10876,15 @@ Tilemap:
       m_TileIndex: 10
       m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
+<<<<<<< Updated upstream
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741827
+=======
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+>>>>>>> Stashed changes
   - first: {x: 466, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -16145,7 +16155,11 @@ Tilemap:
   - m_RefCount: 38
     m_Data: {fileID: 11400000, guid: f42bb54df0ae776438ed52b7eba4d90a, type: 2}
   - m_RefCount: 1
+<<<<<<< Updated upstream
     m_Data: {fileID: 1890131864}
+=======
+    m_Data: {fileID: 11400000, guid: 4a7a0ddf7b4859744977fe9cfaceab0a, type: 2}
+>>>>>>> Stashed changes
   m_TileSpriteArray:
   - m_RefCount: 201
     m_Data: {fileID: 21300000, guid: ee5ab12db0b73344f9a1c89177d56025, type: 3}
@@ -16168,7 +16182,11 @@ Tilemap:
   - m_RefCount: 38
     m_Data: {fileID: 21300000, guid: a5b312117a0528c49b06fa3a96dfe236, type: 3}
   - m_RefCount: 1
+<<<<<<< Updated upstream
     m_Data: {fileID: 1751853862}
+=======
+    m_Data: {fileID: 21300000, guid: a0719ec8dfd104845904c76b6550b63e, type: 3}
+>>>>>>> Stashed changes
   m_TileMatrixArray:
   - m_RefCount: 1754
     m_Data:
@@ -16189,10 +16207,15 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
+<<<<<<< Updated upstream
   - m_RefCount: 1753
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 1
     m_Data: {r: 0.71431816, g: 0.32549927, b: 0.3713714, a: 1}
+=======
+  - m_RefCount: 1754
+    m_Data: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Stashed changes
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16310,6 +16333,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!213 &1751853862
 Sprite:
   m_ObjectHideFlags: 0
@@ -16554,6 +16578,8 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1988098877
 GameObject:
   m_ObjectHideFlags: 0
