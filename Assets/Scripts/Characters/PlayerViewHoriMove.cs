@@ -19,6 +19,18 @@ public class PlayerViewHoriMove : MonoBehaviour
             speed = 5.0f;
             }
         }
+        StartCoroutine(Invincible());
+
+        IEnumerator Invincible()
+        {
+            if (other.gameObject.tag == "Invincible");
+            {
+                Mathf.Clamp(Managers.Player.health, Managers.Player.health, 100);
+                yield return new WaitForSeconds(3.0f);
+                Mathf.Clamp(Managers.Player.health, 0, 100);
+            }           
+        }
+
     }
     void Update()
     {
