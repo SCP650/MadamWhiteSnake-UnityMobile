@@ -95,9 +95,10 @@ public class MoveByTouch : MonoBehaviour
             //Call juming animation 
             Vector3 delta = jumpTarget - transform.position;
             transform.position += delta * 0.1f;
-            Debug.Log(delta.y);
+            //Debug.Log(delta.y);
             //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             shouldJump &= delta.y > 3f;
+
 
         }
     }
