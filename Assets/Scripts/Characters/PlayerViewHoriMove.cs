@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerViewHoriMove : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
-    
-    private void OnTriggerEnter2D(Collider2D other)
+    private Collider2D other;
+
+    void Start()
     {
-        StartCoroutine(boost());
-        
+        StartCoroutine(boost());        
         IEnumerator boost()
         {
             if (other.gameObject.tag == "Boost");
@@ -18,19 +18,14 @@ public class PlayerViewHoriMove : MonoBehaviour
                 yield return new WaitForSeconds(1.0f);
             speed = 5.0f;
             }
-        }
-        StartCoroutine(Invincible());
-
-        IEnumerator Invincible()
-        {
-            if (other.gameObject.tag == "Invincible");
+         }
+         StartCoroutine(invincible());
+            IEnumerator invincible()
             {
-                Mathf.Clamp(Managers.Player.health, Managers.Player.health, 100);
-                yield return new WaitForSeconds(3.0f);
-                Mathf.Clamp(Managers.Player.health, 0, 100);
-            }           
-        }
-
+                if (other.gameObject.tag == "Invincible");
+           
+                yield return new WaitForSeconds(2.0f);
+            }            
     }
     void Update()
     {
