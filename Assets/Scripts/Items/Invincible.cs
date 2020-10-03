@@ -8,6 +8,6 @@ public class Invincible : MonoBehaviour
     {
         if (other.gameObject.tag == "Player");
         Destroy(gameObject); 
-        //  用哪个mltp map 什么应该可以 限制health在一个范围  
+       
     }
 }
