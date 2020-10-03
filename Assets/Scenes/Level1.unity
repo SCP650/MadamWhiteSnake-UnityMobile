@@ -867,6 +867,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3195808738543626886, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -256.40002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195808738543626886, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 158.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195808738543626886, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 305.0097
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195808738543626886, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 78.786194
+      objectReference: {fileID: 0}
     - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
         type: 3}
       propertyPath: m_Pivot.y
@@ -875,7 +895,7 @@ PrefabInstance:
     - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -831.99146
+      value: -310
       objectReference: {fileID: 0}
     - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
         type: 3}
@@ -885,7 +905,17 @@ PrefabInstance:
     - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 424.8986
+      value: 158
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 133.39044
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240375416560138836, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30.90438
       objectReference: {fileID: 0}
     - target: {fileID: 4422670674410607339, guid: 167f5f30685bb2d4880b9fd6e3c2304b,
         type: 3}
@@ -1223,6 +1253,11 @@ PrefabInstance:
     - target: {fileID: 1402575324381007429, guid: 037898b6bf69de64aae47adec2eb65ad,
         type: 3}
       propertyPath: m_Name
+      value: Heart
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402575324381007429, guid: 037898b6bf69de64aae47adec2eb65ad,
+        type: 3}
+      propertyPath: m_TagString
       value: Heart
       objectReference: {fileID: 0}
     - target: {fileID: 1402575324381007481, guid: 037898b6bf69de64aae47adec2eb65ad,
