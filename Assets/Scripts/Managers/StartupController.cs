@@ -9,6 +9,7 @@ public class StartupController : MonoBehaviour
     [SerializeField] private GameObject startupCanvas;
     [SerializeField] private GameObject loadingCanvas;
     [SerializeField] private List<GameObject> UITexts;
+    [SerializeField] private int jumpToScene;
    //[SerializeField] private Animator _animator;
 
 
@@ -48,6 +49,14 @@ public class StartupController : MonoBehaviour
         {
             text.SetActive(true);
             yield return new WaitForSeconds(1f);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("s"))
+        {
+            Managers.mission.GoToNext();//for testing
         }
     }
 
