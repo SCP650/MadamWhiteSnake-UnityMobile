@@ -39,7 +39,10 @@ public class pauseManu : MonoBehaviour
     }
     public void restart()
     {
+       
         Time.timeScale = 1;
+        Managers.Audio.MuteBGM = false;
         Managers.mission.RestartCurrent();
+       
     }
 }

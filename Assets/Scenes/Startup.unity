@@ -1151,6 +1151,7 @@ MonoBehaviour:
   - {fileID: 1482605215}
   - {fileID: 2056475881}
   - {fileID: 1473016133}
+  jumpToScene: 0
 --- !u!4 &957518694
 Transform:
   m_ObjectHideFlags: 0
@@ -7656,6 +7657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434405509495223262, guid: 5862035bc57ba4f15b12467dc88894d1,
+        type: 3}
+      propertyPath: level1BGMLocation
+      value: Music/8Bit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5862035bc57ba4f15b12467dc88894d1, type: 3}
