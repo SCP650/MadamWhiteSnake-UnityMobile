@@ -69,7 +69,7 @@ public class Managers : MonoBehaviour
             {
                 Debug.Log("Progress : " + numReady + " / " + numModule);
                 Messenger<int, int>.Broadcast(StartupEvent.MANAGERS_PROGRESS, numReady, numModule);
-                yield return new WaitForSeconds(1); //intentional slow the loading process to show case loading screen
+                yield return new WaitForSeconds(0.5f); //intentional slow the loading process to show case loading screen
 
 
             }

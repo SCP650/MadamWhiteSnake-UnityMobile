@@ -38,6 +38,7 @@ public class StartupController : MonoBehaviour
         //Managers.mission.GoToNext();
         loadingCanvas.SetActive(false);
         startupCanvas.SetActive(true);
+        Managers.Audio.PlayIntroMusic();
         StartCoroutine(showUIText());
 
     }
