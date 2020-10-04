@@ -8,11 +8,16 @@ public class JumpingEnemyController : MonoBehaviour
     [SerializeField] int damageToPlayer = 10;
 
     private Collider2D collider;
+    public Rigidbody2D rb;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
         StartCoroutine(Jump());
+        rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -25,6 +30,7 @@ public class JumpingEnemyController : MonoBehaviour
 
    IEnumerator Jump()
     {
+        Debug.Log("INNNN");
         while (true)
         {
             float seconds = Random.Range(0.0f, 2.0f);
@@ -43,6 +49,12 @@ public class JumpingEnemyController : MonoBehaviour
         } else if(whatHitMe == "Player")
         {
             Managers.Player.ChangeHealth(-damageToPlayer);
+        }
+        else if(whatHitMe == "JumpPoint")
+        {
+            Debug.Log("Jump is true");
+            rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
+            Debug.Log("Jump is true");
         }
     }
 

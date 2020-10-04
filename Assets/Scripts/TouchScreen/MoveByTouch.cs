@@ -102,6 +102,7 @@ public class MoveByTouch : MonoBehaviour
             //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             shouldJump &= delta.y > 3f;
 
+
         }
     }
 
