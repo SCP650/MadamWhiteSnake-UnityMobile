@@ -21,7 +21,7 @@ public class Managers : MonoBehaviour
 
     private void Awake()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        //Screen.orientation = ScreenOrientation.LandscapeLeft;
         DontDestroyOnLoad(gameObject);
         Player = GetComponent<PlayerManager>();
         Inventory = GetComponent<InventoryManager>();

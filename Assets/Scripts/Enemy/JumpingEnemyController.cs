@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class JumpingEnemyController : MonoBehaviour
 {
-    [SerializeField] float baseSpeed = 5f;
+    [SerializeField] float baseSpeed = 2f;
+    [SerializeField] float jumpSpeed = 5f;
     [SerializeField] int damageToPlayer = 10;
+    private Transform target;
 
     private Collider2D collider;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
+    private Animator _animator;
     
 
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
-        StartCoroutine(Jump());
         rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        target = GameObject.FindWithTag("Player").transform;
+        StartCoroutine(Jump());
+       
         
     }
 
@@ -24,17 +30,23 @@ public class JumpingEnemyController : MonoBehaviour
     void Update()
     {
         baseSpeed += 1f * Time.deltaTime;
-        transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
-       
+        baseSpeed= Mathf.Clamp(baseSpeed, 5, 15);
+        //transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed*Time.deltaTime);
+
     }
 
    IEnumerator Jump()
     {
-        Debug.Log("INNNN");
+      
         while (true)
         {
-            float seconds = Random.Range(0.0f, 2.0f);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 100);
+            float seconds = Random.Range(2.0f, 7.0f);
+            float speed = Random.Range(jumpSpeed - 2, jumpSpeed + 2);
+            _animator.SetTrigger("jump");
+            // rb.AddForce(transform.up * 100);
+            yield return null;
+            rb.velocity = new Vector2(rb.velocity.x,speed);
             yield return new WaitForSeconds(seconds);
 
         }

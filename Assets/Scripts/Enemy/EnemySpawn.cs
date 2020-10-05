@@ -14,7 +14,7 @@ public class EnemySpawn : MonoBehaviour
         float ScreenHeight = 2 * Camera.main.orthographicSize;
         float ScreenWidth = ScreenHeight * Camera.main.aspect;
        
-        float left = -ScreenWidth / 2 - 6;
+        float left = -ScreenWidth / 2 - 12;
        
         transform.localPosition = new Vector3(left, transform.localPosition.y, transform.localPosition.z);
         StartCoroutine(SpawnEnemy());
