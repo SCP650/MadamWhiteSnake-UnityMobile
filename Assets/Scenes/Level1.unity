@@ -1347,7 +1347,7 @@ PrefabInstance:
     - target: {fileID: 4825026903842773799, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
       propertyPath: m_Size.x
-      value: 200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4825026903842773799, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
@@ -1392,7 +1392,7 @@ PrefabInstance:
     - target: {fileID: 4825026904720304247, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
       propertyPath: m_Size.x
-      value: 200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4825026904720304247, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
@@ -1609,7 +1609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e49d5cdc8652f469d211931191d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0, y: 0}
+  parallaxEffectMultiplier: {x: 1, y: 1}
   infiniteHorizontal: 1
   infiniteVertical: 0
 --- !u!1 &1328995971 stripped
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e49d5cdc8652f469d211931191d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: -2, y: -2}
+  parallaxEffectMultiplier: {x: -1.5, y: -1.5}
   infiniteHorizontal: 1
   infiniteVertical: 0
 --- !u!1 &1339163341
@@ -12458,7 +12458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e49d5cdc8652f469d211931191d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.0005, y: 0.0005}
+  parallaxEffectMultiplier: {x: 0, y: 0}
   infiniteHorizontal: 1
   infiniteVertical: 0
 --- !u!1 &1888727741
