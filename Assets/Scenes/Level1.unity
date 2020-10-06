@@ -1307,7 +1307,7 @@ PrefabInstance:
     - target: {fileID: 4825026903366814269, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
       propertyPath: m_Size.x
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4825026903842773798, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
@@ -12458,7 +12458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e49d5cdc8652f469d211931191d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0, y: 0}
+  parallaxEffectMultiplier: {x: 0.5, y: 0.5}
   infiniteHorizontal: 1
   infiniteVertical: 0
 --- !u!1 &1888727741
