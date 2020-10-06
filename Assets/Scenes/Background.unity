@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 803208623}
   - component: {fileID: 803208622}
+  - component: {fileID: 803208624}
   m_Layer: 0
   m_Name: Mountain
   m_TagString: Untagged
@@ -181,8 +182,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 40, y: 7.4023438}
+  m_DrawMode: 2
+  m_Size: {x: 200, y: 7.4023438}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -202,6 +203,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &803208624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803208621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dce5742fdba3c84a97670f567b3b0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffectMultiplier: {x: 1, y: 1}
+  infiniteHorizontal: 1
+  infiniteVertical: 0
 --- !u!1 &1069667125
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +229,6 @@ GameObject:
   - component: {fileID: 1069667128}
   - component: {fileID: 1069667127}
   - component: {fileID: 1069667126}
-  - component: {fileID: 1069667129}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -286,23 +301,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1069667129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069667125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a953187ca666d0141832a6c21a3f4029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 2125488099}
-  - {fileID: 1527893757}
-  - {fileID: 803208621}
-  choke: 0.25
 --- !u!1 &1527893757
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1527893759}
   - component: {fileID: 1527893758}
+  - component: {fileID: 1527893760}
   m_Layer: 0
   m_Name: Wind
   m_TagString: Untagged
@@ -363,8 +362,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 14.52, y: 3.32}
+  m_DrawMode: 2
+  m_Size: {x: 200, y: 3.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -384,6 +383,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1527893760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527893757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dce5742fdba3c84a97670f567b3b0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffectMultiplier: {x: 2, y: 2}
+  infiniteHorizontal: 1
+  infiniteVertical: 0
 --- !u!1 &2125488099
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2125488101}
   - component: {fileID: 2125488100}
+  - component: {fileID: 2125488102}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -444,8 +459,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 32.009262, y: 10.8}
+  m_DrawMode: 2
+  m_Size: {x: 200, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -459,9 +474,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125488099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.006, y: 0.0011, z: 0}
+  m_LocalPosition: {x: -2.8, y: 0.33, z: 0}
   m_LocalScale: {x: 0.63649815, y: 0.924948, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2125488102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125488099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dce5742fdba3c84a97670f567b3b0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffectMultiplier: {x: 3, y: 3}
+  infiniteHorizontal: 1
+  infiniteVertical: 0
