@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class changeHealthBar : MonoBehaviour
 {
     [SerializeField] Transform healthBar;
+
+
     private void Awake()
     {
         Messenger.AddListener(GameEvent.HEALTH_UPDATED, ChangeHealthBar);
@@ -16,7 +18,7 @@ public class changeHealthBar : MonoBehaviour
     private void ChangeHealthBar()
     {
         float x = (float) Managers.Player.health / Managers.Player.maxHealth;
-        Debug.Log(x);
         healthBar.localScale = new Vector3(x, healthBar.localScale.y, healthBar.localScale.z);
+        
     }
 }

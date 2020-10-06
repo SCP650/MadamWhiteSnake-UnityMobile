@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerViewHoriMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 5.0f;
+    public float speed = 5.0f;
    
 
     void Update()
