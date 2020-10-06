@@ -10,7 +10,10 @@ public class MoveByTouch : MonoBehaviour
 
     // Jump
     //public float jumpSpeed;
-    [SerializeField] float jumpHeight;
+    [SerializeField] float jumpSpeed = 10f;
+    //[SerializeField] float jumpHeight = 10f;
+  
+    private Animator _animator;
     private Vector3 jumpTarget;
 
    
@@ -32,11 +35,12 @@ public class MoveByTouch : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("in");
+
         rb = GetComponent<Rigidbody2D>();
         canJump = true;
         width = Screen.width;
         MidWidth = width / 2;
+        _animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -80,39 +84,48 @@ public class MoveByTouch : MonoBehaviour
 
     private void Jump()
     {
-        Vector3 curr = transform.position;
-        jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
+       _animator.SetBool("Jumping", true);
+
+        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        //Vector3 curr = transform.position;
+        //jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
         canJump = false;
-        shouldJump = true;
+        //shouldJump = true;
     }
 
-    private void FixedUpdate()
-    {
+    //private void FixedUpdate()
+    //{
 
-        // jump
-        if (shouldJump)
-        {
-            //Call juming animation 
-            Vector3 delta = jumpTarget - transform.position;
-            transform.position += delta * 0.1f;
-            Debug.Log(delta.y);
-            //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-            shouldJump &= delta.y > 3f;
+    //    // jump
+    //    if (shouldJump)
+    //    {
+    //        //Call juming animation 
+    //        Vector3 delta = jumpTarget - transform.position;
+    //        transform.position += delta * 0.1f;
+    //        //Debug.Log(delta.y);
+    //        //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+    //        shouldJump &= delta.y > 3f;
 
-        }
-    }
+
+    //    }
+    //}
 
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         // allow jumping again whe nhit ground 
-        canJump |= col.gameObject.tag == "Ground";
+        if (col.gameObject.tag == "Ground")
+        {
+            canJump = true;
+            _animator.SetBool("Jumping", false);
+        }
 
 
     }
 
     private void Fire()
     {
+        _animator.SetTrigger("Attacking");
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }

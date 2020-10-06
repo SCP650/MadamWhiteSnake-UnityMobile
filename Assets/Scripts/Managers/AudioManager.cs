@@ -8,7 +8,9 @@ public class AudioManager : MonoBehaviour, IGameManager
     [SerializeField] private AudioSource BGMSource; //play background music
     [SerializeField] private AudioSource Music2Source; // fading out and in music
     [SerializeField] private string introBGMLocation;
-    [SerializeField] private string levelBGMLocation;
+    [SerializeField] private string level1BGMLocation;
+    [SerializeField] private string level2BGMLocation;
+    [SerializeField] private string level3BGMLocation;
 
     private NetworkService _service;
     private AudioSource _activeMusic;
@@ -67,9 +69,27 @@ public class AudioManager : MonoBehaviour, IGameManager
 
     }
 
-    public void PlayLevelMusic()
+    public void PlayLevelMusic(int level)
     {
-        PlayBGM(Resources.Load(levelBGMLocation) as AudioClip);
+        string location;
+        switch (level)
+        {
+            case 1:
+                location = level1BGMLocation;
+                break;
+            case 2:
+                location = level2BGMLocation;
+                break;
+            case 3:
+                location = level3BGMLocation;
+                break;
+            default:
+                location = introBGMLocation;
+                break;
+        }
+
+
+        PlayBGM(Resources.Load(location) as AudioClip);
     }
 
     public void PlayBGM(AudioClip music)

@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class StartupController : MonoBehaviour
 {
     [SerializeField] private Slider progressBar;
-  
+    [SerializeField] private GameObject startupCanvas;
+    [SerializeField] private GameObject loadingCanvas;
+    [SerializeField] private List<GameObject> UITexts;
+    [SerializeField] private int jumpToScene;
+   //[SerializeField] private Animator _animator;
+
 
     private void Awake()
     {
@@ -30,7 +35,30 @@ public class StartupController : MonoBehaviour
 
     private void OnManagerStarted()
     {
-        Managers.mission.GoToNext();
+        //Managers.mission.GoToNext();
+        loadingCanvas.SetActive(false);
+        startupCanvas.SetActive(true);
+        Managers.Audio.PlayIntroMusic();
+        StartCoroutine(showUIText());
+
+    }
+
+    private IEnumerator showUIText()
+    {
+        yield return new WaitForSeconds(4);
+        foreach(GameObject text in UITexts)
+        {
+            text.SetActive(true);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("s"))
+        {
+            Managers.mission.GoToNext();//for testing
+        }
     }
 
 }
