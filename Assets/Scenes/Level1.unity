@@ -1487,7 +1487,7 @@ GameObject:
   - component: {fileID: 778871741}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12204,7 +12204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837580561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 369, y: -3.53, z: -407.41934}
+  m_LocalPosition: {x: 369, y: -6.46, z: -407.41934}
   m_LocalScale: {x: 700, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13021,6 +13021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Brige
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529284731922539276, guid: 043c6eb1195c28b4db85b12554962316,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8507212602270808773, guid: 043c6eb1195c28b4db85b12554962316,
         type: 3}
