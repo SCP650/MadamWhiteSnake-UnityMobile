@@ -14,7 +14,7 @@ public class DataManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Data Manager Starting...");
         _network = service;
-        _filename = Path.Combine(Application.persistentDataPath,"game.dat");
+        _filename = Path.Combine(Application.persistentDataPath,"game.dat");  //  储存玩家数据，文件夹名字是gamedat，位置是中间的
         //full file path is constructed using Application.persistent- DataPath,
         // a location Unity provides to store data in.exact location differs in different platform
         status = ManagerStatus.Started;
@@ -22,8 +22,8 @@ public class DataManager : MonoBehaviour, IGameManager
 
     public void SaveGameState()
     {
-        Dictionary<string, object> gamestate = new Dictionary<string, object>();
-        gamestate.Add("inventory", Managers.Inventory.GetData());
+        Dictionary<string, object> gamestate = new Dictionary<string, object>();  //  object 可以是很多  
+        gamestate.Add("inventory", Managers.Inventory.GetData());  
         gamestate.Add("maxHealth", Managers.Player.health);
         gamestate.Add("curLevel", Managers.mission.curLevel);
         gamestate.Add("maxLevel", Managers.mission.maxLevel);
