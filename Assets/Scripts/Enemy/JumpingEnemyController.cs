@@ -64,15 +64,21 @@ public class JumpingEnemyController : MonoBehaviour
         if ( whatHitMe == "Enemy")
         {
             Physics2D.IgnoreCollision(collision.collider, collider,true);
-        } else if(whatHitMe == "PlayerHitBox")
-        {
-            Managers.Player.ChangeHealth(-damageToPlayer);
-        }
-        else if(whatHitMe == "JumpPoint")
+        } else if(whatHitMe == "JumpPoint")
         {
             //Debug.Log("Jump is true");
             rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
             //Debug.Log("Jump is true");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        string whatHitMe = collision.gameObject.tag;
+        if (whatHitMe == "PlayerHitbox")
+        {
+       
+            Managers.Player.ChangeHealth(-damageToPlayer);
         }
     }
 

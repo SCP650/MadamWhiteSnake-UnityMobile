@@ -263,6 +263,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1660980624585302392, guid: 975b6d01a03824d34a3817ac3d02ea99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 975b6d01a03824d34a3817ac3d02ea99, type: 3}
 --- !u!1 &93715125
@@ -8689,6 +8694,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1660980624585302392, guid: 975b6d01a03824d34a3817ac3d02ea99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 975b6d01a03824d34a3817ac3d02ea99, type: 3}
 --- !u!4 &917197580 stripped
@@ -13057,6 +13067,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660980624585302392, guid: 975b6d01a03824d34a3817ac3d02ea99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 975b6d01a03824d34a3817ac3d02ea99, type: 3}
