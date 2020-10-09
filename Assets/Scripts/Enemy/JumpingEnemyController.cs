@@ -12,6 +12,7 @@ public class JumpingEnemyController : MonoBehaviour
     private Collider2D collider;
     private Rigidbody2D rb;
     private Animator _animator;
+    private bool isRunning;
     
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class JumpingEnemyController : MonoBehaviour
         _animator = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
         StartCoroutine(Jump());
+        isRunning = true;
        
         
     }
@@ -32,7 +34,11 @@ public class JumpingEnemyController : MonoBehaviour
         baseSpeed += 1f * Time.deltaTime;
         baseSpeed= Mathf.Clamp(baseSpeed, 5, 15);
         //transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed*Time.deltaTime);
+        if (isRunning)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed * Time.deltaTime);
+
+        }
 
     }
 
@@ -58,22 +64,35 @@ public class JumpingEnemyController : MonoBehaviour
         if ( whatHitMe == "Enemy")
         {
             Physics2D.IgnoreCollision(collision.collider, collider,true);
-        } else if(whatHitMe == "Player")
+        } else if(whatHitMe == "PlayerHitBox")
         {
             Managers.Player.ChangeHealth(-damageToPlayer);
         }
         else if(whatHitMe == "JumpPoint")
         {
-            Debug.Log("Jump is true");
+            //Debug.Log("Jump is true");
             rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
-            Debug.Log("Jump is true");
+            //Debug.Log("Jump is true");
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.gameObject.tag == "PlayerHitBox")
+    //        Messenger.Broadcast(GameEvent.HEALTH_UPDATED);
+    //}
+
+    public void PushBack()
     {
-        if (other.gameObject.tag == "Player")
-            Messenger.Broadcast(GameEvent.HEALTH_UPDATED);
+        StartCoroutine(SlowDown());
+    }
+
+    private IEnumerator SlowDown()
+    {
+        isRunning = false;
+        rb.velocity = new Vector2( -baseSpeed, rb.velocity.y);
+        yield return new WaitForSeconds(1.5f);
+        isRunning = true;
     }
 
 }

@@ -11,6 +11,7 @@ public class MoveByTouch : MonoBehaviour
     // Jump
     //public float jumpSpeed;
     [SerializeField] float jumpSpeed = 10f;
+    [SerializeField] private GameObject shield;
     //[SerializeField] float jumpHeight = 10f;
   
     private Animator _animator;
@@ -29,10 +30,6 @@ public class MoveByTouch : MonoBehaviour
     private float width;
     private float MidWidth;
 
-    // shoot
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject bulletPrefab;
-
     void Start()
     {
 
@@ -41,6 +38,7 @@ public class MoveByTouch : MonoBehaviour
         width = Screen.width;
         MidWidth = width / 2;
         _animator = GetComponent<Animator>();
+        shield.SetActive(false);
     }
     void Update()
     {
@@ -56,7 +54,7 @@ public class MoveByTouch : MonoBehaviour
             {
                 //jump
                 Debug.Log("Left click");
-                Fire();
+                StartCoroutine(Shield());
                 
             }
             else if(touchPos.x > MidWidth)
@@ -78,7 +76,7 @@ public class MoveByTouch : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire1"))
         {
-            Fire();
+            StartCoroutine(Shield());
         }
     }
 
@@ -123,9 +121,12 @@ public class MoveByTouch : MonoBehaviour
 
     }
 
-    private void Fire()
+    private IEnumerator Shield()
     {
         _animator.SetTrigger("Attacking");
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        shield.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        shield.SetActive(false);
+        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
