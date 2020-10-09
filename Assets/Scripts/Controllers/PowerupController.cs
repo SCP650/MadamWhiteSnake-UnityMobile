@@ -16,6 +16,8 @@ public class PowerupController : MonoBehaviour
     }
     private void PlayHealthParticle()
     {
-        healthParticle.Emit(5);
+        Debug.Log("play particle");
+        //healthParticle.Emit(5);
+        healthParticle.Play();
     }
 }

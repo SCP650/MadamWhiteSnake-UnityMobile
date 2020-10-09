@@ -31,9 +31,9 @@ public class PowerupItemController : MonoBehaviour
             case 2:
                 //add speed 
 
-                player.GetComponent<PlayerViewHoriMove>().speed *= 1.2f;
+                player.GetComponent<PlayerViewHoriMove>().speed *= 1.5f;
                 yield return new WaitForSeconds(5);
-                player.GetComponent<PlayerViewHoriMove>().speed *= 1/1.2f;
+                player.GetComponent<PlayerViewHoriMove>().speed *= 1/1.5f;
                 break;
             default:
                 Debug.Log("Empty Power up");
