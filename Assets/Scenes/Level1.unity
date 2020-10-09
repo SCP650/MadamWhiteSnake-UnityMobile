@@ -211,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 1660980624585302373, guid: 975b6d01a03824d34a3817ac3d02ea99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.9
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 1660980624585302373, guid: 975b6d01a03824d34a3817ac3d02ea99,
         type: 3}
@@ -983,6 +983,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0.101960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 65150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178716454877816032, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620420904853107229, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6da10800a4454832b2975d6f3c0cd69, type: 3}
@@ -8569,7 +8634,7 @@ PrefabInstance:
     - target: {fileID: 1660980624585302373, guid: 975b6d01a03824d34a3817ac3d02ea99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.5
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1660980624585302373, guid: 975b6d01a03824d34a3817ac3d02ea99,
         type: 3}
@@ -9223,9 +9288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e49d5cdc8652f469d211931191d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 1, y: 1}
-  infiniteHorizontal: 1
-  infiniteVertical: 0
 --- !u!1 &1328995971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4825026904720304244, guid: a5619ba35acf44561a13692c2db0b6ec,
@@ -9244,9 +9306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e49d5cdc8652f469d211931191d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.6, y: 0}
-  infiniteHorizontal: 1
-  infiniteVertical: 0
 --- !u!1 &1339163341
 GameObject:
   m_ObjectHideFlags: 0
@@ -12228,9 +12287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e49d5cdc8652f469d211931191d9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.8, y: 0.3}
-  infiniteHorizontal: 1
-  infiniteVertical: 0
 --- !u!1 &1851867864
 GameObject:
   m_ObjectHideFlags: 0
@@ -12951,7 +13007,7 @@ PrefabInstance:
     - target: {fileID: 1660980624585302373, guid: 975b6d01a03824d34a3817ac3d02ea99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.5
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 1660980624585302373, guid: 975b6d01a03824d34a3817ac3d02ea99,
         type: 3}
