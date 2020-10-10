@@ -9,7 +9,7 @@ public class PowerupItemController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("pick up power up");
+            //Debug.Log("pick up power up");
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             //TODO: Play rolling animation 
             int i  = (int) Random.Range(1, 3);
@@ -24,7 +24,7 @@ public class PowerupItemController : MonoBehaviour
         {
             case 1:
                 //give health 
-                Debug.Log("health");
+                //Debug.Log("health");
                 Messenger.Broadcast(PowerupEvent.HEALTH_INCREASE);
                 Managers.Player.ChangeHealth(20);
                 break;

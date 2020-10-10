@@ -6,6 +6,10 @@ public class DeathZone : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Managers.Player.ChangeHealth(-Managers.Player.maxHealth);
+        if(collision.gameObject.tag == "Player")
+        {
+
+            Managers.Player.ChangeHealth(-Managers.Player.maxHealth);
+        }
     }
 }
