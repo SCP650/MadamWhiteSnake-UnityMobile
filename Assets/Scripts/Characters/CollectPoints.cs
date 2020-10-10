@@ -35,4 +35,15 @@ public class CollectPoints : MonoBehaviour
     {
         danTian.fillAmount = currentNum / maxDanTian;
     }
+
+    public bool canUseDanTian()
+    {
+        return currentNum > numNeeded;
+    }
+
+    public void dantianUsed()
+    {
+        currentNum -= numNeeded;
+        updateDanTian();
+    }
 }

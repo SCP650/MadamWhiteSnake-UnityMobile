@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveByTouch : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip shieldSound;
+    [SerializeField] Text warningText;
     //[SerializeField] float jumpHeight = 10f;
   
     private Animator _animator;
@@ -31,6 +33,7 @@ public class MoveByTouch : MonoBehaviour
     // Screen Split
     private float width;
     private float MidWidth;
+    private CollectPoints dantianController;
 
     void Start()
     {
@@ -40,6 +43,7 @@ public class MoveByTouch : MonoBehaviour
         width = Screen.width;
         MidWidth = width / 2;
         _animator = GetComponent<Animator>();
+        dantianController = GetComponent<CollectPoints>();
         shield.SetActive(false);
     }
     void Update()
@@ -55,14 +59,22 @@ public class MoveByTouch : MonoBehaviour
             if(touchPos.x < MidWidth)
             {
                 //jump
-                Debug.Log("Left click");
-                StartCoroutine(Shield());
-                
+                if (dantianController.canUseDanTian())
+                {
+                    StartCoroutine(Shield());
+                    dantianController.dantianUsed();
+                }
+                else
+                {
+                    StartCoroutine(ShowWarning("丹田不足，无法开伞"));
+                }
+
+
             }
             else if(touchPos.x > MidWidth)
             {
                 //attack
-                Debug.Log("Right click");
+              
                 if (canJump)
                 {
                     Jump();
@@ -78,7 +90,17 @@ public class MoveByTouch : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire1"))
         {
-            StartCoroutine(Shield());
+            //jump
+            if (dantianController.canUseDanTian())
+            {
+                StartCoroutine(Shield());
+                dantianController.dantianUsed();
+            }
+            else
+            {
+                StartCoroutine(ShowWarning("丹田不足，无法开伞"));
+            }
+
         }
     }
 
@@ -132,5 +154,14 @@ public class MoveByTouch : MonoBehaviour
         shield.SetActive(false);
         Managers.Audio.PlaySound(shieldSound);
         //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    private IEnumerator ShowWarning(string text)
+    {
+        warningText.text = text;
+        warningText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4);
+        warningText.gameObject.SetActive(false);
+
     }
 }
