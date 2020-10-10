@@ -7,8 +7,11 @@ public class JumpingEnemyController : MonoBehaviour
     [SerializeField] float baseSpeed = 2f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] int damageToPlayer = 10;
-    private Transform target;
+    [SerializeField] private AudioClip attackSound;
+    [Tooltip("玩家的叫声")]
+    [SerializeField] private AudioClip playJiao; 
 
+    private Transform target;
     private Collider2D collider;
     private Rigidbody2D rb;
     private Animator _animator;
@@ -50,9 +53,11 @@ public class JumpingEnemyController : MonoBehaviour
             float seconds = Random.Range(2.0f, 7.0f);
             float speed = Random.Range(jumpSpeed - 2, jumpSpeed + 2);
             _animator.SetTrigger("jump");
+            rb.velocity = new Vector2(rb.velocity.x, speed);
             // rb.AddForce(transform.up * 100);
-            yield return null;
-            rb.velocity = new Vector2(rb.velocity.x,speed);
+            yield return new WaitForSeconds(0.1f);
+            Managers.Audio.PlaySound(attackSound);
+
             yield return new WaitForSeconds(seconds);
 
         }
@@ -79,6 +84,7 @@ public class JumpingEnemyController : MonoBehaviour
         {
        
             Managers.Player.ChangeHealth(-damageToPlayer);
+            Managers.Audio.PlaySound(playJiao);
         }
     }
 

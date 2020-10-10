@@ -12,6 +12,8 @@ public class MoveByTouch : MonoBehaviour
     //public float jumpSpeed;
     [SerializeField] float jumpSpeed = 10f;
     [SerializeField] private GameObject shield;
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip shieldSound;
     //[SerializeField] float jumpHeight = 10f;
   
     private Animator _animator;
@@ -88,6 +90,7 @@ public class MoveByTouch : MonoBehaviour
         //Vector3 curr = transform.position;
         //jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
         canJump = false;
+        Managers.Audio.PlaySound(jumpSound);
         //shouldJump = true;
     }
 
@@ -127,6 +130,7 @@ public class MoveByTouch : MonoBehaviour
         shield.SetActive(true);
         yield return new WaitForSeconds(1f);
         shield.SetActive(false);
+        Managers.Audio.PlaySound(shieldSound);
         //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
