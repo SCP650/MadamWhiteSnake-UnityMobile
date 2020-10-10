@@ -10,7 +10,14 @@ public class MoveByTouch : MonoBehaviour
 
     // Jump
     //public float jumpSpeed;
+<<<<<<< Updated upstream
     [SerializeField] float jumpHeight;
+=======
+    [SerializeField] float jumpSpeed = 14f;
+    //[SerializeField] float jumpHeight = 10f;
+  
+    private Animator _animator;
+>>>>>>> Stashed changes
     private Vector3 jumpTarget;
 
    
