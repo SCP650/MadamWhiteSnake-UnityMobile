@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3aad12a11a95945bebd2f73da0c172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 12
+  jumpSpeed: 20
   shield: {fileID: 7898702684808452887}
 --- !u!114 &1290357092034946028
 MonoBehaviour:
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c12ef120c58440d917c47f393c8a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 10
 --- !u!114 &1239549507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numNeeded: 2
-  totalAttack: 5
+  totalAttack: 7
   danTian: {fileID: 0}
 --- !u!1 &877578092735667474
 GameObject:
