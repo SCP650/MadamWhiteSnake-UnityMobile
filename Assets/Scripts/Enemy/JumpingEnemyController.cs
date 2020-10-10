@@ -34,24 +34,47 @@ public class JumpingEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        baseSpeed += 1f * Time.deltaTime;
-        baseSpeed= Mathf.Clamp(baseSpeed, 5, 15);
+       //baseSpeed += 1f * Time.deltaTime;
+        //baseSpeed= Mathf.Clamp(baseSpeed, 5, 15);
         //transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
         if (isRunning)
         {
+            //transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed * Time.deltaTime);
+            // Check the distance between enemies and Player
+
+            int LuckNumBase = Random.Range(1, 10);
+            float RandomIndexBase = Random.Range(1f, 10f);
+         
+            //baseSpeed += 1f * Time.deltaTime;
+            if (LuckNumBase == 5)
+            {
+               
+                baseSpeed *= 1.5f;
+            }
+            else
+            {
+                baseSpeed += RandomIndexBase;
+            }
+
+            baseSpeed = Mathf.Clamp(baseSpeed, 5, 17);
+            //transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
+
+
+
             transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed * Time.deltaTime);
+
 
         }
 
     }
 
-   IEnumerator Jump()
+    IEnumerator Jump()
     {
-      
+
         while (true)
         {
-            float seconds = Random.Range(2.0f, 7.0f);
-            float speed = Random.Range(jumpSpeed - 2, jumpSpeed + 2);
+            float seconds = Random.Range(2.0f, 4.0f);
+            float speed = Random.Range(jumpSpeed, jumpSpeed + 10);
             _animator.SetTrigger("jump");
             rb.velocity = new Vector2(rb.velocity.x, speed);
             // rb.AddForce(transform.up * 100);
@@ -61,6 +84,9 @@ public class JumpingEnemyController : MonoBehaviour
             yield return new WaitForSeconds(seconds);
 
         }
+
+   
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
