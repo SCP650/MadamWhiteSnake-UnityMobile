@@ -27,20 +27,19 @@ public class EnemySpawn : MonoBehaviour
     IEnumerator SpawnEnemy()
     {
 
-        float wait = Random.Range(2f, 4f);
+    
         while (true)
         {
 
             float PlayerPos = player.position.x;
             int num = Random.Range(1, 100);
-            Debug.Log("Player is at " + PlayerPos);
             float spawnY = Random.Range
                 (Camera.main.ScreenToWorldPoint(new Vector2(0, 1.0f)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
             float spawnX = Random.Range
                 (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(PlayerPos + 1, 0)).x);
 
-            wait = Random.Range(5f, 8f);
-            Debug.Log("Spawn");
+            float wait = Random.Range(5f, 8f);
+  
             //float time = Random.Range(10.0f, 20.0f);
             //ExecuteAfterTime(time);
             GameObject enemy = Instantiate(JumpingEnemy);

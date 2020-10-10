@@ -25,6 +25,20 @@ public class JumpingEnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
+        int LuckNumBase = Random.Range(1, 10);
+        float RandomIndexBase = Random.Range(-3f, 5f);
+        //baseSpeed += 1f * Time.deltaTime;
+        if (LuckNumBase == 5)
+        {
+
+            baseSpeed *= 1.5f;
+        }
+        else
+        {
+            baseSpeed += RandomIndexBase;
+        }
+
+       
         StartCoroutine(Jump());
         isRunning = true;
        
@@ -34,29 +48,15 @@ public class JumpingEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //baseSpeed += 1f * Time.deltaTime;
-        //baseSpeed= Mathf.Clamp(baseSpeed, 5, 15);
+       baseSpeed += 1f * Time.deltaTime;
+        baseSpeed= Mathf.Clamp(baseSpeed, 5, 16);
         //transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
         if (isRunning)
         {
             //transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed * Time.deltaTime);
             // Check the distance between enemies and Player
 
-            int LuckNumBase = Random.Range(1, 10);
-            float RandomIndexBase = Random.Range(1f, 10f);
-         
-            //baseSpeed += 1f * Time.deltaTime;
-            if (LuckNumBase == 5)
-            {
-               
-                baseSpeed *= 1.5f;
-            }
-            else
-            {
-                baseSpeed += RandomIndexBase;
-            }
-
-            baseSpeed = Mathf.Clamp(baseSpeed, 5, 17);
+    
             //transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
 
 
@@ -64,6 +64,10 @@ public class JumpingEnemyController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed * Time.deltaTime);
 
 
+        }
+        if(transform.position.y < -5)
+        {
+            Destroy(gameObject);
         }
 
     }
@@ -128,7 +132,7 @@ public class JumpingEnemyController : MonoBehaviour
     private IEnumerator SlowDown()
     {
         isRunning = false;
-        rb.velocity = new Vector2( -baseSpeed, rb.velocity.y);
+        rb.velocity = new Vector2( -baseSpeed/2, rb.velocity.y);
         yield return new WaitForSeconds(1.5f);
         isRunning = true;
     }
