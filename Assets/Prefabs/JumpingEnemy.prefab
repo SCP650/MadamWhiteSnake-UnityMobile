@@ -97,9 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679750358f830449ca2abf599454a1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 20
+  baseSpeed: 10
   jumpSpeed: 10
   damageToPlayer: 10
+  attackSound: {fileID: 8300000, guid: 63582ec3d371a49e1b247acefe38192c, type: 3}
+  playJiao: {fileID: 8300000, guid: b910e88cb3e7046adb3d15639ab7b560, type: 3}
 --- !u!61 &2185384488413648198
 BoxCollider2D:
   m_ObjectHideFlags: 0
