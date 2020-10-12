@@ -26,6 +26,7 @@ public class CollectPoints : MonoBehaviour
         {
       
             currentNum += 1;
+            currentNum = Mathf.Clamp(currentNum,0, maxDanTian + 1);
             Destroy(collision.gameObject);
             updateDanTian();
         }

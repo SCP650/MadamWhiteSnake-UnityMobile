@@ -38,7 +38,7 @@ public class EnemySpawn : MonoBehaviour
             float spawnX = Random.Range
                 (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(PlayerPos + 1, 0)).x);
 
-            float wait = Random.Range(5f, 8f);
+            float wait = Random.Range(spawnTime - 2, spawnTime+2);
   
             //float time = Random.Range(10.0f, 20.0f);
             //ExecuteAfterTime(time);
