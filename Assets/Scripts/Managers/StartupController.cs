@@ -57,7 +57,7 @@ public class StartupController : MonoBehaviour
     {
         if (Input.GetKeyDown("s"))
         {
-            Managers.mission.GoToNext();//for testing
+            Managers.mission.GoToNextLevel();//for testing
         }
     }
 
