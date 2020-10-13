@@ -149,10 +149,11 @@ public class MoveByTouch : MonoBehaviour
     private IEnumerator Shield()
     {
         _animator.SetTrigger("Attacking");
+        Managers.Audio.PlaySound(shieldSound);
         shield.SetActive(true);
         yield return new WaitForSeconds(1f);
         shield.SetActive(false);
-        Managers.Audio.PlaySound(shieldSound);
+       
         //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
