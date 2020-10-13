@@ -255,6 +255,7 @@ MonoBehaviour:
   text: {fileID: 1979774363}
   panbai: {fileID: 8300000, guid: d4a2f3c9c249d4869ab6a3b7759d9ce1, type: 3}
   playButton: {fileID: 191057489}
+  ps: {fileID: 1930291677}
 --- !u!4 &95629011
 Transform:
   m_ObjectHideFlags: 0
@@ -641,7 +642,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

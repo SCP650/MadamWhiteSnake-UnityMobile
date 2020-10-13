@@ -9,6 +9,7 @@ public class PangBaiTypeWrite : MonoBehaviour
     public Text text;
     public AudioClip panbai;
     public GameObject playButton;
+    public ParticleSystem ps;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,9 @@ public class PangBaiTypeWrite : MonoBehaviour
 
     private IEnumerator ShowPlayBtn()
     {
-        yield return new WaitForSeconds(35);
+        yield return new WaitForSeconds(2.5f);
+        ps.Play();
+        yield return new WaitForSeconds(32);
         playButton.SetActive(true);
     }
 
