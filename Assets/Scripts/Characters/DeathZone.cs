@@ -8,9 +8,9 @@ public class DeathZone : MonoBehaviour
     {
         GameObject gb = collision.gameObject;
         if (gb.tag == "Player")
-        {
+        {   
             gb.transform.position = new Vector3(gb.transform.position.x, gb.transform.position.y + 35,gb.transform.position.z);
-            Managers.Player.ChangeHealth(-Managers.Player.health/2);
+            Managers.Player.ChangeHealth(-Managers.Player.health/3);
         }
     }
 }
