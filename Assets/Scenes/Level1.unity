@@ -8918,7 +8918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345553181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 512.29004, y: 10.75, z: 0}
+  m_LocalPosition: {x: 510.63, y: 10.75, z: 0}
   m_LocalScale: {x: 1, y: 4.58, z: 1}
   m_Children: []
   m_Father: {fileID: 1851867865}
@@ -27426,7 +27426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879020271}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 529.31995, y: 10.75, z: 0}
+  m_LocalPosition: {x: 527.65985, y: 10.75, z: 0}
   m_LocalScale: {x: 1, y: 4.58, z: 1}
   m_Children: []
   m_Father: {fileID: 1851867865}
@@ -34060,7 +34060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187781296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 540.76, y: 10.59, z: 0}
+  m_LocalPosition: {x: 539.1, y: 10.59, z: 0}
   m_LocalScale: {x: 1, y: 4.58, z: 1}
   m_Children: []
   m_Father: {fileID: 1851867865}
@@ -49731,6 +49731,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1950661145028146209, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1950661145028146237, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53639,7 +53644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1909399542
 Animator:
   serializedVersion: 3
@@ -53744,7 +53749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909399541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 521.1, y: 15.57, z: 0}
+  m_LocalPosition: {x: 519.43994, y: 15.57, z: 0}
   m_LocalScale: {x: 1, y: 4.58, z: 1}
   m_Children: []
   m_Father: {fileID: 1851867865}
