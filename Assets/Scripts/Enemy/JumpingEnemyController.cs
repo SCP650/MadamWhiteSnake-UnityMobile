@@ -45,6 +45,11 @@ public class JumpingEnemyController : MonoBehaviour
         
     }
 
+    public void ChangeBaseSpeed(float percent)
+    {
+        baseSpeed *= percent; 
+    }
+
     // Update is called once per frame
     void Update()
     {
