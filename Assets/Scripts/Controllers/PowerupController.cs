@@ -18,6 +18,7 @@ public class PowerupController : MonoBehaviour
     [SerializeField] Button releasePowerup;
     [Tooltip("Refer to PowerUpKinds for index")]
     [SerializeField] Sprite[] icons;
+    [SerializeField] Image secondPowerImg;
    
 
 
@@ -53,6 +54,8 @@ public class PowerupController : MonoBehaviour
         else if(secondPower == PowerUpKinds.EMPTY)
         {
             secondPower = GetPower();
+            secondPowerImg.sprite = icons[secondPower];
+            secondPowerImg.gameObject.SetActive(true);
         }
 
     }
@@ -72,10 +75,13 @@ public class PowerupController : MonoBehaviour
             StartCoroutine(ImplementPower(firstPower));
             firstPower = secondPower;
             secondPower = PowerUpKinds.EMPTY;
-            if(firstPower == PowerUpKinds.EMPTY)
+            secondPowerImg.gameObject.SetActive(false);
+
+            if (firstPower == PowerUpKinds.EMPTY)
             {
                 releasePowerup.gameObject.SetActive(false);
             }
+            powerIcon.sprite = icons[firstPower];
         }
     }
 

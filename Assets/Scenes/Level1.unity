@@ -49899,6 +49899,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4680767104665969215, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea218b756491414d8e4c599a5eb4a53, type: 3}
 --- !u!114 &1744296471 stripped
@@ -55610,6 +55615,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2018155619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7583566594554880786, guid: bea218b756491414d8e4c599a5eb4a53,
+    type: 3}
+  m_PrefabInstance: {fileID: 1744296470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2024853202
 GameObject:
   m_ObjectHideFlags: 0
@@ -59233,11 +59250,6 @@ PrefabInstance:
       objectReference: {fileID: 1744296473}
     - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
         type: 3}
-      propertyPath: icons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
-        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 445568587}
@@ -59253,28 +59265,9 @@ PrefabInstance:
       objectReference: {fileID: 1744296474}
     - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
         type: 3}
-      propertyPath: healIcon
+      propertyPath: secondPowerImg
       value: 
-      objectReference: {fileID: 21300000, guid: 7190e0f83796f4d56944450659acf09a,
-        type: 3}
-    - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
-        type: 3}
-      propertyPath: SpeedUpIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 7b5bc69006bc14ae39242aa1e46b5da8,
-        type: 3}
-    - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
-        type: 3}
-      propertyPath: icons.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 7190e0f83796f4d56944450659acf09a,
-        type: 3}
-    - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
-        type: 3}
-      propertyPath: icons.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 7b5bc69006bc14ae39242aa1e46b5da8,
-        type: 3}
+      objectReference: {fileID: 2018155619}
     - target: {fileID: 2733171416493660170, guid: 56054cdeedb464799b71cea7ff6cbfa6,
         type: 3}
       propertyPath: m_LocalPosition.x
