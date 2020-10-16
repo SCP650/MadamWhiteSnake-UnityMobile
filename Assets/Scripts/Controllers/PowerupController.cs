@@ -81,7 +81,11 @@ public class PowerupController : MonoBehaviour
             {
                 releasePowerup.gameObject.SetActive(false);
             }
-            powerIcon.sprite = icons[firstPower];
+            else
+            {
+                powerIcon.sprite = icons[firstPower];
+            }
+           
         }
     }
 
