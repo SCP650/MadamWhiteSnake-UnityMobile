@@ -7196,7 +7196,7 @@ PrefabInstance:
     - target: {fileID: 877578092603008159, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 877578092603008159, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
@@ -7248,6 +7248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 877578092603008161, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 877578092603008162, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: m_UsedByEffector
@@ -7288,6 +7293,11 @@ PrefabInstance:
       propertyPath: shieldSound
       value: 
       objectReference: {fileID: 8300000, guid: 06eb4e4fea0dc482ebe502114477d39b, type: 3}
+    - target: {fileID: 8948670029201453817, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6da10800a4454832b2975d6f3c0cd69, type: 3}
 --- !u!1 &474157846
@@ -10552,7 +10562,7 @@ GameObject:
   - component: {fileID: 778871740}
   - component: {fileID: 778871739}
   - component: {fileID: 778871741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Ground
   m_Icon: {fileID: 0}
