@@ -14,6 +14,7 @@ public class fade : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Debug.Log("richrich");
             anim.Play("level2 虚化");
         }            
     }
