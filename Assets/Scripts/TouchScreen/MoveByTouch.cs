@@ -24,95 +24,101 @@ public class MoveByTouch : MonoBehaviour
 
    
     private Rigidbody2D rb;
-
-    private bool shouldJump;
-    private bool canJump;
  
-    // Start is called before the first frame update
-    
-
-    // Screen Split
     private float width;
     private float MidWidth;
     private float MidHeight;
     private CollectPoints dantianController;
 
-    public LayerMask groundLayer;
-
     private float StartPosY;
     private int count = 0;
 
     private float StartTime;
-    private float CurTime;
-   
+    private float acumTime = 0;
+    private float holdTime = 0.5f;
+    private float OldGravity;
+    private PlayerViewHoriMove horiSpeed;
+    private float oldSpeed;
+
 
     void Start()
     {
 
         rb = GetComponent<Rigidbody2D>();
-        canJump = true;
         width = Screen.width;
         MidWidth = width / 2;
         MidHeight = Screen.height / 2;
         _animator = GetComponent<Animator>();
         dantianController = GetComponent<CollectPoints>();
         shield.SetActive(false);
+        OldGravity = rb.gravityScale;
+        horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
+        oldSpeed = horiSpeed.speed;
         //StartPosY =  0.1947699f;
     }
 
     bool IsGrounded() 
     {
         Vector2 position = transform.position;
+        Vector2 positionLeft = new Vector2(transform.position.x+0.9f,transform.position.y);
+        Vector2 positionRight = new Vector2(transform.position.x - 0.9f, transform.position.y);
         Vector2 direction = Vector2.down;
-        float distance = 5.0f;
-        
-        // RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
+        float distance = 1.9f;
 
-        Debug.DrawRay(position, direction, Color.green);
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-        // if(hit)
-        // {
-        //     Debug.Log("HIT");
-        // }
-        // else
-        // {
-        //     Debug.Log("Not on ground");
-        // }
-		// //RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-        
 
-        //RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-        if (hit) {
-            //Debug.Log("Touched object " + hit.transform.gameObject.name + " layer is " + hit.transform.gameObject.layer);
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance);
+      
+        if (hit && hit.collider.tag == "Ground")
+        {
             return true;
         }
         else
         {
-            //Debug.Log("Nottt  on Ground ");
+            hit = Physics2D.Raycast(positionLeft, direction, distance);
+            if (hit && hit.collider.tag == "Ground")
+            {
+                return true;
+            }
+            else
+            {
+                hit = Physics2D.Raycast(positionRight, direction, distance);
+                if(hit) return hit.collider.tag == "Ground";
+            }
         }
-        
         return false;
+
+ 
     }
     void Update()
     {
-
-        
-        
-        if(!IsGrounded())
+        if (Input.touchCount > 0)
         {
-            //Debug.Log("Not on ground");
+
+            acumTime += Input.GetTouch(0).deltaTime;
+            Debug.Log(acumTime);
+            if (acumTime >= holdTime)
+            {
+
+                StartFly();
+            }
+
+
+            if (Input.GetTouch(0).phase == TouchPhase.Ended || IsGrounded())
+            {
+                acumTime = 0;
+                EndFly();
+            }
         }
-        else{
-            //Debug.Log("On ground");
-        }
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Touch touch = Input.GetTouch(0);
             Vector2 touchPos = touch.position;
             StartTime = Time.time;
-            
 
-            if(touchPos.x < MidWidth)
+
+            if (touchPos.x < MidWidth && CheckID())
             {
                 //jump
                 if (dantianController.canUseDanTian())
@@ -127,84 +133,15 @@ public class MoveByTouch : MonoBehaviour
 
 
             }
-            else if(touchPos.x > MidWidth)
+            else if (touchPos.x > MidWidth)
             {
-                //attack
-                // int yMovement = (int) Input.GetAxisRaw("Vertical");
-                // if (yMovement == 1) {
-                    // Jump();
-                // }
-                // if (canJump)
-                // {
-                //     Jump();
-                // }
-                
-                
-                //float CurY = rb.position.y;
-
-                // Debug.Log("In");
-                // Debug.Log("Pos now " + rb.position.y + " start pos " + StartPosY);
-                
-                // if(touch.phase == TouchPhase.Began)
-                // {
-                //     StartTime = Time.time;                    
-                // }
-                
+                Jump();
 
 
-                // Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
 
-                if(touch.position.y < MidHeight)
-                {
-                    if(IsGrounded() && count < 2)// do first jump
-                    {
-                        count++;
-                        
-                        Jump();
-                        
-                    }
-                    else if(count < 2) // not on ground
-                    {
-                        Debug.Log("Second Jump");
-                        count++;
-                        // Debug.Log("Pppppos now " + rb.position.y);
-                        Jump();
-                        // Debug.Log("Pos now " + rb.position.y);
-                        
-                    }
-                     if(IsGrounded() && count >= 2)
-                    {
-                        //Debug.Log("INNNNN");
-                        // Debug.Log("Pos now " + rb.position.y);
-                        count = 0;
-                        //Jump();
-                    }
-                }
-                else
-                {
-                    //Debug.Log("time to fly");
-                    // fly
-                    fly();
+            }
 
-                    
-
-                }
-
-        
-
-               
-                
-                
-        
-               
-
-            } 
-            
-        }
-        else if(canJump && Input.GetAxis("Vertical") > 0.0f) // For editor testing
-        {
-            Jump();
-        }
+        } 
         else if (Input.GetButtonDown("Fire1"))
         {
             //jump
@@ -219,36 +156,75 @@ public class MoveByTouch : MonoBehaviour
             }
 
         }
-        
-    }
-
-    private void checktime()
-    {
-        CurTime = Time.time;
-    }
-
-    private void fly()
-    {
-        Debug.Log("fly");
-        
-        rb.velocity = new Vector2(rb.velocity.x * 2.5f, jumpSpeed * 2.0f);
-        rb.gravityScale = (float)(0.5);
-        int count  = 0;
-        while(count < 15)
+        else if (Input.GetKeyDown("w")) // For editor testing
         {
-            rb.gravityScale += (float)(0.1);
-            count++;
+            Jump();
         }
-        rb.gravityScale = 2.0f;
+        else if (Input.GetKey("w"))
+        {
+            StartFly();
+        }
+        else if (Input.GetKeyUp("w") || IsGrounded())
+        {
+            EndFly();
+        }
+
+
         
-        
-        // rb.gravityScale = 2.0f;
-        
+    }
+
+
+  
+
+    private void StartFly()
+    {
+        if (dantianController.canUseDanTian())
+        {
+            dantianController.canUseDanTian();
+            horiSpeed.speed += 3f * Time.deltaTime;
+            horiSpeed.speed = Mathf.Clamp(horiSpeed.speed, oldSpeed, oldSpeed * 2);
+            rb.gravityScale = 0.5f;
+            dantianController.FlyingCost();
+        }
+        else
+        {
+            StartCoroutine(ShowWarning("丹田不足，无法滑翔"));
+            EndFly();
+        }
+
+      
+    }
+
+    private void EndFly()
+    {
+        horiSpeed.speed = oldSpeed;
+        rb.gravityScale = OldGravity;
     }
 
     private void Jump()
     {
-        //checktime();
+      
+        if (IsGrounded())
+        {
+            count = 1;
+
+            SingleJump();
+        } else if (count == 1) // not on ground
+        {
+            Debug.Log("Second Jump");
+            count++;
+            SingleJump();
+
+        }
+        if ( count >= 2)
+        {
+            count = 0;
+        }
+    }
+
+    private void SingleJump()
+    {
+
         
         //Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
        _animator.SetBool("Jumping", true);
@@ -256,39 +232,17 @@ public class MoveByTouch : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         //Vector3 curr = transform.position;
         //jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
-        canJump = false;
         Managers.Audio.PlaySound(jumpSound);
         //shouldJump = true;
     }
 
-    private void CheckID()
+    private bool CheckID()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            // Check if finger is over a UI element
-            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-            {
-                Debug.Log("Touched the UI");
-            }
-        }
+
+        return !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+          
+        
     }
-
-    //private void FixedUpdate()
-    //{
-
-    //    // jump
-    //    if (shouldJump)
-    //    {
-    //        //Call juming animation 
-    //        Vector3 delta = jumpTarget - transform.position;
-    //        transform.position += delta * 0.1f;
-    //        //Debug.Log(delta.y);
-    //        //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-    //        shouldJump &= delta.y > 3f;
-
-
-    //    }
-    //}
 
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -296,7 +250,7 @@ public class MoveByTouch : MonoBehaviour
         // allow jumping again whe nhit ground 
         if (col.gameObject.tag == "Ground")
         {
-            canJump = true;
+       
             _animator.SetBool("Jumping", false);
         }
 
@@ -311,7 +265,6 @@ public class MoveByTouch : MonoBehaviour
         yield return new WaitForSeconds(1f);
         shield.SetActive(false);
        
-        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     private IEnumerator ShowWarning(string text)

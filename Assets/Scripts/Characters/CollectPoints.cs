@@ -47,4 +47,10 @@ public class CollectPoints : MonoBehaviour
         currentNum -= numNeeded;
         updateDanTian();
     }
+
+    public void FlyingCost()
+    {
+        currentNum -= 2*Time.deltaTime;
+        updateDanTian();
+    }
 }
