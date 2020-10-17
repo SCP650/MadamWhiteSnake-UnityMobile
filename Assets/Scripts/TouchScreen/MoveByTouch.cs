@@ -186,6 +186,8 @@ public class MoveByTouch : MonoBehaviour
                     // fly
                     fly();
 
+                    
+
                 }
 
         
