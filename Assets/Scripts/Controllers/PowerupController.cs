@@ -17,11 +17,12 @@ public class PowerupController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] ParticleSystem healthParticle;
     [SerializeField] Button releasePowerup;
+    [SerializeField] GameObject furnianceAnimation;
     [Tooltip("Refer to PowerUpKinds for index")]
     [SerializeField] Sprite[] icons;
     [SerializeField] Image secondPowerImg;
     [SerializeField] GameObject FireBombPrefb;
-   
+    [SerializeField] Sprite EmptySprite;
 
 
     private int firstPower;
@@ -65,9 +66,11 @@ public class PowerupController : MonoBehaviour
     private IEnumerator ChangeUIIcon(Sprite sprite )
     {
         releasePowerup.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-
+        furnianceAnimation.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        furnianceAnimation.SetActive(false);
         powerIcon.sprite = sprite;
+
     }
 
     public void TriggerPower()
@@ -81,6 +84,7 @@ public class PowerupController : MonoBehaviour
 
             if (firstPower == PowerUpKinds.EMPTY)
             {
+                powerIcon.sprite = EmptySprite;
                 releasePowerup.gameObject.SetActive(false);
             }
             else
