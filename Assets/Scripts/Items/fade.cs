@@ -10,7 +10,7 @@ public class fade : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     // Update is called once per frame
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -18,4 +18,5 @@ public class fade : MonoBehaviour
             anim.Play("level2 虚化");
         }            
     }
+
 }
