@@ -177,6 +177,7 @@ public class MoveByTouch : MonoBehaviour
                         //Debug.Log("INNNNN");
                         // Debug.Log("Pos now " + rb.position.y);
                         count = 0;
+                        Jump();
                     }
                 }
                 else
