@@ -13,6 +13,6 @@ public class dragonboat1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += Vector3.right * Time.deltaTime* 10.0f;
+        this.transform.position += Vector3.right * Time.deltaTime;
     }
 }
