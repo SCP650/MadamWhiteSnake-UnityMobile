@@ -17,6 +17,8 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip shieldSound;
     [SerializeField] Text warningText;
+    [SerializeField] private bool IsShield = true;
+    [SerializeField] private GameObject AttackArea;
     //[SerializeField] float jumpHeight = 10f;
   
     private Animator _animator;
@@ -40,6 +42,9 @@ public class MoveByTouch : MonoBehaviour
     private PlayerViewHoriMove horiSpeed;
     private float oldSpeed;
     private bool canJump;
+    private float previousAttackTime = 0;
+    private float followUpThresholh = 1f;
+    private int AttackCounter = 0;
 
     void Start()
     {
@@ -92,7 +97,8 @@ public class MoveByTouch : MonoBehaviour
     }
     void Update()
     {
-        if (Input.touchCount > 0)
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).position.x > MidWidth)
         {
 
             acumTime += Input.GetTouch(0).deltaTime;
@@ -125,8 +131,16 @@ public class MoveByTouch : MonoBehaviour
                 //jump
                 if (dantianController.canUseDanTian())
                 {
-                    StartCoroutine(Shield());
-                    dantianController.dantianUsed();
+                    if (IsShield)
+                    {
+                        StartCoroutine(Shield());
+                        dantianController.dantianUsed();
+                    }
+                    else
+                    {
+                        UmbrellaSword();
+                    }
+
                 }
                 else
                 {
@@ -147,8 +161,18 @@ public class MoveByTouch : MonoBehaviour
             //jump
             if (dantianController.canUseDanTian())
             {
-                StartCoroutine(Shield());
-                dantianController.dantianUsed();
+                if (IsShield)
+                {
+                    StartCoroutine(Shield());
+                    dantianController.dantianUsed();
+                }
+                else
+                {
+                   
+                    UmbrellaSword();
+                }
+       
+              
             }
             else
             {
@@ -265,7 +289,7 @@ public class MoveByTouch : MonoBehaviour
 
     private IEnumerator Shield()
     {
-        _animator.SetTrigger("Attacking");
+        _animator.SetTrigger("Defense");
         Managers.Audio.PlaySound(shieldSound);
         shield.SetActive(true);
         yield return new WaitForSeconds(1f);
@@ -273,11 +297,39 @@ public class MoveByTouch : MonoBehaviour
        
     }
 
+    private void UmbrellaSword()
+    {
+        if (Time.time - previousAttackTime > followUpThresholh)
+        {
+            AttackCounter = 0;
+        }
+        StartCoroutine(SingleSwordHit(AttackCounter));
+        AttackCounter++;
+        previousAttackTime = Time.time;
+      
+       if(AttackCounter >= 3)
+        {
+            AttackCounter = 0;
+        }
+
+    }
+
+    private IEnumerator SingleSwordHit(int type)
+    {
+        Debug.Log($"Attack{type}");
+        _animator.SetTrigger($"Attack{type}");
+        yield return new WaitForSeconds(0.1f);
+        AttackArea.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        AttackArea.SetActive(false);
+
+    }
+
     private IEnumerator ShowWarning(string text)
     {
         warningText.text = text;
         warningText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         warningText.gameObject.SetActive(false);
 
     }
