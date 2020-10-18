@@ -35,11 +35,11 @@ public class MoveByTouch : MonoBehaviour
 
     private float StartTime;
     private float acumTime = 0;
-    private float holdTime = 0.5f;
+    private float holdTime = 0.3f;
     private float OldGravity;
     private PlayerViewHoriMove horiSpeed;
     private float oldSpeed;
-
+    private bool canJump;
 
     void Start()
     {
@@ -53,39 +53,40 @@ public class MoveByTouch : MonoBehaviour
         shield.SetActive(false);
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
-        oldSpeed = horiSpeed.speed;
+
         //StartPosY =  0.1947699f;
     }
 
     bool IsGrounded() 
     {
-        Vector2 position = transform.position;
-        Vector2 positionLeft = new Vector2(transform.position.x+0.9f,transform.position.y);
-        Vector2 positionRight = new Vector2(transform.position.x - 0.9f, transform.position.y);
-        Vector2 direction = Vector2.down;
-        float distance = 1.9f;
+        return canJump;
+        //Vector2 position = transform.position;
+        //Vector2 positionLeft = new Vector2(transform.position.x+0.9f,transform.position.y);
+        //Vector2 positionRight = new Vector2(transform.position.x - 0.9f, transform.position.y);
+        //Vector2 direction = Vector2.down;
+        //float distance = 1.9f;
 
 
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance);
+        //RaycastHit2D hit = Physics2D.Raycast(position, direction, distance);
       
-        if (hit && hit.collider.tag == "Ground")
-        {
-            return true;
-        }
-        else
-        {
-            hit = Physics2D.Raycast(positionLeft, direction, distance);
-            if (hit && hit.collider.tag == "Ground")
-            {
-                return true;
-            }
-            else
-            {
-                hit = Physics2D.Raycast(positionRight, direction, distance);
-                if(hit) return hit.collider.tag == "Ground";
-            }
-        }
-        return false;
+        //if (hit && hit.collider.tag == "Ground")
+        //{
+        //    return true;
+        //}
+        //else
+        //{
+        //    hit = Physics2D.Raycast(positionLeft, direction, distance);
+        //    if (hit && hit.collider.tag == "Ground")
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        hit = Physics2D.Raycast(positionRight, direction, distance);
+        //        if(hit) return hit.collider.tag == "Ground";
+        //    }
+        //}
+        //return false;
 
  
     }
@@ -100,14 +101,15 @@ public class MoveByTouch : MonoBehaviour
             {
 
                 StartFly();
+
+                if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                {
+                    acumTime = 0;
+                    EndFly();
+                }
             }
 
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended || IsGrounded())
-            {
-                acumTime = 0;
-                EndFly();
-            }
         }
 
 
@@ -133,11 +135,9 @@ public class MoveByTouch : MonoBehaviour
 
 
             }
-            else if (touchPos.x > MidWidth)
+            if (touchPos.x > MidWidth)
             {
                 Jump();
-
-
 
             }
 
@@ -164,7 +164,7 @@ public class MoveByTouch : MonoBehaviour
         {
             StartFly();
         }
-        else if (Input.GetKeyUp("w") || IsGrounded())
+        else if (Input.GetKeyUp("w"))
         {
             EndFly();
         }
@@ -178,11 +178,15 @@ public class MoveByTouch : MonoBehaviour
 
     private void StartFly()
     {
+        _animator.SetBool("IsFlying", true);
+        if (IsGrounded())
+        {
+            EndFly();
+        }
         if (dantianController.canUseDanTian())
         {
             dantianController.canUseDanTian();
-            horiSpeed.speed += 3f * Time.deltaTime;
-            horiSpeed.speed = Mathf.Clamp(horiSpeed.speed, oldSpeed, oldSpeed * 2);
+            horiSpeed.IncreaseFlyingSpeed();
             rb.gravityScale = 0.5f;
             dantianController.FlyingCost();
         }
@@ -197,7 +201,8 @@ public class MoveByTouch : MonoBehaviour
 
     private void EndFly()
     {
-        horiSpeed.speed = oldSpeed;
+        horiSpeed.ResetSpeed();
+        _animator.SetBool("IsFlying",false);
         rb.gravityScale = OldGravity;
     }
 
@@ -252,6 +257,7 @@ public class MoveByTouch : MonoBehaviour
         {
        
             _animator.SetBool("Jumping", false);
+            canJump = true;
         }
 
 
@@ -275,4 +281,16 @@ public class MoveByTouch : MonoBehaviour
         warningText.gameObject.SetActive(false);
 
     }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            canJump = false;
+        }
+}
+
+
+
 }
