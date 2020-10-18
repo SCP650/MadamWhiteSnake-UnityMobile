@@ -178,6 +178,7 @@ public class MoveByTouch : MonoBehaviour
 
     private void StartFly()
     {
+        _animator.SetBool("IsFlying", true);
         if (IsGrounded())
         {
             EndFly();
@@ -201,6 +202,7 @@ public class MoveByTouch : MonoBehaviour
     private void EndFly()
     {
         horiSpeed.ResetSpeed();
+        _animator.SetBool("IsFlying",false);
         rb.gravityScale = OldGravity;
     }
 
