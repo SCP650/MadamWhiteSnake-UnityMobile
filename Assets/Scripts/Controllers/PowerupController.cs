@@ -100,7 +100,7 @@ public class PowerupController : MonoBehaviour
     private int GetPower()
     {
         int i = Random.Range(1, icons.Length+1);
-        //i = 3;//for testing
+        i = 2;//for testing
         switch (i)
         {
             case 1:
@@ -123,9 +123,9 @@ public class PowerupController : MonoBehaviour
                 Managers.Player.ChangeHealth(20);
                 break;
             case PowerUpKinds.SPEED_UP:
-                player.GetComponent<PlayerViewHoriMove>().speed *= 1.5f;
+                player.GetComponent<PlayerViewHoriMove>().IncreaseSpeedBy(1.5f);
                 yield return new WaitForSeconds(5);
-                player.GetComponent<PlayerViewHoriMove>().speed *= 1 / 1.5f;
+                player.GetComponent<PlayerViewHoriMove>().ResetSpeed();
                 break;
             case PowerUpKinds.FIRE_BOMB:
                 GameObject gb = Instantiate(FireBombPrefb);
