@@ -19,7 +19,7 @@ public class MissionManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Mission manager starting..");
         _network = service;
-        UpdateData(0, 1);
+        UpdateData(0, 2);
         this.curTransition = 0;
         this.maxTransition = 1;
         status = ManagerStatus.Started;
@@ -38,6 +38,23 @@ public class MissionManager : MonoBehaviour, IGameManager
         {
             curLevel++;
             string name = "Level" + curLevel;
+            Debug.Log("Loading " + name);
+            SceneManager.LoadScene(name);
+        }
+        else
+        {
+            Messenger.Broadcast(GameEvent.GAME_COMPLETE);
+            Debug.Log("Last Level");
+
+        }
+    }
+
+    public void GoToLevel(int i)
+    {
+        if (i <= maxLevel)
+        {
+         
+            string name = "Level" + i;
             Debug.Log("Loading " + name);
             SceneManager.LoadScene(name);
         }
