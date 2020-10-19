@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2185384488413648193}
   - component: {fileID: 2185384488413648198}
   - component: {fileID: 2185384488413648195}
+  - component: {fileID: 4682814083350730514}
   - component: {fileID: 1049635685650562056}
   m_Layer: 0
   m_Name: JumpingEnemy
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 53a34a788b9184fb1870cee34ff4d683, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,6 +101,8 @@ MonoBehaviour:
   baseSpeed: 10
   jumpSpeed: 10
   damageToPlayer: 10
+  attackSound: {fileID: 8300000, guid: 63582ec3d371a49e1b247acefe38192c, type: 3}
+  playJiao: {fileID: 8300000, guid: b910e88cb3e7046adb3d15639ab7b560, type: 3}
 --- !u!61 &2185384488413648198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,6 +150,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &4682814083350730514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185384488413648196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c80fc2259c4c4623b47414ea5085cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementScript: {fileID: 2185384488413648193}
 --- !u!95 &1049635685650562056
 Animator:
   serializedVersion: 3

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MoveByTouch : MonoBehaviour
 {
@@ -11,6 +13,13 @@ public class MoveByTouch : MonoBehaviour
     // Jump
     //public float jumpSpeed;
     [SerializeField] float jumpSpeed = 10f;
+    [SerializeField] private GameObject shield;
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip shieldSound;
+    [SerializeField] Text warningText;
+    [SerializeField] private bool IsShield = true;
+    [SerializeField] private GameObject AttackArea;
+    [SerializeField] private float PlayGravity = 0.5f;
     //[SerializeField] float jumpHeight = 10f;
   
     private Animator _animator;
@@ -18,97 +27,252 @@ public class MoveByTouch : MonoBehaviour
 
    
     private Rigidbody2D rb;
-
-    private bool shouldJump;
-    private bool canJump;
  
-    // Start is called before the first frame update
-    
-
-    // Screen Split
     private float width;
     private float MidWidth;
+    private float MidHeight;
+    private CollectPoints dantianController;
 
-    // shoot
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject bulletPrefab;
+    private float StartPosY;
+    private int count = 0;
+
+    private float StartTime;
+    private float acumTime = 0;
+    private float holdTime = 0.3f;
+    private float OldGravity;
+    private PlayerViewHoriMove horiSpeed;
+    private float oldSpeed;
+    private bool canJump;
+    private float previousAttackTime = 0;
+    private float followUpThresholh = 1f;
+    private int AttackCounter = 0;
 
     void Start()
     {
 
         rb = GetComponent<Rigidbody2D>();
-        canJump = true;
         width = Screen.width;
         MidWidth = width / 2;
+        MidHeight = Screen.height / 2;
         _animator = GetComponent<Animator>();
+        dantianController = GetComponent<CollectPoints>();
+        shield.SetActive(false);
+        OldGravity = rb.gravityScale;
+        horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
+
+        //StartPosY =  0.1947699f;
+    }
+
+    bool IsGrounded() 
+    {
+        return canJump;
+        //Vector2 position = transform.position;
+        //Vector2 positionLeft = new Vector2(transform.position.x+0.9f,transform.position.y);
+        //Vector2 positionRight = new Vector2(transform.position.x - 0.9f, transform.position.y);
+        //Vector2 direction = Vector2.down;
+        //float distance = 1.9f;
+
+
+        //RaycastHit2D hit = Physics2D.Raycast(position, direction, distance);
+      
+        //if (hit && hit.collider.tag == "Ground")
+        //{
+        //    return true;
+        //}
+        //else
+        //{
+        //    hit = Physics2D.Raycast(positionLeft, direction, distance);
+        //    if (hit && hit.collider.tag == "Ground")
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        hit = Physics2D.Raycast(positionRight, direction, distance);
+        //        if(hit) return hit.collider.tag == "Ground";
+        //    }
+        //}
+        //return false;
+
+ 
     }
     void Update()
     {
 
-       
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0 && Input.GetTouch(0).position.x > MidWidth)
+        {
+
+            acumTime += Input.GetTouch(0).deltaTime;
+            Debug.Log(acumTime);
+            if (acumTime >= holdTime)
+            {
+
+                StartFly();
+
+                if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                {
+                    acumTime = 0;
+                    EndFly();
+                }
+            }
+
+
+        }
+
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Touch touch = Input.GetTouch(0);
             Vector2 touchPos = touch.position;
-            
+            StartTime = Time.time;
 
-            if(touchPos.x < MidWidth)
+
+            if (touchPos.x < MidWidth && CheckID())
             {
                 //jump
-                Debug.Log("Left click");
-                Fire();
-                
-            }
-            else if(touchPos.x > MidWidth)
-            {
-                //attack
-                Debug.Log("Right click");
-                if (canJump)
+                if (dantianController.canUseDanTian())
                 {
-                    Jump();
-                }
-                
+                    if (IsShield)
+                    {
+                        StartCoroutine(Shield());
+                        dantianController.dantianUsed();
+                    }
+                    else
+                    {
+                        UmbrellaSword();
+                    }
 
-            } 
-            
+                }
+                else
+                {
+                    StartCoroutine(ShowWarning("丹田不足，无法开伞"));
+                }
+
+
+            }
+            if (touchPos.x > MidWidth)
+            {
+                Jump();
+
+            }
+
+        } 
+        else if (Input.GetButtonDown("Fire1"))
+        {
+            //jump
+            if (dantianController.canUseDanTian())
+            {
+                if (IsShield)
+                {
+                    StartCoroutine(Shield());
+                    dantianController.dantianUsed();
+                }
+                else
+                {
+                   
+                    UmbrellaSword();
+                }
+       
+              
+            }
+            else
+            {
+                StartCoroutine(ShowWarning("丹田不足，无法开伞"));
+            }
+
         }
-        else if(canJump && Input.GetAxis("Vertical") > 0.0f) // For editor testing
+        else if (Input.GetKeyDown("w")) // For editor testing
         {
             Jump();
         }
-        else if (Input.GetButtonDown("Fire1"))
+        else if (Input.GetKey("w"))
         {
-            Fire();
+            StartFly();
         }
+        else if (Input.GetKeyUp("w"))
+        {
+            EndFly();
+        }
+
+
+        
+    }
+
+
+  
+
+    private void StartFly()
+    {
+        _animator.SetBool("IsFlying", true);
+        if (IsGrounded())
+        {
+            EndFly();
+        }
+        if (dantianController.canUseDanTian())
+        {
+            dantianController.canUseDanTian();
+            horiSpeed.IncreaseFlyingSpeed();
+            rb.gravityScale = PlayGravity;
+            dantianController.FlyingCost();
+        }
+        else
+        {
+            StartCoroutine(ShowWarning("丹田不足，无法滑翔"));
+            EndFly();
+        }
+
+      
+    }
+
+    private void EndFly()
+    {
+        horiSpeed.ResetSpeed();
+        _animator.SetBool("IsFlying",false);
+        rb.gravityScale = OldGravity;
     }
 
     private void Jump()
     {
+      
+        if (IsGrounded())
+        {
+            count = 1;
+
+            SingleJump();
+        } else if (count == 1) // not on ground
+        {
+            Debug.Log("Second Jump");
+            count++;
+            SingleJump();
+
+        }
+        if ( count >= 2)
+        {
+            count = 0;
+        }
+    }
+
+    private void SingleJump()
+    {
+
+        
+        //Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
        _animator.SetBool("Jumping", true);
 
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         //Vector3 curr = transform.position;
         //jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
-        canJump = false;
+        Managers.Audio.PlaySound(jumpSound);
         //shouldJump = true;
     }
 
-    //private void FixedUpdate()
-    //{
+    private bool CheckID()
+    {
 
-    //    // jump
-    //    if (shouldJump)
-    //    {
-    //        //Call juming animation 
-    //        Vector3 delta = jumpTarget - transform.position;
-    //        transform.position += delta * 0.1f;
-    //        //Debug.Log(delta.y);
-    //        //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-    //        shouldJump &= delta.y > 3f;
-
-
-    //    }
-    //}
+        return !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+          
+        
+    }
 
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -116,16 +280,70 @@ public class MoveByTouch : MonoBehaviour
         // allow jumping again whe nhit ground 
         if (col.gameObject.tag == "Ground")
         {
-            canJump = true;
+       
             _animator.SetBool("Jumping", false);
+            canJump = true;
         }
 
 
     }
 
-    private void Fire()
+    private IEnumerator Shield()
     {
-        _animator.SetTrigger("Attacking");
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        _animator.SetTrigger("Defense");
+        Managers.Audio.PlaySound(shieldSound);
+        shield.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        shield.SetActive(false);
+       
     }
+
+    private void UmbrellaSword()
+    {
+        if (Time.time - previousAttackTime > followUpThresholh)
+        {
+            AttackCounter = 0;
+        }
+        StartCoroutine(SingleSwordHit(AttackCounter));
+        AttackCounter++;
+        previousAttackTime = Time.time;
+      
+       if(AttackCounter >= 3)
+        {
+            AttackCounter = 0;
+        }
+
+    }
+
+    private IEnumerator SingleSwordHit(int type)
+    {
+        Debug.Log($"Attack{type}");
+        _animator.SetTrigger($"Attack{type}");
+        yield return new WaitForSeconds(0.1f);
+        AttackArea.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        AttackArea.SetActive(false);
+
+    }
+
+    private IEnumerator ShowWarning(string text)
+    {
+        warningText.text = text;
+        warningText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3);
+        warningText.gameObject.SetActive(false);
+
+    }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            canJump = false;
+        }
+}
+
+
+
 }
