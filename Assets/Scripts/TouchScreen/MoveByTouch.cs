@@ -19,6 +19,7 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] Text warningText;
     [SerializeField] private bool IsShield = true;
     [SerializeField] private GameObject AttackArea;
+    [SerializeField] private float PlayGravity = 0.5f;
     //[SerializeField] float jumpHeight = 10f;
   
     private Animator _animator;
@@ -211,7 +212,7 @@ public class MoveByTouch : MonoBehaviour
         {
             dantianController.canUseDanTian();
             horiSpeed.IncreaseFlyingSpeed();
-            rb.gravityScale = 0.5f;
+            rb.gravityScale = PlayGravity;
             dantianController.FlyingCost();
         }
         else
