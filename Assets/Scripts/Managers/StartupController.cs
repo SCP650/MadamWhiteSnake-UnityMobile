@@ -55,9 +55,12 @@ public class StartupController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("s"))
+        if (Input.GetKeyDown("1"))
         {
             Managers.mission.GoToNextLevel();//for testing
+        }else if (Input.GetKeyDown("2"))
+        {
+            Managers.mission.GoToLevel(2);
         }
     }
 
