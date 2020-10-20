@@ -154,7 +154,35 @@ public class MoveByTouch : MonoBehaviour
         yield return new WaitForSeconds(1f);
         shield.SetActive(false);
        
-        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+    }
+
+    private void UmbrellaSword()
+    {
+        if (Time.time - previousAttackTime > followUpThresholh)
+        {
+            AttackCounter = 0;
+        }
+        StartCoroutine(SingleSwordHit(AttackCounter));
+        AttackCounter++;
+        previousAttackTime = Time.time;
+      
+       if(AttackCounter >= 3)
+        {
+            AttackCounter = 0;
+        }
+
+    }
+
+    private IEnumerator SingleSwordHit(int type)
+    {
+        //Debug.Log($"Attack{type}");
+        _animator.SetTrigger($"Attack{type}");
+        yield return new WaitForSeconds(0.1f);
+        AttackArea.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        AttackArea.SetActive(false);
+
     }
 
     private IEnumerator ShowWarning(string text)
