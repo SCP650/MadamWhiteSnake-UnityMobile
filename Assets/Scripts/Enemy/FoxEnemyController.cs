@@ -72,7 +72,7 @@ public class FoxEnemyController : MonoBehaviour
             float seconds = Random.Range(3.0f, 4.0f);
          
             _animator.SetTrigger("Attack");
-            baseSpeed *= 2;
+            baseSpeed *= 3;
             // rb.AddForce(transform.up * 100);
             yield return new WaitForSeconds(1f);
             //Managers.Audio.PlaySound(attackSound);

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 203672776387682309}
   - component: {fileID: 4306390736602552282}
   - component: {fileID: 8589236216425278960}
+  - component: {fileID: 5251842478415446827}
   m_Layer: 0
   m_Name: FoxEnemy
   m_TagString: Enemy
@@ -166,3 +167,16 @@ MonoBehaviour:
   damageToPlayer: 10
   attackSound: {fileID: 0}
   playJiao: {fileID: 0}
+--- !u!114 &5251842478415446827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7357848543602401260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c80fc2259c4c4623b47414ea5085cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementScript: {fileID: 8589236216425278960}

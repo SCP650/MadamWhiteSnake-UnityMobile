@@ -100,7 +100,7 @@ public class PowerupController : MonoBehaviour
     private int GetPower()
     {
         int i = Random.Range(1, icons.Length+1);
-        i = 2;//for testing
+        //i = 2;//for testing
         switch (i)
         {
             case 1:
