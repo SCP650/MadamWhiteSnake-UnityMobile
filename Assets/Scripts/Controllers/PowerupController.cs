@@ -7,7 +7,8 @@ struct PowerUpKinds
 {
     public const int EMPTY =-1;
     public const int MORE_HEALTH = 0;
-    public const int SPEED_UP = 1; 
+    public const int SPEED_UP = 1;
+    public const int FIRE_BOMB = 2;
 
 }
 
@@ -16,10 +17,12 @@ public class PowerupController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] ParticleSystem healthParticle;
     [SerializeField] Button releasePowerup;
+    [SerializeField] GameObject furnianceAnimation;
     [Tooltip("Refer to PowerUpKinds for index")]
     [SerializeField] Sprite[] icons;
     [SerializeField] Image secondPowerImg;
-   
+    [SerializeField] GameObject FireBombPrefb;
+    [SerializeField] Sprite EmptySprite;
 
 
     private int firstPower;
@@ -63,9 +66,11 @@ public class PowerupController : MonoBehaviour
     private IEnumerator ChangeUIIcon(Sprite sprite )
     {
         releasePowerup.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-
+        furnianceAnimation.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        furnianceAnimation.SetActive(false);
         powerIcon.sprite = sprite;
+
     }
 
     public void TriggerPower()
@@ -79,6 +84,7 @@ public class PowerupController : MonoBehaviour
 
             if (firstPower == PowerUpKinds.EMPTY)
             {
+                powerIcon.sprite = EmptySprite;
                 releasePowerup.gameObject.SetActive(false);
             }
             else
@@ -93,13 +99,16 @@ public class PowerupController : MonoBehaviour
 
     private int GetPower()
     {
-        int i = Random.Range(1, 3);
+        int i = Random.Range(1, icons.Length+1);
+        //i = 2;//for testing
         switch (i)
         {
             case 1:
                 return PowerUpKinds.MORE_HEALTH;
             case 2:
                 return PowerUpKinds.SPEED_UP;
+            case 3:
+                return PowerUpKinds.FIRE_BOMB;
             default:
                 return PowerUpKinds.EMPTY;//this should not happen
         }
@@ -114,9 +123,14 @@ public class PowerupController : MonoBehaviour
                 Managers.Player.ChangeHealth(20);
                 break;
             case PowerUpKinds.SPEED_UP:
-                player.GetComponent<PlayerViewHoriMove>().speed *= 1.5f;
+                player.GetComponent<PlayerViewHoriMove>().IncreaseSpeedBy(1.5f);
                 yield return new WaitForSeconds(5);
-                player.GetComponent<PlayerViewHoriMove>().speed *= 1 / 1.5f;
+                player.GetComponent<PlayerViewHoriMove>().ResetSpeed();
+                break;
+            case PowerUpKinds.FIRE_BOMB:
+                GameObject gb = Instantiate(FireBombPrefb);
+                gb.transform.position = player.transform.position;
+                gb.transform.Rotate(0, 0, 45);
                 break;
             default:
                 Debug.Log("Empty Power up");

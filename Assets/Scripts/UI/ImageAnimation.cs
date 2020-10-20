@@ -14,7 +14,7 @@ public class ImageAnimation : MonoBehaviour
     private int index = 0;
     private Image image;
     private int frame = 0;
-    private int currNum = 0;
+  
 
     void Awake()
     {
@@ -37,8 +37,8 @@ public class ImageAnimation : MonoBehaviour
         index++;
         if (index >= sprites.Length)
         {
-            currNum++;
-            if (loop && currNum <= loopNum) index = 0;
+           
+            if (loop) index = 0;
 
             if (destroyOnEnd) Destroy(gameObject);
         }
