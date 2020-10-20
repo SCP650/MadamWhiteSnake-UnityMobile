@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dragonboat1 : MonoBehaviour
+public class dragonboat4 : MonoBehaviour
 {
     public bool isMoving;
     void Awake()
-    {     
-        Messenger.AddListener("dragonmoving", move);        
-    }   
+    {
+        Messenger.AddListener("dragonmoving", move);
+    }
     void Update()
     {
-        if (isMoving) 
+        if (isMoving)
         {
-            this.transform.position += Vector3.right * Time.deltaTime * 13.0f;
+            this.transform.position += Vector3.right * Time.deltaTime * 2.0f;
         }
     }
     void move()
