@@ -10,7 +10,7 @@ public class dragonstartmove : MonoBehaviour
     {
         if(dragon.tag=="Player")
         {
-            BroadcastMessage("dragonmoving");
+            Messenger.Broadcast("dragonmoving") ;
         }
     }
 
