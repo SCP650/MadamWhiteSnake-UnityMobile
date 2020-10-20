@@ -6,11 +6,10 @@ public class dragonstartmove : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D dragon)
     {
-        if(other.tag=="Player")
+        if(dragon.tag=="Player")
         {
-            Debug.Log("startmoveing");
             BroadcastMessage("dragonmoving");
         }
     }
