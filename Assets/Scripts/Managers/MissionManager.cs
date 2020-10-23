@@ -55,6 +55,7 @@ public class MissionManager : MonoBehaviour, IGameManager
         {
          
             string name = "Level" + i;
+            curLevel = i;
             Debug.Log("Loading " + name);
             SceneManager.LoadScene(name);
         }
