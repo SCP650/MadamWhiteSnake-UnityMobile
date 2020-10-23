@@ -20,17 +20,19 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public void OnPointerDown(PointerEventData eventData)
     {
         pointerDown = true;
-        Debug.Log("OnPointerDown");
+        if (onClick != null)
+            onClick.Invoke();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         Reset();
-        Debug.Log("OnPointerUp");
+  
         if (isHolding)
         {
             isHolding = false;
-            Debug.Log("Holding stop!!");
+            if (afterLongClick != null)
+                afterLongClick.Invoke();
         }
     }
 
@@ -42,7 +44,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             if (pointerDownTimer >= requiredHoldTime)
             {
                 isHolding = true;
-                Debug.Log("HOLDDDDDD!!!");
+           
                 if (onLongClick != null)
                     onLongClick.Invoke();
 

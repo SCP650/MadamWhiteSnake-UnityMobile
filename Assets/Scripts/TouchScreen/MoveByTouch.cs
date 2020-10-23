@@ -38,7 +38,6 @@ public class MoveByTouch : MonoBehaviour
 
     private float StartTime;
     private float acumTime = 0;
-    private float holdTime = 0.3f;
     private float OldGravity;
     private PlayerViewHoriMove horiSpeed;
     private float oldSpeed;
@@ -95,122 +94,19 @@ public class MoveByTouch : MonoBehaviour
         //return false;
 
  
-    }
-    void Update()
-    {
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).position.x > MidWidth)
-        {
-
-            acumTime += Input.GetTouch(0).deltaTime;
-            Debug.Log(acumTime);
-            if (acumTime >= holdTime)
-            {
-
-                StartFly();
-
-                if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                {
-                    acumTime = 0;
-                    EndFly();
-                }
-            }
-
-
-        }
-
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = touch.position;
-            StartTime = Time.time;
-
-
-            if (touchPos.x < MidWidth && CheckID())
-            {
-                //jump
-                if (dantianController.canUseDanTian())
-                {
-                    if (IsShield)
-                    {
-                        StartCoroutine(Shield());
-                        dantianController.dantianUsed();
-                    }
-                    else
-                    {
-                        UmbrellaSword();
-                    }
-
-                }
-                else
-                {
-                    StartCoroutine(ShowWarning("丹田不足，无法开伞"));
-                }
-
-
-            }
-            if (touchPos.x > MidWidth)
-            {
-                Jump();
-
-            }
-
-        } 
-        else if (Input.GetButtonDown("Fire1"))
-        {
-            //jump
-            if (dantianController.canUseDanTian())
-            {
-                if (IsShield)
-                {
-                    StartCoroutine(Shield());
-                    dantianController.dantianUsed();
-                }
-                else
-                {
-                   
-                    UmbrellaSword();
-                }
-       
-              
-            }
-            else
-            {
-                StartCoroutine(ShowWarning("丹田不足，无法开伞"));
-            }
-
-        }
-        else if (Input.GetKeyDown("w")) // For editor testing
-        {
-            Jump();
-        }
-        else if (Input.GetKey("w"))
-        {
-            StartFly();
-        }
-        else if (Input.GetKeyUp("w"))
-        {
-            EndFly();
-        }
-
-
-        
-    }
-
-
+    } 
   
 
-    private void StartFly()
+    public void StartFly()
     {
+  
         _animator.SetBool("IsFlying", true);
         if (IsGrounded())
         {
             EndFly();
-        }
-        if (dantianController.canUseDanTian())
+        }else if (dantianController.canUseDanTian())
         {
-            dantianController.canUseDanTian();
+           
             horiSpeed.IncreaseFlyingSpeed();
             rb.gravityScale = PlayGravity;
             dantianController.FlyingCost();
@@ -224,14 +120,14 @@ public class MoveByTouch : MonoBehaviour
       
     }
 
-    private void EndFly()
+    public void EndFly()
     {
         horiSpeed.ResetSpeed();
         _animator.SetBool("IsFlying",false);
         rb.gravityScale = OldGravity;
     }
 
-    private void Jump()
+    public void Jump()
     {
       
         if (IsGrounded())
@@ -241,7 +137,7 @@ public class MoveByTouch : MonoBehaviour
             SingleJump();
         } else if (count == 1) // not on ground
         {
-            Debug.Log("Second Jump");
+            //Debug.Log("Second Jump");
             count++;
             SingleJump();
 
@@ -297,6 +193,29 @@ public class MoveByTouch : MonoBehaviour
         shield.SetActive(false);
        
 
+    }
+
+    public void AttackOrDefense()
+    {
+        if (dantianController.canUseDanTian())
+        {
+            if (IsShield)
+            {
+                StartCoroutine(Shield());
+                dantianController.dantianUsed();
+            }
+            else
+            {
+
+                UmbrellaSword();
+            }
+
+
+        }
+        else
+        {
+            StartCoroutine(ShowWarning("丹田不足，无法开伞"));
+        }
     }
 
     private void UmbrellaSword()

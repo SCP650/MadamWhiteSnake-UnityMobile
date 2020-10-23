@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070797533953672348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1950661145028146237}
@@ -92,6 +92,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: AttackOrDefense
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  afterLongClick:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1950661143391347545
@@ -712,6 +726,7 @@ GameObject:
   - component: {fileID: 1950661144058842202}
   - component: {fileID: 1950661144058842196}
   - component: {fileID: 1950661144058842203}
+  - component: {fileID: 3575019927697326029}
   m_Layer: 5
   m_Name: Finish
   m_TagString: Untagged
@@ -781,6 +796,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3575019927697326029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950661144058842201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96f9be4e6c8e4fafb37f409fea2944c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackButton: {fileID: 1070797533953672348}
+  JumpButton: {fileID: 8527795613647443009}
 --- !u!1 &1950661144187130369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1557,7 @@ GameObject:
   - component: {fileID: 1950661144741751869}
   - component: {fileID: 1950661144741751871}
   - component: {fileID: 1950661144741751870}
+  - component: {fileID: 3518107420036844362}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -1543,7 +1573,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950661144741751868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1950661144550752721}
@@ -1594,6 +1624,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3518107420036844362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950661144741751868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96f9be4e6c8e4fafb37f409fea2944c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackButton: {fileID: 1070797533953672348}
+  JumpButton: {fileID: 8527795613647443009}
 --- !u!1 &1950661144930194983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,7 +2128,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8527795613647443009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1950661145028146237}
@@ -2144,13 +2188,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e15d0b661564f3998eaae00ca25e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredHoldTime: 0.5
+  requiredHoldTime: 0.3
   onLongClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: StartFly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  afterLongClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: EndFly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5553327031621945307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2287,6 +2367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UseAbility
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490456056719232761, guid: 5bbb1b9fedd41497db9cd61a999d6df8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9189018821772547906, guid: 5bbb1b9fedd41497db9cd61a999d6df8,
         type: 3}

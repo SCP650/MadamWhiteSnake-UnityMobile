@@ -9,7 +9,7 @@ public class Level1Controller : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        //Managers.Audio.PlayLevelMusic(1);
+        Managers.Audio.PlayLevelMusic(1);
 
     }
 
