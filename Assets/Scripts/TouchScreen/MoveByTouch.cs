@@ -197,6 +197,7 @@ public class MoveByTouch : MonoBehaviour
 
     public void AttackOrDefense()
     {
+       
         if (dantianController.canUseDanTian())
         {
             if (IsShield)

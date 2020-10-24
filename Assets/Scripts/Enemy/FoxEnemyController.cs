@@ -57,7 +57,7 @@ public class FoxEnemyController : MonoBehaviour
 
 
         }
-        if(transform.position.y < -160)
+        if(transform.position.y < -168)
         {
             Destroy(gameObject);
         }

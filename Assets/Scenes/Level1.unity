@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -11242,6 +11242,11 @@ PrefabInstance:
     - target: {fileID: 8948670029201453817, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: PlayGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948670029201453817, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: IsShield
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -55908,6 +55913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerLocation: {fileID: 171914981}
+  isMoving: 0
 --- !u!81 &2026197903
 AudioListener:
   m_ObjectHideFlags: 0
