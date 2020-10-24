@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+
 
 public class Blade : MonoBehaviour {
 
@@ -24,6 +26,7 @@ public class Blade : MonoBehaviour {
 		circleCollider = GetComponent<CircleCollider2D>();
 	}
 
+
 	void StartCutting ()
 	{
 		
@@ -46,9 +49,13 @@ public class Blade : MonoBehaviour {
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = 0f;
             transform.position = touchPosition; 
-            StartCutting();
+            StartCutting();			
         }
 
+
+		
     }
+
+	
 
 }
