@@ -90,6 +90,7 @@ public class FinishLevel : MonoBehaviour
 
     public void ChooseLie()
     {
+        Managers.mission.SetLevelChoice(false);
         currScene = 4;
         NextConversation();
         option1.SetActive(false);
@@ -97,6 +98,7 @@ public class FinishLevel : MonoBehaviour
     }
     public void ChooseTrue()
     {
+        Managers.mission.SetLevelChoice(true);
         currScene = 3;
         NextConversation();
         option1.SetActive(false);
