@@ -15,15 +15,19 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        transform.position = new Vector3(PlayerLocation.position.x, transform.position.y, transform.position.z);
-
-        if (isMoving)
+        float y = transform.position.y;
+        if (isMoving && y > -155.0f)
         {
-            this.transform.position = new Vector3(PlayerLocation.position.x, -155.0f, transform.position.z);
+            y -= 5 * Time.deltaTime;
         }
+        transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
+
+
     }
     void Move()
     {
         isMoving = true;
+        //this.transform.position = new Vector3(PlayerLocation.position.x, -155.0f, transform.position.z);
+
     }
 }
