@@ -158,7 +158,7 @@ public class MoveByTouch : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         //Vector3 curr = transform.position;
         //jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
-        //Managers.Audio.PlaySound(jumpSound);
+        Managers.Audio.PlaySound(jumpSound);
         //shouldJump = true;
     }
 

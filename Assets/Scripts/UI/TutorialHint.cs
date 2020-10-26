@@ -27,7 +27,7 @@ public class TutorialHint : MonoBehaviour
 
     private IEnumerator ChangeHintText()
     {
-        yield return new WaitForSeconds(3);
+       
         hintText.text = textContent;
    
         hintText.gameObject.SetActive(true);

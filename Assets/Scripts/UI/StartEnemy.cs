@@ -10,6 +10,7 @@ public class StartEnemy : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             EnemySpawer.SetActive(true);
+            Managers.Audio.PlayLevelMusic(1);
         }
     }
 }
