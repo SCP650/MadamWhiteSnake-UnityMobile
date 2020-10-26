@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6018568129605083085}
   m_Layer: 0
   m_Name: "\u7A7A\u7EF3\u6BB5\u5B50 1"
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8659095030387025370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 159.15, y: -153.31, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,8 +96,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18183807, y: -0.09023935}
-  m_Size: {x: 3.3451786, y: 0.116287276}
+  m_Offset: {x: -0.18183807, y: -0.02211092}
+  m_Size: {x: 3.3451796, y: 0.40386975}
   m_Direction: 1
 --- !u!251 &6018568129605083085
 PlatformEffector2D:
