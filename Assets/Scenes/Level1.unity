@@ -11794,6 +11794,10 @@ PrefabInstance:
       propertyPath: danTian
       value: 
       objectReference: {fileID: 1744296472}
+    - target: {fileID: 1239549507, guid: f6da10800a4454832b2975d6f3c0cd69, type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cb307896466544e68aa02c8e9c8ef175, type: 3}
     - target: {fileID: 877578092603008159, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14963,7 +14967,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604763010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 407.9, y: -6.4, z: 0}
+  m_LocalPosition: {x: 384.9, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 839079987}
@@ -32372,6 +32376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &970781832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36903,6 +36908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &1154530400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50956,6 +50962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &1325877691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57469,6 +57476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &1433119560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63149,6 +63157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &1699050636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67708,6 +67717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &1837580563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69633,6 +69643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &1925388241
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73416,6 +73427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &2062080543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75614,6 +75626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4548c6acb7d4c0ab0fc38607ff9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSound: {fileID: 8300000, guid: bc35c51b6a12343a280f0f23254999dc, type: 3}
 --- !u!61 &2146312540
 BoxCollider2D:
   m_ObjectHideFlags: 0

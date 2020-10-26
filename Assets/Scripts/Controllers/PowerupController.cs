@@ -23,7 +23,9 @@ public class PowerupController : MonoBehaviour
     [SerializeField] Image secondPowerImg;
     [SerializeField] GameObject FireBombPrefb;
     [SerializeField] Sprite EmptySprite;
-
+    [SerializeField] AudioClip PickUpSound;
+    [SerializeField] AudioClip gasSound;
+    [SerializeField] AudioClip healthSound;
 
     private int firstPower;
     private int secondPower;
@@ -48,7 +50,7 @@ public class PowerupController : MonoBehaviour
     }
     private void PickupPowerup()
     {
-
+        Managers.Audio.PlaySound(PickUpSound);
         if(firstPower == PowerUpKinds.EMPTY)
         {
             firstPower = GetPower();
@@ -119,6 +121,7 @@ public class PowerupController : MonoBehaviour
         switch (power)
         {
             case PowerUpKinds.MORE_HEALTH:
+                Managers.Audio.PlaySound(healthSound);
                 healthParticle.Play();
                 Managers.Player.ChangeHealth(20);
                 break;
@@ -128,6 +131,7 @@ public class PowerupController : MonoBehaviour
                 player.GetComponent<PlayerViewHoriMove>().ResetSpeed();
                 break;
             case PowerUpKinds.FIRE_BOMB:
+                Managers.Audio.PlaySound(gasSound);
                 GameObject gb = Instantiate(FireBombPrefb);
                 gb.transform.position = player.transform.position;
                 gb.transform.Rotate(0, 0, 45);
