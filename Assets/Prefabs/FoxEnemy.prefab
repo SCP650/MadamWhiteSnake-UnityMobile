@@ -122,7 +122,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 17.5, y: 17.5}
+    oldSize: {x: 23.333334, y: 23.333334}
     newSize: {x: 14.25, y: 14.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 10
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 3f208238415d64390812479e4f544501, type: 3}
   playJiao: {fileID: 0}
 --- !u!114 &5251842478415446827
 MonoBehaviour:
@@ -180,3 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementScript: {fileID: 8589236216425278960}
+  dieSound: {fileID: 8300000, guid: 685b47a7a64854664adf891f66ec3d10, type: 3}

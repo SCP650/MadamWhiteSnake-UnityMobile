@@ -75,7 +75,7 @@ public class FoxEnemyController : MonoBehaviour
             baseSpeed *= 3;
             // rb.AddForce(transform.up * 100);
             yield return new WaitForSeconds(1f);
-            //Managers.Audio.PlaySound(attackSound);
+            Managers.Audio.PlaySound(attackSound);
             baseSpeed = oldSpeed;
             yield return new WaitForSeconds(seconds);
 
