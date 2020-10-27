@@ -62,7 +62,7 @@ public class pauseManu : MonoBehaviour
     public void death()
     {
         pause(true);
-        pauseDeathText.text = "菜";
+        pauseDeathText.text = "缘分未到";
         togglePause.gameObject.SetActive(false);
         resumeButton.SetActive(false);
     }

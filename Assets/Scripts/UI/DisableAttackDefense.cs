@@ -14,6 +14,6 @@ public class DisableAttackDefense : MonoBehaviour
     private void OnDisable()
     {
         AttackButton.SetActive(true);
-        AttackButton.SetActive(true);
+        JumpButton.SetActive(true);
     }
 }
