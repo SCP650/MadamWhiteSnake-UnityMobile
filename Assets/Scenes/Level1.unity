@@ -2750,6 +2750,7 @@ GameObject:
   - component: {fileID: 87001468}
   - component: {fileID: 87001467}
   - component: {fileID: 87001466}
+  - component: {fileID: 87001469}
   m_Layer: 0
   m_Name: "13\u77F3\u9636\u4E0B (7)"
   m_TagString: Ground
@@ -2778,7 +2779,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87001464}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2883,6 +2884,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &87001469
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87001464}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.54, y: 0.00000023841858}
+  - {x: 0.54, y: 0.00000023841858}
 --- !u!1 &109455807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,6 +2995,7 @@ GameObject:
   - component: {fileID: 110052200}
   - component: {fileID: 110052199}
   - component: {fileID: 110052198}
+  - component: {fileID: 110052201}
   m_Layer: 0
   m_Name: "13\u77F3\u9636\u4E0B (4)"
   m_TagString: Ground
@@ -3004,7 +3024,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110052196}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -3109,6 +3129,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &110052201
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110052196}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.539939, y: 0}
+  - {x: 0.54006106, y: 0}
 --- !u!1 &114512003
 GameObject:
   m_ObjectHideFlags: 0
@@ -6775,6 +6813,7 @@ GameObject:
   - component: {fileID: 267749097}
   - component: {fileID: 267749096}
   - component: {fileID: 267749095}
+  - component: {fileID: 267749098}
   m_Layer: 0
   m_Name: "13\u77F3\u9636\u4E0B (6)"
   m_TagString: Ground
@@ -6803,7 +6842,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267749093}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -6908,6 +6947,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &267749098
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267749093}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.54, y: -0.00000023841858}
+  - {x: 0.54, y: -0.00000023841858}
 --- !u!1 &268385488
 GameObject:
   m_ObjectHideFlags: 0
@@ -12479,6 +12536,7 @@ GameObject:
   - component: {fileID: 522074875}
   - component: {fileID: 522074874}
   - component: {fileID: 522074873}
+  - component: {fileID: 522074876}
   m_Layer: 0
   m_Name: "13\u77F3\u9636\u4E0B (9)"
   m_TagString: Ground
@@ -12507,7 +12565,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522074871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -12612,6 +12670,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &522074876
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522074871}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.539939, y: 0}
+  - {x: 0.54006106, y: 0}
 --- !u!1 &530518232
 GameObject:
   m_ObjectHideFlags: 0
@@ -40690,6 +40766,7 @@ GameObject:
   - component: {fileID: 1270560605}
   - component: {fileID: 1270560604}
   - component: {fileID: 1270560603}
+  - component: {fileID: 1270560606}
   m_Layer: 0
   m_Name: "13\u77F3\u9636\u4E0B (8)"
   m_TagString: Ground
@@ -40718,7 +40795,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270560601}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -40823,6 +40900,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &1270560606
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270560601}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.539939, y: -0.00000047683716}
+  - {x: 0.54006106, y: -0.00000047683716}
 --- !u!1 &1271452914
 GameObject:
   m_ObjectHideFlags: 0
@@ -59232,6 +59327,7 @@ GameObject:
   - component: {fileID: 1530294976}
   - component: {fileID: 1530294975}
   - component: {fileID: 1530294974}
+  - component: {fileID: 1530294977}
   m_Layer: 0
   m_Name: "13\u77F3\u9636\u4E0B (5)"
   m_TagString: Ground
@@ -59260,7 +59356,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530294972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -59365,6 +59461,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &1530294977
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530294972}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.539939, y: 0}
+  - {x: 0.54006106, y: 0}
 --- !u!1001 &1534885761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61200,7 +61314,7 @@ PrefabInstance:
     - target: {fileID: 7175056673442155028, guid: cdb00a4e05f4e0745b4486fca339c84d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 942.71
+      value: 950
       objectReference: {fileID: 0}
     - target: {fileID: 7175056673442155028, guid: cdb00a4e05f4e0745b4486fca339c84d,
         type: 3}
