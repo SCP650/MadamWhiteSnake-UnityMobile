@@ -174,10 +174,13 @@ MonoBehaviour:
   shield: {fileID: 7898702684808452887}
   jumpSound: {fileID: 8300000, guid: 7e79793c8ac5b40a5bca7de5eabc8720, type: 3}
   shieldSound: {fileID: 8300000, guid: 06eb4e4fea0dc482ebe502114477d39b, type: 3}
+  Attack1Sound: {fileID: 8300000, guid: dae40fa9b14304f0299f26134565c6b2, type: 3}
+  Attack2Sound: {fileID: 8300000, guid: 4236f9ce4c3624c369cea0516900e618, type: 3}
+  Attack3Sound: {fileID: 8300000, guid: 9a75561c04ec64765beaa2e430311bf2, type: 3}
   warningText: {fileID: 0}
-  IsShield: 0
+  IsShield: 1
   AttackArea: {fileID: 1232046608229568588}
-  PlayGravity: 0.5
+  PlayGravity: 1
 --- !u!114 &1290357092034946028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +209,7 @@ MonoBehaviour:
   numNeeded: 3
   totalAttack: 7
   danTian: {fileID: 0}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: e696d7bba4fb748b296761f6889c770e, type: 3}
 --- !u!1 &877578092735667474
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &877578092735667469
 Transform:
   m_ObjectHideFlags: 0

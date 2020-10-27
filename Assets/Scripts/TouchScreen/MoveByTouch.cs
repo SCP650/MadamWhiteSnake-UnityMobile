@@ -16,6 +16,9 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip shieldSound;
+    [SerializeField] AudioClip Attack1Sound;
+    [SerializeField] AudioClip Attack2Sound;
+    [SerializeField] AudioClip Attack3Sound;
     [SerializeField] Text warningText;
     [SerializeField] private bool IsShield = true;
     [SerializeField] private GameObject AttackArea;
@@ -238,7 +241,19 @@ public class MoveByTouch : MonoBehaviour
 
     private IEnumerator SingleSwordHit(int type)
     {
+        switch (type)
+        {
+            case 0:
+                Managers.Audio.PlaySound(Attack1Sound);
+                break;
+            case 1:
+                Managers.Audio.PlaySound(Attack2Sound);
+                break;
+            case 2:
+                Managers.Audio.PlaySound(Attack3Sound);
+                break;
 
+        }
         _animator.SetTrigger($"Attack{type}");
         yield return new WaitForSeconds(0.1f);
         AttackArea.SetActive(true);
