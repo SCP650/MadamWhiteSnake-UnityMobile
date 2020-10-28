@@ -30,7 +30,7 @@ public class FahaiController : MonoBehaviour
 
        
 
-        transform.position = new Vector3(transform.position.x + playerSpeed.speed*Time.deltaTime, target.position.y, target.position.z);
+        transform.position = new Vector3(target.position.x-27, target.position.y, target.position.z);
      
     }
 
