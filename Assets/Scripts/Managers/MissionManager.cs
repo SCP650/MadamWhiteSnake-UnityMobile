@@ -37,6 +37,7 @@ public class MissionManager : MonoBehaviour, IGameManager
     {
         if(curLevel < maxLevel)
         {
+            Managers.Player.Respawn();
             curLevel++;
             string name = "Level" + curLevel;
             Debug.Log("Loading " + name);
@@ -66,6 +67,11 @@ public class MissionManager : MonoBehaviour, IGameManager
             Debug.Log("Last Level");
 
         }
+    }
+
+    public void GoToStartUp()
+    {
+        SceneManager.LoadScene("Startup");
     }
 
     public void GoToNextTransitionScene()
