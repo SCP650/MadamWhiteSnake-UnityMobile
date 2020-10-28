@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3102641846734755480}
   - component: {fileID: 653246975545098680}
   - component: {fileID: 2891710931449825344}
+  - component: {fileID: 159594322275225218}
   m_Layer: 0
   m_Name: "\u6CD5\u7403"
   m_TagString: Untagged
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 12
+  playJiao: {fileID: 8300000, guid: 341ed18f497e6457ea668430f5526acf, type: 3}
 --- !u!95 &2891710931449825344
 Animator:
   serializedVersion: 3
@@ -115,3 +117,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &159594322275225218
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216798786988093969}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.8319225, y: 2.032716}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7, y: 7}
+    newSize: {x: 7, y: 7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2255353, y: 0.7494569}
+  m_EdgeRadius: 0

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FahaiController : MonoBehaviour
 {
-    [SerializeField] float baseSpeed = 12;
+    [SerializeField] float baseSpeed = 10;
     [SerializeField] GameObject FireBallPrefb;
+    [SerializeField] PlayerViewHoriMove playerSpeed;
 
     private Transform target;
     private Animator _animator;
@@ -27,24 +28,25 @@ public class FahaiController : MonoBehaviour
     void Update()
     {
 
-        var hit = Physics2D.BoxCast(transform.position, RaycastBoxSize, 0, Vector2.right,3);
-        if (hit)
-        {
-        
-            if(hit.transform.tag == "Ground")
-            {
-                rb.velocity = new Vector2(rb.velocity.x, 10);
-            }
-          
-        }
+        //var hit = Physics2D.BoxCast(transform.position, RaycastBoxSize, 0, Vector2.right,3);
+        //if (hit)
+        //{
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed * Time.deltaTime);
-        if(transform.eulerAngles.z > 45 || transform.eulerAngles.z < -45)
-        {
+        //    if(hit.transform.tag == "Ground")
+        //    {
+        //        rb.velocity = new Vector2(rb.velocity.x, 10);
+        //    }
 
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.time * 5);
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+        ////}
+        //if (transform.eulerAngles.z > 45 || transform.eulerAngles.z < -45)
+        //{
+
+        //    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.time * 5);
+        //    transform.rotation = Quaternion.Euler(0, 0, 0);
+        //}
+
+        transform.position = new Vector3(transform.position.x + playerSpeed.speed*Time.deltaTime, target.position.y, target.position.z);
+     
     }
 
     private IEnumerator StartAttacking()
@@ -52,7 +54,8 @@ public class FahaiController : MonoBehaviour
         while (true)
         {
             _animator.SetTrigger("FireBallAttack");
-            Instantiate(FireBallPrefb,transform);
+            GameObject gb =  Instantiate(FireBallPrefb);
+            gb.transform.position = transform.position;
             yield return new WaitForSeconds(2);
         }
        
