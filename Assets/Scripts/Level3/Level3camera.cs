@@ -16,9 +16,9 @@ public class Level3camera : MonoBehaviour
     void Update()
     {
         float y = transform.position.y;
-        if (isMoving && y > -155.0f)
+        if (isMoving && y < -148.4f)
         {
-            y -= 5 * Time.deltaTime;
+            y += 1 * Time.deltaTime;
         }
         transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
 
