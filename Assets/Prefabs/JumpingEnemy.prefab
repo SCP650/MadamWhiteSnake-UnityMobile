@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2185384488413648195}
   - component: {fileID: 4682814083350730514}
   - component: {fileID: 1049635685650562056}
+  - component: {fileID: 5483157988453292415}
   m_Layer: 0
   m_Name: JumpingEnemy
   m_TagString: Enemy
@@ -182,3 +183,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5483157988453292415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185384488413648196}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23683357c32b8a443b4f3c0fb14c2782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,6 +11,9 @@ public class JumpingEnemyController : MonoBehaviour
     [Tooltip("玩家的叫声")]
     [SerializeField] private AudioClip playJiao; 
 
+    [SerializeField] private MonoBehaviour MovementScript;
+    
+    private Score ScoreController;
     private Transform target;
     private Collider2D collider;
     private Rigidbody2D rb;
@@ -27,6 +30,7 @@ public class JumpingEnemyController : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         int LuckNumBase = Random.Range(1, 10);
         float RandomIndexBase = Random.Range(-3f, 5f);
+        ScoreController = GetComponent<Score>();
         //baseSpeed += 1f * Time.deltaTime;
         if (LuckNumBase == 5)
         {
@@ -114,12 +118,21 @@ public class JumpingEnemyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject scoreText = GameObject.Find ("Score");
         string whatHitMe = collision.gameObject.tag;
         if (whatHitMe == "PlayerHitbox")
         {
        
             Managers.Player.ChangeHealth(-damageToPlayer);
             Managers.Audio.PlaySound(playJiao);
+        }
+        else if(whatHitMe == "SlidePoint")
+        {
+            
+            scoreText.GetComponent<Score>().incrementScore(1);
+            _animator.SetTrigger("Die");
+            Destroy(MovementScript);
+            StartCoroutine(Flicker());
         }
     }
 
@@ -140,6 +153,13 @@ public class JumpingEnemyController : MonoBehaviour
         rb.velocity = new Vector2( -baseSpeed/2, rb.velocity.y);
         yield return new WaitForSeconds(1.5f);
         isRunning = true;
+    }
+
+    private IEnumerator Flicker()
+    { 
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+
     }
 
 }

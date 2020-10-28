@@ -33,6 +33,8 @@ public class MoveByTouch : MonoBehaviour
     private float MidHeight;
     private CollectPoints dantianController;
 
+    private Blade CutController;
+
     private float StartPosY;
     private int count = 0;
 
@@ -46,6 +48,8 @@ public class MoveByTouch : MonoBehaviour
     private float followUpThresholh = 1f;
     private int AttackCounter = 0;
 
+    private bool canFLY = false;
+
     void Start()
     {
 
@@ -55,6 +59,7 @@ public class MoveByTouch : MonoBehaviour
         MidHeight = Screen.height / 2;
         _animator = GetComponent<Animator>();
         dantianController = GetComponent<CollectPoints>();
+        CutController = GetComponent<Blade>();
         shield.SetActive(false);
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
@@ -99,12 +104,19 @@ public class MoveByTouch : MonoBehaviour
 
     public void StartFly()
     {
-  
+
+        
+        
+        // if(dantianController.canUseDanTian())
+        // {
+        //     canFLY = true;
+        // }
         _animator.SetBool("IsFlying", true);
         if (IsGrounded())
         {
+            canFLY = false;
             EndFly();
-        }else if (dantianController.canUseDanTian())
+        }else if (dantianController.canUseDanTian())// && CutController.canfly != false)
         {
            
             horiSpeed.IncreaseFlyingSpeed();
@@ -113,12 +125,15 @@ public class MoveByTouch : MonoBehaviour
         }
         else
         {
+            canFLY = false;
             StartCoroutine(ShowWarning("丹田不足，无法滑翔"));
             EndFly();
         }
 
       
     }
+
+
 
     public void EndFly()
     {
@@ -127,9 +142,42 @@ public class MoveByTouch : MonoBehaviour
         rb.gravityScale = OldGravity;
     }
 
+    public void CANFLY()
+    {
+        canFLY = false;
+    }
+
+    public void CANJUMP()
+    {
+        canJump = false;
+    }
+    public void CANShield()
+    {
+        shield.SetActive(false);
+    }
+
+    // public void CheckCut()
+    // {
+    //     if(dantianController.DanTianMax())
+    //     {
+    //         canFLY = false;
+    //         //canJump = false;
+    //         Debug.Log("Ready to cut");
+    //         // Debug.Log("ready to cut");
+    //         CutController.Cut();
+    //     }
+    //     // else
+    //     // {
+    //     //     canFLY = true;
+    //     //     canJump = true;
+
+    //     // }
+    // }
+
     public void Jump()
     {
-      
+        //CheckCut();
+       
         if (IsGrounded())
         {
             count = 1;
@@ -214,7 +262,7 @@ public class MoveByTouch : MonoBehaviour
         }
         else
         {
-            StartCoroutine(ShowWarning("丹田不足，无法开伞"));
+            StartCoroutine(ShowWarning("丹田不足，无法开伞/滑切"));
         }
     }
 
