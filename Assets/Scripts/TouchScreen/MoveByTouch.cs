@@ -62,6 +62,10 @@ public class MoveByTouch : MonoBehaviour
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
 
+        if (Managers.mission.curLevel == 3)
+        {
+            IsShield = !Managers.mission.GetPlayerChoice(2);
+        }
         //StartPosY =  0.1947699f;
     }
 
@@ -212,6 +216,7 @@ public class MoveByTouch : MonoBehaviour
             {
 
                 UmbrellaSword();
+                dantianController.dantianUsed();
             }
 
 

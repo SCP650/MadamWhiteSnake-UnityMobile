@@ -1088,6 +1088,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackButton: {fileID: 1070797533953672348}
   JumpButton: {fileID: 8527795613647443009}
+  dantian: {fileID: 1950661144335134897}
+  PowerUp: {fileID: 3090053854042704162}
 --- !u!1 &1950661144187130369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,6 +1917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackButton: {fileID: 1070797533953672348}
   JumpButton: {fileID: 8527795613647443009}
+  dantian: {fileID: 0}
+  PowerUp: {fileID: 0}
 --- !u!1 &1950661144930194983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,6 +2740,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bbb1b9fedd41497db9cd61a999d6df8, type: 3}
+--- !u!1 &3090053854042704162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7490456056719232761, guid: 5bbb1b9fedd41497db9cd61a999d6df8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5553327031621945307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2030452248499689136 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5853830747840909675, guid: 5bbb1b9fedd41497db9cd61a999d6df8,

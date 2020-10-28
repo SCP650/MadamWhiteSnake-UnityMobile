@@ -11089,6 +11089,7 @@ GameObject:
   - component: {fileID: 408516326}
   - component: {fileID: 408516328}
   - component: {fileID: 408516327}
+  - component: {fileID: 408516329}
   m_Layer: 0
   m_Name: Lark20201009-213240 (10)
   m_TagString: Ground
@@ -11121,7 +11122,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.000013828278, y: 2.4122841}
   m_SpriteTilingProperty:
@@ -11186,6 +11187,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!251 &408516329
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408516325}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &409146499
 GameObject:
   m_ObjectHideFlags: 0
@@ -67682,6 +67702,7 @@ GameObject:
   - component: {fileID: 1845184693}
   - component: {fileID: 1845184695}
   - component: {fileID: 1845184694}
+  - component: {fileID: 1845184696}
   m_Layer: 0
   m_Name: Lark20201009-213240 (13)
   m_TagString: Ground
@@ -67714,7 +67735,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.000013828278, y: 2.4122841}
   m_SpriteTilingProperty:
@@ -67779,6 +67800,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!251 &1845184696
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845184692}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1846288241
 GameObject:
   m_ObjectHideFlags: 0
@@ -72265,6 +72305,7 @@ GameObject:
   - component: {fileID: 2048406132}
   - component: {fileID: 2048406134}
   - component: {fileID: 2048406133}
+  - component: {fileID: 2048406135}
   m_Layer: 0
   m_Name: Lark20201009-213240 (11)
   m_TagString: Ground
@@ -72297,7 +72338,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.000013828278, y: 2.4122841}
   m_SpriteTilingProperty:
@@ -72362,6 +72403,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!251 &2048406135
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048406131}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &2048645891
 GameObject:
   m_ObjectHideFlags: 0
