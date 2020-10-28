@@ -32,4 +32,5 @@ public class PlayerViewHoriMove : MonoBehaviour
     {
         speed = oldSpeed;
     }
+  
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireBallController : MonoBehaviour
 {
     [SerializeField] float baseSpeed;
- 
+    [SerializeField] AudioClip playJiao;
 
     // Update is called once per frame
     void Update()
@@ -16,8 +16,21 @@ public class FireBallController : MonoBehaviour
 
     }
 
+  
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        string whatHitMe = collision.gameObject.tag;
+        if (whatHitMe == "PlayerHitbox")
+        {
+
+            Managers.Player.ChangeHealth(-15);
+            Managers.Audio.PlaySound(playJiao);
+        }
+
+        Destroy(this.gameObject);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }
