@@ -6,12 +6,14 @@ public class Level3camera : MonoBehaviour
 {
     [SerializeField] Transform PlayerLocation;
     public bool isMoving;
+    public bool issMoving;
 
     // Update is called once per frame
 
     void Awake()
     {
         Messenger.AddListener("cameramove", Move);
+        Messenger.AddListener("cameramovee", Movee);
     }
     void Update()
     {
@@ -22,6 +24,11 @@ public class Level3camera : MonoBehaviour
         }
         transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
 
+        if (issMoving && y > -152.9f)
+        {
+            y -= 1 * Time.deltaTime;
+        }
+        transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
 
     }
     void Move()
@@ -29,5 +36,10 @@ public class Level3camera : MonoBehaviour
         isMoving = true;
         //this.transform.position = new Vector3(PlayerLocation.position.x, -155.0f, transform.position.z);
 
+    }
+
+void Movee()
+    {
+        issMoving = true;
     }
 }
