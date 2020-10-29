@@ -21,9 +21,7 @@ public class Level3camera : MonoBehaviour
         if (isMoving && y < -148.4f)
         {
             y += 1 * Time.deltaTime;
-        }
-        transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
-
+        }       
         if (issMoving && y > -152.9f)
         {
             y -= 1 * Time.deltaTime;
