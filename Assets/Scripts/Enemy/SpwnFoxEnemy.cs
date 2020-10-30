@@ -15,7 +15,7 @@ public class SpwnFoxEnemy : MonoBehaviour
         float ScreenHeight = 2 * Camera.main.orthographicSize;
         float ScreenWidth = ScreenHeight * Camera.main.aspect;
 
-        float left = -ScreenWidth / 2 + 30;
+        float left = -ScreenWidth / 2 -20;
         player = GameObject.Find("PlayerCharacter").transform;
 
         transform.localPosition = new Vector3(left, transform.localPosition.y, transform.localPosition.z);

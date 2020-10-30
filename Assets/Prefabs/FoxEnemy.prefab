@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7357848543602401260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 119.41724, y: -98.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: 9018b3ce1de7e4ace913e6f6ae5c0162, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd1ab41a0bbf34d978b42d8dc68eccb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.25, y: 14.5}
+    oldSize: {x: 23.333334, y: 23.333334}
     newSize: {x: 14.25, y: 14.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713e806e7c1964fe5b77fb3faa4f55eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToPlayer: 10
-  attackSound: {fileID: 0}
-  playJiao: {fileID: 0}
+  damageToPlayer: 7
+  attackSound: {fileID: 8300000, guid: 3f208238415d64390812479e4f544501, type: 3}
+  playJiao: {fileID: 8300000, guid: 341ed18f497e6457ea668430f5526acf, type: 3}
 --- !u!114 &5251842478415446827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,3 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementScript: {fileID: 8589236216425278960}
+  dieSound: {fileID: 8300000, guid: 685b47a7a64854664adf891f66ec3d10, type: 3}

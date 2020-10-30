@@ -18,7 +18,7 @@ public class FoxEnemyController : MonoBehaviour
     private bool isRunning;
     private float baseSpeed = 2f;
     private float oldSpeed;
-
+    private Vector2 RaycastBoxSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,7 @@ public class FoxEnemyController : MonoBehaviour
         //baseSpeed += 1f * Time.deltaTime;
         oldSpeed = baseSpeed;
 
-       
+        RaycastBoxSize = new Vector2(3f, 3f);
         StartCoroutine(Attack());
         isRunning = true;
        
@@ -48,16 +48,33 @@ public class FoxEnemyController : MonoBehaviour
     void Update()
     {
       
+
       
         if (isRunning)
         {
 
-            transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
-            //transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed * Time.deltaTime);
+            //transform.Translate(Vector3.right * baseSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, baseSpeed * Time.deltaTime);
+            var hit = Physics2D.BoxCast(transform.position, RaycastBoxSize, 0, Vector2.right,3);
+            if (hit)
+            {
 
+                if (hit.transform.tag == "Ground")
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, 10);
+                }
+            }
+
+                if (transform.eulerAngles.z > 45 || transform.eulerAngles.z < -45)
+                {
+
+                    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.time * 5);
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+            
 
         }
-        if(transform.position.y < -160)
+        if (transform.position.y < -168)
         {
             Destroy(gameObject);
         }
@@ -72,10 +89,10 @@ public class FoxEnemyController : MonoBehaviour
             float seconds = Random.Range(3.0f, 4.0f);
          
             _animator.SetTrigger("Attack");
-            baseSpeed *= 3;
+            baseSpeed *= 2;
             // rb.AddForce(transform.up * 100);
             yield return new WaitForSeconds(1f);
-            //Managers.Audio.PlaySound(attackSound);
+            Managers.Audio.PlaySound(attackSound);
             baseSpeed = oldSpeed;
             yield return new WaitForSeconds(seconds);
 

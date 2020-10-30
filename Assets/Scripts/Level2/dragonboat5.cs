@@ -13,7 +13,7 @@ public class dragonboat5 : MonoBehaviour
     {
         if (isMoving)
         {
-            this.transform.position += Vector3.right * Time.deltaTime * 10.0f;
+            this.transform.position += Vector3.right * Time.deltaTime * 2.7f;
         }
     }
     void move()

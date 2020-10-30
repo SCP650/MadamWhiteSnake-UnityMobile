@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 10
   jumpSpeed: 10
-  damageToPlayer: 10
+  damageToPlayer: 5
   attackSound: {fileID: 8300000, guid: 63582ec3d371a49e1b247acefe38192c, type: 3}
   playJiao: {fileID: 8300000, guid: b910e88cb3e7046adb3d15639ab7b560, type: 3}
 --- !u!61 &2185384488413648198
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementScript: {fileID: 2185384488413648193}
+  dieSound: {fileID: 0}
 --- !u!95 &1049635685650562056
 Animator:
   serializedVersion: 3

@@ -61,6 +61,9 @@ public class StartupController : MonoBehaviour
         }else if (Input.GetKeyDown("2"))
         {
             Managers.mission.GoToLevel(2);
+        }else if (Input.GetKeyDown("3"))
+        {
+            Managers.mission.GoToLevel(3);
         }
     }
 

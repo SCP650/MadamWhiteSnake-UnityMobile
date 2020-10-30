@@ -16,6 +16,9 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip shieldSound;
+    [SerializeField] AudioClip Attack1Sound;
+    [SerializeField] AudioClip Attack2Sound;
+    [SerializeField] AudioClip Attack3Sound;
     [SerializeField] Text warningText;
     [SerializeField] private bool IsShield = true;
     [SerializeField] private GameObject AttackArea;
@@ -64,6 +67,10 @@ public class MoveByTouch : MonoBehaviour
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
 
+        if (Managers.mission.curLevel == 3)
+        {
+            IsShield = !Managers.mission.GetPlayerChoice(2);
+        }
         //StartPosY =  0.1947699f;
     }
 
@@ -206,7 +213,7 @@ public class MoveByTouch : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         //Vector3 curr = transform.position;
         //jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
-        //Managers.Audio.PlaySound(jumpSound);
+        Managers.Audio.PlaySound(jumpSound);
         //shouldJump = true;
     }
 
@@ -232,6 +239,17 @@ public class MoveByTouch : MonoBehaviour
 
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        // allow jumping again whe nhit ground 
+        if (collision.gameObject.tag == "Ground")
+        {
+
+            _animator.SetBool("Jumping", false);
+            canJump = true;
+        }
+    }
+
     private IEnumerator Shield()
     {
         _animator.SetTrigger("Defense");
@@ -245,6 +263,7 @@ public class MoveByTouch : MonoBehaviour
 
     public void AttackOrDefense()
     {
+       
         if (dantianController.canUseDanTian())
         {
             if (IsShield)
@@ -256,6 +275,7 @@ public class MoveByTouch : MonoBehaviour
             {
 
                 UmbrellaSword();
+                dantianController.dantianUsed();
             }
 
 
@@ -285,7 +305,19 @@ public class MoveByTouch : MonoBehaviour
 
     private IEnumerator SingleSwordHit(int type)
     {
+        switch (type)
+        {
+            case 0:
+                Managers.Audio.PlaySound(Attack1Sound);
+                break;
+            case 1:
+                Managers.Audio.PlaySound(Attack2Sound);
+                break;
+            case 2:
+                Managers.Audio.PlaySound(Attack3Sound);
+                break;
 
+        }
         _animator.SetTrigger($"Attack{type}");
         yield return new WaitForSeconds(0.1f);
         AttackArea.SetActive(true);

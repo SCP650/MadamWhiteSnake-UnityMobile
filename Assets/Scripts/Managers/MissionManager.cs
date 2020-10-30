@@ -12,6 +12,7 @@ public class MissionManager : MonoBehaviour, IGameManager
 
     public int curTransition { get; private set; }
     public int maxTransition { get; private set; }
+    public List<bool> PlayerChoice = new List<bool>();
 
     private NetworkService _network;
 
@@ -19,9 +20,9 @@ public class MissionManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Mission manager starting..");
         _network = service;
-        UpdateData(0, 2);
+        UpdateData(0, 3);
         this.curTransition = 0;
-        this.maxTransition = 1;
+        this.maxTransition = 3;
         status = ManagerStatus.Started;
     }
 
@@ -36,6 +37,7 @@ public class MissionManager : MonoBehaviour, IGameManager
     {
         if(curLevel < maxLevel)
         {
+            Managers.Player.Respawn();
             curLevel++;
             string name = "Level" + curLevel;
             Debug.Log("Loading " + name);
@@ -67,6 +69,11 @@ public class MissionManager : MonoBehaviour, IGameManager
         }
     }
 
+    public void GoToStartUp()
+    {
+        SceneManager.LoadScene("Startup");
+    }
+
     public void GoToNextTransitionScene()
     {
         if (curTransition < maxTransition)
@@ -95,5 +102,16 @@ public class MissionManager : MonoBehaviour, IGameManager
         string name = "Level" + curLevel;
         Debug.Log("Loading ..." + name);
         SceneManager.LoadScene(name);
+    }
+    public void SetLevelChoice(bool choice)
+    {
+        PlayerChoice.Add(choice);
+//for level1: true- truthful, false-hide
+//Level2: true - lover, false - 报恩
+    }
+
+    public bool GetPlayerChoice(int level)
+    {
+        return PlayerChoice[level-1];
     }
 }
