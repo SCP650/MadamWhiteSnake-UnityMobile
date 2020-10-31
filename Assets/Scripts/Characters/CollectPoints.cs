@@ -46,7 +46,15 @@ public class CollectPoints : MonoBehaviour
     public bool DanTianMax()
     {
         //Debug.Log("maxnum = " + maxDanTian + " cur num = " + currentNum);
-        return danTian.fillAmount >= 1;
+
+        Debug.Log("damtian fill = " + danTian.fillAmount);
+        return currentNum == maxDanTian;
+
+    }
+
+    public float CurDanTian()
+    {
+        return danTian.fillAmount;
     }
 
     public void ResetDanTian()

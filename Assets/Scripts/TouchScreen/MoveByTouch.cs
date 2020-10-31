@@ -36,7 +36,7 @@ public class MoveByTouch : MonoBehaviour
     private float MidHeight;
     private CollectPoints dantianController;
 
-    private Blade CutController;
+   // private Blade CutController;
 
     private float StartPosY;
     private int count = 0;
@@ -62,7 +62,7 @@ public class MoveByTouch : MonoBehaviour
         MidHeight = Screen.height / 2;
         _animator = GetComponent<Animator>();
         dantianController = GetComponent<CollectPoints>();
-        CutController = GetComponent<Blade>();
+        //CutController = GetComponent<Blade>();
         shield.SetActive(false);
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();

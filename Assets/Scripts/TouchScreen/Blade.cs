@@ -29,6 +29,7 @@ public class Blade : MonoBehaviour {
 	GameObject scoreText;
 
 	private bool finished;
+	float startTime;
 
 	//public GameObject Slidepoint;
 
@@ -42,6 +43,7 @@ public class Blade : MonoBehaviour {
 		ScoreController = GetComponent<Score>();
 		scoreText = GameObject.Find ("Score");
 		finished = false;
+		startTime = Time.timeScale;
 		
 	}
 
@@ -50,18 +52,21 @@ public class Blade : MonoBehaviour {
 	void Update()
 	{
 		//var PlayerPos = player.transform.position;
-		// Debug.Log("player pos is " + MoveController.gameObject.transform.position.x);
+		//Debug.Log("player pos is " + MoveController.gameObject.transform.position.x);
 
 		
-		if(dantianController.DanTianMax() )
+		if(dantianController.CurDanTian() >= 1)
 		{
 			//R.SetActive(true);
+
+			Debug.Log("INNNN");
 			
             Time.timeScale = 0.5f;
 			// canfly = false;
 			//Debug.Log("ready to cut");
 			Cut();
 			scoreText.GetComponent<Score>().getScore();
+			//finished = true;
 			
 			// scoreText.GetComponent<Score>().incrementScore(1);
 			
@@ -69,11 +74,13 @@ public class Blade : MonoBehaviour {
 			
 			
 		}
-		else
+		else if(dantianController.CurDanTian() < 1)
 		{
+			
 			// BLADE.SetActive(false);
-			Time.timeScale = 1.0f;
-			// finished = false;
+			
+			finished = false;
+			
 		}
 
 		
@@ -85,6 +92,7 @@ public class Blade : MonoBehaviour {
 		{
 			Debug.Log("finishedeee");
 			dantianController.ResetDanTian();
+			// Time.timeScale = 1.0f;
 			
 		}
 		
@@ -92,10 +100,6 @@ public class Blade : MonoBehaviour {
 		
 	}
 
-<<<<<<< Updated upstream
-
-	void StartCutting ()
-=======
 	void Awake()
     {
         // Make a copy of the fixedDeltaTime, it defaults to 0.02f, but it can be changed in the editor
@@ -105,14 +109,13 @@ public class Blade : MonoBehaviour {
 	
 
 	public void StartCutting ()
->>>>>>> Stashed changes
 	{
-		
+		Debug.Log("CUTTT");
 		Touch touch = Input.GetTouch(0);
 		currentBladeTrail = Instantiate(bladeTrailPrefab, transform);
 		previousPosition = cam.ScreenToWorldPoint(touch.position);
 		circleCollider.enabled = false;
-		finished = true;
+		
 	}
 
 
@@ -132,34 +135,28 @@ public class Blade : MonoBehaviour {
 		// Debug.Log("CUTTT");
 		if(Input.touchCount > 0)
         {
-		
+			finished = true;
             Touch touch = Input.GetTouch(0);
 			// these 3 lines
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = 0f;
-<<<<<<< Updated upstream
-            transform.position = touchPosition; 
-            StartCutting();			
-=======
             transform.position = touchPosition;
             StartCutting();
+			// finished = true;
+			// Debug.Log("finished is " + finished);
+
+
 			//finished = true;
 
 			
 
 			// ScoreController.Show();
 			
->>>>>>> Stashed changes
         }
 	}
 
 
-<<<<<<< Updated upstream
-		
-    }
-=======
 	
->>>>>>> Stashed changes
 
 	
 
