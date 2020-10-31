@@ -12,6 +12,7 @@ public class FahaiController : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D rb;
     private Vector2 RaycastBoxSize;
+    private float waitForBeforeNextFireBall = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +21,25 @@ public class FahaiController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         RaycastBoxSize = new Vector2(3f, 3f);
         StartCoroutine(StartAttacking());
-
+        StartCoroutine(ChangeFireSpeed());
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-       
-
+ 
         transform.position = new Vector3(target.position.x-27, target.position.y, target.position.z);
      
+    }
+    private IEnumerator ChangeFireSpeed()
+    {
+        yield return new WaitForSeconds(10);
+        waitForBeforeNextFireBall -= 1;
+        yield return new WaitForSeconds(20);
+        waitForBeforeNextFireBall -= 2;
+        yield return new WaitForSeconds(20);
+        waitForBeforeNextFireBall -= 0.5f;
     }
 
     private IEnumerator StartAttacking()
@@ -41,7 +49,7 @@ public class FahaiController : MonoBehaviour
             _animator.SetTrigger("FireBallAttack");
             GameObject gb =  Instantiate(FireBallPrefb);
             gb.transform.position = transform.position;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(waitForBeforeNextFireBall);
         }
        
     }
