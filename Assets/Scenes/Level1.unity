@@ -11946,7 +11946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45b3f8f0c38a2448846473b5511bb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.8, y: 0.2}
+  parallaxEffectMultiplier: {x: 0.8, y: 0.1}
 --- !u!212 &466981285
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -33453,7 +33453,7 @@ PrefabInstance:
     - target: {fileID: 4825026903366814268, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: -12.6
       objectReference: {fileID: 0}
     - target: {fileID: 4825026903366814268, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
@@ -33463,7 +33463,7 @@ PrefabInstance:
     - target: {fileID: 4825026903366814268, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -475
+      value: -473.2
       objectReference: {fileID: 0}
     - target: {fileID: 4825026903366814268, guid: a5619ba35acf44561a13692c2db0b6ec,
         type: 3}
@@ -51099,7 +51099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45b3f8f0c38a2448846473b5511bb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 1, y: 1}
+  parallaxEffectMultiplier: {x: 1, y: 0}
 --- !u!1001 &1280408514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68694,7 +68694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45b3f8f0c38a2448846473b5511bb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.8, y: 0.2}
+  parallaxEffectMultiplier: {x: 0.8, y: 0.1}
 --- !u!1 &1838013299
 GameObject:
   m_ObjectHideFlags: 0
@@ -72461,7 +72461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerLocation: {fileID: 171914981}
-  cameraspeed: {x: 0, y: -0.8}
+  cameraspeed: {x: 0, y: -0.9}
   isMoving: 0
 --- !u!81 &2026197903
 AudioListener:
