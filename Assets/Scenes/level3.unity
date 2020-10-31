@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -25113,7 +25113,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -59.428726, y: 11.095245}
+  m_Offset: {x: -59.428726, y: 6.1871414}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -25124,7 +25124,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8642273, y: 55.490967}
+  m_Size: {x: 0.8642273, y: 65.307175}
   m_EdgeRadius: 0
 --- !u!1 &668674395
 GameObject:
@@ -26006,10 +26006,10 @@ Transform:
   - {fileID: 1816038226}
   - {fileID: 236298334}
   - {fileID: 615273340}
-  - {fileID: 1010986782}
   - {fileID: 997442855}
-  - {fileID: 1200633839}
   - {fileID: 1128764904}
+  - {fileID: 1200633839}
+  - {fileID: 1010986782}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55234,6 +55234,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2389312186701637369, guid: a77ab8b79e55fff4a9cd50a6070c8aa7,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 5.2601433
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389312186701637369, guid: a77ab8b79e55fff4a9cd50a6070c8aa7,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.0932693
+      objectReference: {fileID: 0}
     - target: {fileID: 3515553300879263156, guid: a77ab8b79e55fff4a9cd50a6070c8aa7,
         type: 3}
       propertyPath: m_Name
@@ -77032,6 +77042,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: mountain3 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5720675783388245158, guid: bff46e557a24bc543acf5deb8ab7a679,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -4.4044743
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720675783388245158, guid: bff46e557a24bc543acf5deb8ab7a679,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.7408445
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bff46e557a24bc543acf5deb8ab7a679, type: 3}
 --- !u!1 &2052030926
@@ -78620,6 +78640,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2389312186701637369, guid: a77ab8b79e55fff4a9cd50a6070c8aa7,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 5.3367615
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389312186701637369, guid: a77ab8b79e55fff4a9cd50a6070c8aa7,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.243042
+      objectReference: {fileID: 0}
     - target: {fileID: 3515553300879263156, guid: a77ab8b79e55fff4a9cd50a6070c8aa7,
         type: 3}
       propertyPath: m_Name
