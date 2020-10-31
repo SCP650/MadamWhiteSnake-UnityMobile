@@ -5,7 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] Transform PlayerLocation;
+    [SerializeField] Vector2 cameraspeed;
     public bool isMoving;
+    private Transform cameraTransform;
+    private Vector3 lastPlayerPosition;
 
     // Update is called once per frame
 
@@ -13,9 +16,20 @@ public class CameraController : MonoBehaviour
     {
         Messenger.AddListener("cameramove", Move);
     }
-    void Update()
+    private void Start()
     {
-        transform.position = new Vector3(PlayerLocation.position.x, PlayerLocation.position.y + 10.8f, transform.position.z);
+        cameraTransform = PlayerLocation.transform;
+        lastPlayerPosition = cameraTransform.position;
+    }
+    private void LateUpdate()
+    {
+        Vector3 delatMovment = cameraTransform.position - lastPlayerPosition;
+        transform.position += new Vector3(delatMovment.x * cameraspeed.x, delatMovment.y * cameraspeed.y, 0);
+    }
+    void Update()
+    {  
+        transform.position = new Vector3(PlayerLocation.position.x, PlayerLocation.position.y + 9.8f, transform.position.z);
+
         float y = transform.position.y;
         if (isMoving && y > -155.0f)
         {
