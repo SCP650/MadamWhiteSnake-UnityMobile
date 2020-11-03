@@ -5,11 +5,18 @@ using UnityEngine.UI;
 
 public class Level1Controller : MonoBehaviour
 {
-
-
-    private void Start()
+   
+    // Start is called before the first frame update
+    void Awake()
     {
-        Managers.Audio.PlayLevelMusic(1);
+        Managers.Audio.StopMusic();
 
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
 }
