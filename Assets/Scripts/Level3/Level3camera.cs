@@ -25,6 +25,7 @@ public class Level3camera : MonoBehaviour
         if (issMoving && y > -152.9f)
         {
             y -= 1 * Time.deltaTime;
+            isMoving = false;
         }
         transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
 
@@ -33,10 +34,8 @@ public class Level3camera : MonoBehaviour
     {
         isMoving = true;
         //this.transform.position = new Vector3(PlayerLocation.position.x, -155.0f, transform.position.z);
-
     }
-
-void Movee()
+    void Movee()
     {
         issMoving = true;
     }

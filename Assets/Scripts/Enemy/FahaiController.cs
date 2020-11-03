@@ -12,7 +12,7 @@ public class FahaiController : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D rb;
     private Vector2 RaycastBoxSize;
-    private float waitForBeforeNextFireBall = 4;
+    private float waitForBeforeNextFireBall = 4.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class FahaiController : MonoBehaviour
         yield return new WaitForSeconds(10);
         waitForBeforeNextFireBall -= 1;
         yield return new WaitForSeconds(20);
-        waitForBeforeNextFireBall -= 2;
+        waitForBeforeNextFireBall -= 1.5f;
         yield return new WaitForSeconds(20);
         waitForBeforeNextFireBall -= 0.5f;
     }
