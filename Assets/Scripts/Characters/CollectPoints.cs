@@ -10,6 +10,7 @@ public class CollectPoints : MonoBehaviour
     [Tooltip("Number attacks in a full danTian")]
     [SerializeField] private float totalAttack;
     [SerializeField] Image danTian;
+    [SerializeField] AudioClip collectSound;
 
     private float currentNum;
     private float maxDanTian;
@@ -28,6 +29,7 @@ public class CollectPoints : MonoBehaviour
             currentNum += 1;
             currentNum = Mathf.Clamp(currentNum,0, maxDanTian + 1);
             Destroy(collision.gameObject);
+            Managers.Audio.PlaySound(collectSound);
             updateDanTian();
         }
     }

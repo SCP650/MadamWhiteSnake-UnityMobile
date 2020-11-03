@@ -8,8 +8,15 @@ public class FireBomb : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-          
-            collision.gameObject.GetComponent<JumpingEnemyController>().ChangeBaseSpeed(0.1f);
+            GameObject gb = collision.gameObject;
+            if (gb.GetComponent<JumpingEnemyController>())
+            {
+                gb.GetComponent<JumpingEnemyController>().ChangeBaseSpeed(0.1f);
+            }else if (gb.GetComponent<FoxEnemyController>())
+            {
+                gb.GetComponent<FoxEnemyController>().ChangeBaseSpeed(0.1f);
+            }
+
         }
     }
 }

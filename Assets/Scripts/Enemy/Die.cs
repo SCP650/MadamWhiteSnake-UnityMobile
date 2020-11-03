@@ -6,6 +6,7 @@ public class Die : MonoBehaviour
 {
     private Animator _animator;
     [SerializeField] private MonoBehaviour MovementScript;
+    [SerializeField] private AudioClip dieSound;
 
     private void Start()
     {
@@ -16,6 +17,10 @@ public class Die : MonoBehaviour
     {
         _animator.SetTrigger("Die");
         Destroy(MovementScript);
+        if(dieSound != null)
+        {
+            Managers.Audio.PlaySound(dieSound);
+        }
         StartCoroutine(Flicker());
 
     }

@@ -16,6 +16,9 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip shieldSound;
+    [SerializeField] AudioClip Attack1Sound;
+    [SerializeField] AudioClip Attack2Sound;
+    [SerializeField] AudioClip Attack3Sound;
     [SerializeField] Text warningText;
     [SerializeField] private bool IsShield = true;
     [SerializeField] private GameObject AttackArea;
@@ -38,7 +41,6 @@ public class MoveByTouch : MonoBehaviour
 
     private float StartTime;
     private float acumTime = 0;
-    private float holdTime = 0.3f;
     private float OldGravity;
     private PlayerViewHoriMove horiSpeed;
     private float oldSpeed;
@@ -60,6 +62,10 @@ public class MoveByTouch : MonoBehaviour
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
 
+        if (Managers.mission.curLevel == 3)
+        {
+            IsShield = !Managers.mission.GetPlayerChoice(2);
+        }
         //StartPosY =  0.1947699f;
     }
 
@@ -95,122 +101,19 @@ public class MoveByTouch : MonoBehaviour
         //return false;
 
  
-    }
-    void Update()
-    {
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).position.x > MidWidth)
-        {
-
-            acumTime += Input.GetTouch(0).deltaTime;
-            Debug.Log(acumTime);
-            if (acumTime >= holdTime)
-            {
-
-                StartFly();
-
-                if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                {
-                    acumTime = 0;
-                    EndFly();
-                }
-            }
-
-
-        }
-
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = touch.position;
-            StartTime = Time.time;
-
-
-            if (touchPos.x < MidWidth && CheckID())
-            {
-                //jump
-                if (dantianController.canUseDanTian())
-                {
-                    if (IsShield)
-                    {
-                        StartCoroutine(Shield());
-                        dantianController.dantianUsed();
-                    }
-                    else
-                    {
-                        UmbrellaSword();
-                    }
-
-                }
-                else
-                {
-                    StartCoroutine(ShowWarning("丹田不足，无法开伞"));
-                }
-
-
-            }
-            if (touchPos.x > MidWidth)
-            {
-                Jump();
-
-            }
-
-        } 
-        else if (Input.GetButtonDown("Fire1"))
-        {
-            //jump
-            if (dantianController.canUseDanTian())
-            {
-                if (IsShield)
-                {
-                    StartCoroutine(Shield());
-                    dantianController.dantianUsed();
-                }
-                else
-                {
-                   
-                    UmbrellaSword();
-                }
-       
-              
-            }
-            else
-            {
-                StartCoroutine(ShowWarning("丹田不足，无法开伞"));
-            }
-
-        }
-        else if (Input.GetKeyDown("w")) // For editor testing
-        {
-            Jump();
-        }
-        else if (Input.GetKey("w"))
-        {
-            StartFly();
-        }
-        else if (Input.GetKeyUp("w"))
-        {
-            EndFly();
-        }
-
-
-        
-    }
-
-
+    } 
   
 
-    private void StartFly()
+    public void StartFly()
     {
+  
         _animator.SetBool("IsFlying", true);
         if (IsGrounded())
         {
             EndFly();
-        }
-        if (dantianController.canUseDanTian())
+        }else if (dantianController.canUseDanTian())
         {
-            dantianController.canUseDanTian();
+           
             horiSpeed.IncreaseFlyingSpeed();
             rb.gravityScale = PlayGravity;
             dantianController.FlyingCost();
@@ -224,14 +127,14 @@ public class MoveByTouch : MonoBehaviour
       
     }
 
-    private void EndFly()
+    public void EndFly()
     {
         horiSpeed.ResetSpeed();
         _animator.SetBool("IsFlying",false);
         rb.gravityScale = OldGravity;
     }
 
-    private void Jump()
+    public void Jump()
     {
       
         if (IsGrounded())
@@ -241,7 +144,7 @@ public class MoveByTouch : MonoBehaviour
             SingleJump();
         } else if (count == 1) // not on ground
         {
-            Debug.Log("Second Jump");
+            //Debug.Log("Second Jump");
             count++;
             SingleJump();
 
@@ -288,6 +191,17 @@ public class MoveByTouch : MonoBehaviour
 
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        // allow jumping again whe nhit ground 
+        if (collision.gameObject.tag == "Ground")
+        {
+
+            _animator.SetBool("Jumping", false);
+            canJump = true;
+        }
+    }
+
     private IEnumerator Shield()
     {
         _animator.SetTrigger("Defense");
@@ -296,6 +210,32 @@ public class MoveByTouch : MonoBehaviour
         yield return new WaitForSeconds(1f);
         shield.SetActive(false);
        
+
+    }
+
+    public void AttackOrDefense()
+    {
+       
+        if (dantianController.canUseDanTian())
+        {
+            if (IsShield)
+            {
+                StartCoroutine(Shield());
+                dantianController.dantianUsed();
+            }
+            else
+            {
+
+                UmbrellaSword();
+                dantianController.dantianUsed();
+            }
+
+
+        }
+        else
+        {
+            StartCoroutine(ShowWarning("丹田不足，无法开伞"));
+        }
     }
 
     private void UmbrellaSword()
@@ -317,7 +257,19 @@ public class MoveByTouch : MonoBehaviour
 
     private IEnumerator SingleSwordHit(int type)
     {
-        Debug.Log($"Attack{type}");
+        switch (type)
+        {
+            case 0:
+                Managers.Audio.PlaySound(Attack1Sound);
+                break;
+            case 1:
+                Managers.Audio.PlaySound(Attack2Sound);
+                break;
+            case 2:
+                Managers.Audio.PlaySound(Attack3Sound);
+                break;
+
+        }
         _animator.SetTrigger($"Attack{type}");
         yield return new WaitForSeconds(0.1f);
         AttackArea.SetActive(true);

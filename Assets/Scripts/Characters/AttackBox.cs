@@ -8,7 +8,7 @@ public class AttackBox : MonoBehaviour
     {
         if(collision.tag == "Enemy")
         {
-            Debug.Log("This is an enemy");
+     
             collision.gameObject.GetComponent<Die>().EnemyDie();
         }
     }

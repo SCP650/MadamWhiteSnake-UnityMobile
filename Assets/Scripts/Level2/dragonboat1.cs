@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class dragonboat1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public bool isMoving;
+    void Awake()
+    {     
+        Messenger.AddListener("dragonmoving", move);        
+    }   
     void Update()
     {
-        this.transform.position += Vector3.right * Time.deltaTime;
+        if (isMoving) 
+        {
+            this.transform.position += Vector3.right * Time.deltaTime * 0.8f;
+        }
+    }
+    void move()
+    {
+        isMoving = true;
     }
 }
