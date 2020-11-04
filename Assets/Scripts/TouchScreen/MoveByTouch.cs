@@ -191,16 +191,7 @@ public class MoveByTouch : MonoBehaviour
 
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        // allow jumping again whe nhit ground 
-        if (collision.gameObject.tag == "Ground")
-        {
-
-            _animator.SetBool("Jumping", false);
-            canJump = true;
-        }
-    }
+   
 
     private IEnumerator Shield()
     {
