@@ -134,6 +134,12 @@ public class MoveByTouch : MonoBehaviour
         rb.gravityScale = OldGravity;
     }
 
+    public void Land()
+    {
+   
+        rb.AddForce(Vector2.down * 130, ForceMode2D.Impulse);
+    }
+
     public void Jump()
     {
       

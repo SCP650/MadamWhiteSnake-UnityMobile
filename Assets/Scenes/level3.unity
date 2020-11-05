@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -41001,6 +41001,16 @@ PrefabInstance:
     - target: {fileID: 1744296479, guid: bea218b756491414d8e4c599a5eb4a53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextConversation
+      objectReference: {fileID: 0}
+    - target: {fileID: 110654101162919528, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1617516305}
+    - target: {fileID: 110654101162919528, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Land
       objectReference: {fileID: 0}
     - target: {fileID: 1950661144058842201, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
