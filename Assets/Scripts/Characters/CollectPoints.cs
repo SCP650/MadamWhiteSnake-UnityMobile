@@ -26,7 +26,7 @@ public class CollectPoints : MonoBehaviour
         if (collision.gameObject.tag == "Dots")
         {
       
-            currentNum += 1;
+            currentNum += 4;
             currentNum = Mathf.Clamp(currentNum,0, maxDanTian + 1);
             Destroy(collision.gameObject);
             Managers.Audio.PlaySound(collectSound);
@@ -52,7 +52,7 @@ public class CollectPoints : MonoBehaviour
 
     public void FlyingCost()
     {
-        currentNum -= 2*Time.deltaTime;
+        currentNum -= 5*Time.deltaTime;
         updateDanTian();
     }
 }
