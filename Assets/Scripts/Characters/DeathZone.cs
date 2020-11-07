@@ -14,5 +14,8 @@ public class DeathZone : MonoBehaviour
             gb.transform.position = new Vector3(gb.transform.position.x, gb.transform.position.y + 35,gb.transform.position.z);
             Managers.Player.ChangeHealth(-Managers.Player.health/3);
         }
+        else if (gb.tag == "Enemy"){
+            Destroy(gb);
+        }
     }
 }
