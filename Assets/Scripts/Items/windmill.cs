@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class windmill : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    [SerializeField] public float windmillspeed;
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 0, -20) * Time.deltaTime);
+        transform.Rotate(new Vector3(0, 0, -windmillspeed) * Time.deltaTime);
     }
 }
