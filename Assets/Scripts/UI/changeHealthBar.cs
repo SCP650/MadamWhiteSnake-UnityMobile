@@ -5,7 +5,12 @@ using UnityEngine.UI;
 public class changeHealthBar : MonoBehaviour
 {
     [SerializeField] Transform healthBar;
+    private Image Bar;
 
+    private void Start()
+    {
+        Bar = healthBar.GetComponent<Image>();
+    }
 
     private void Awake()
     {
@@ -17,8 +22,9 @@ public class changeHealthBar : MonoBehaviour
     }
     private void ChangeHealthBar()
     {
-        float x = (float) Managers.Player.health / Managers.Player.maxHealth;
-        healthBar.localScale = new Vector3(x, healthBar.localScale.y, healthBar.localScale.z);
+      Bar.fillAmount = (float)Managers.Player.health / Managers.Player.maxHealth;
+        //float x =
+        //healthBar.localScale = new Vector3(x, healthBar.localScale.y, healthBar.localScale.z);
         
     }
 }
