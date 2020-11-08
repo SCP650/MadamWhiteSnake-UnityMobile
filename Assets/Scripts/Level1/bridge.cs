@@ -9,7 +9,7 @@ public class bridge : MonoBehaviour
     {
         if (collision.tag == "Player")
         {            
-            GetComponent<HingeJoint2D>().enabled = false;
+            GetComponent<SpringJoint2D>().enabled = false;
         }
     }
 
