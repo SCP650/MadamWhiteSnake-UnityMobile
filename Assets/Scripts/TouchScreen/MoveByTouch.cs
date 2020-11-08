@@ -134,6 +134,12 @@ public class MoveByTouch : MonoBehaviour
         rb.gravityScale = OldGravity;
     }
 
+    public void Land()
+    {
+   
+        rb.AddForce(Vector2.down * 130, ForceMode2D.Impulse);
+    }
+
     public void Jump()
     {
       
@@ -191,16 +197,7 @@ public class MoveByTouch : MonoBehaviour
 
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        // allow jumping again whe nhit ground 
-        if (collision.gameObject.tag == "Ground")
-        {
-
-            _animator.SetBool("Jumping", false);
-            canJump = true;
-        }
-    }
+   
 
     private IEnumerator Shield()
     {

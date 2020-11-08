@@ -6,12 +6,14 @@ public class DisableAttackDefense : MonoBehaviour
 {
     [SerializeField] GameObject AttackButton;
     [SerializeField] GameObject JumpButton;
+    [SerializeField] GameObject LandButton;
     [SerializeField] GameObject dantian;
     [SerializeField] GameObject PowerUp;
     private void OnEnable()
     {
         AttackButton.SetActive(false);
         JumpButton.SetActive(false);
+        LandButton.SetActive(false);
         if(dantian != null && PowerUp != null)
         {
             dantian.SetActive(false);
@@ -23,6 +25,7 @@ public class DisableAttackDefense : MonoBehaviour
     {
         AttackButton.SetActive(true);
         JumpButton.SetActive(true);
+        LandButton.SetActive(true);
         if (dantian != null && PowerUp != null)
         {
             dantian.SetActive(true);
