@@ -23,6 +23,9 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] private bool IsShield = true;
     [SerializeField] private GameObject AttackArea;
     [SerializeField] private float PlayGravity = 0.5f;
+
+    [SerializeField] private Transform WavePoint;
+    [SerializeField] private GameObject WavePrefab;
     //[SerializeField] float jumpHeight = 10f;
   
     private Animator _animator;
@@ -36,7 +39,7 @@ public class MoveByTouch : MonoBehaviour
     private float MidHeight;
     private CollectPoints dantianController;
 
-   // private Blade CutController;
+    // private Blade BladeController;
 
     private float StartPosY;
     private int count = 0;
@@ -52,6 +55,11 @@ public class MoveByTouch : MonoBehaviour
     private int AttackCounter = 0;
 
     private bool canFLY = false;
+    private bool canWave = false;
+
+    bool stopShield;
+    bool yes;
+
 
     void Start()
     {
@@ -62,7 +70,7 @@ public class MoveByTouch : MonoBehaviour
         MidHeight = Screen.height / 2;
         _animator = GetComponent<Animator>();
         dantianController = GetComponent<CollectPoints>();
-        //CutController = GetComponent<Blade>();
+        // BladeController = GetComponent<Blade>();
         shield.SetActive(false);
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
@@ -71,7 +79,9 @@ public class MoveByTouch : MonoBehaviour
         {
             IsShield = !Managers.mission.GetPlayerChoice(2);
         }
-        //StartPosY =  0.1947699f;
+        stopShield = true;
+
+        
     }
 
     bool IsGrounded() 
@@ -107,37 +117,35 @@ public class MoveByTouch : MonoBehaviour
 
  
     } 
+
+    
   
 
     public void StartFly()
     {
-
-        
-        
-        // if(dantianController.canUseDanTian())
+        Debug.Log("flying");
+        // Debug.Log(" stopfly is  " + stopfly);
+        // if(!stopfly)
         // {
-        //     canFLY = true;
+            _animator.SetBool("IsFlying", true);
+            if (IsGrounded())
+            {
+                canFLY = false;
+                EndFly();
+            }else if (dantianController.canUseDanTian())// && CutController.canfly != false)
+            {
+            
+                horiSpeed.IncreaseFlyingSpeed();
+                rb.gravityScale = PlayGravity;
+                dantianController.FlyingCost();
+            }
+            else
+            {
+                canFLY = false;
+                StartCoroutine(ShowWarning("丹田不足，无法滑翔"));
+                EndFly();
+            }
         // }
-        _animator.SetBool("IsFlying", true);
-        if (IsGrounded())
-        {
-            canFLY = false;
-            EndFly();
-        }else if (dantianController.canUseDanTian())// && CutController.canfly != false)
-        {
-           
-            horiSpeed.IncreaseFlyingSpeed();
-            rb.gravityScale = PlayGravity;
-            dantianController.FlyingCost();
-        }
-        else
-        {
-            canFLY = false;
-            StartCoroutine(ShowWarning("丹田不足，无法滑翔"));
-            EndFly();
-        }
-
-      
     }
 
 
@@ -147,6 +155,42 @@ public class MoveByTouch : MonoBehaviour
         horiSpeed.ResetSpeed();
         _animator.SetBool("IsFlying",false);
         rb.gravityScale = OldGravity;
+    }
+
+    public void WaveAttack()
+    {
+       // Debug.Log("Wave attack");
+        if(dantianController.CurDanTian() >= 1)
+        {
+            //Debug.Log("CanWave");
+            StartCoroutine(ShowWarning("长按左边屏幕，发动光波"));
+            CanWave();
+        }
+        else if(dantianController.CurDanTian() < 1)
+        {
+            EndWave();
+            StartCoroutine(ShowWarning("丹田不足，无法达成蓄力发动光波"));
+        }
+
+        if(IsGrounded() && canWave)
+        {
+            // Debug.Log("WAVEEEEE");
+            Instantiate(WavePrefab, transform.position, transform.rotation);
+            dantianController.ResetDanTian();
+            //Debug.Log("Cur dan tian is " + dantianController.CurDanTian());
+            
+        }
+        
+    }
+
+    public void EndWave()
+    {
+        canWave = false;
+    }
+
+    public void CanWave()
+    {
+        canWave = true;
     }
 
     public void CANFLY()
@@ -181,11 +225,15 @@ public class MoveByTouch : MonoBehaviour
     //     // }
     // }
 
+    
+
     public void Jump()
     {
         //CheckCut();
+
+        // Debug.Log("onslide is " + BladeController.ONSlide());
        
-        if (IsGrounded())
+        if (IsGrounded()) // && BladeController.ONSlide() != true)
         {
             count = 1;
 
@@ -203,23 +251,25 @@ public class MoveByTouch : MonoBehaviour
         }
     }
 
+
     private void SingleJump()
     {
-
         
-        //Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
-       _animator.SetBool("Jumping", true);
+
+            //Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
+        _animator.SetBool("Jumping", true);
 
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         //Vector3 curr = transform.position;
         //jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
-        Managers.Audio.PlaySound(jumpSound);
+//        Managers.Audio.PlaySound(jumpSound);
         //shouldJump = true;
+      
     }
 
     private bool CheckID()
     {
-
+     
         return !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
           
         
@@ -228,6 +278,7 @@ public class MoveByTouch : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+    
         // allow jumping again whe nhit ground 
         if (col.gameObject.tag == "Ground")
         {
@@ -241,6 +292,7 @@ public class MoveByTouch : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+
         // allow jumping again whe nhit ground 
         if (collision.gameObject.tag == "Ground")
         {
@@ -252,6 +304,7 @@ public class MoveByTouch : MonoBehaviour
 
     private IEnumerator Shield()
     {
+    
         _animator.SetTrigger("Defense");
         Managers.Audio.PlaySound(shieldSound);
         shield.SetActive(true);
@@ -261,28 +314,56 @@ public class MoveByTouch : MonoBehaviour
 
     }
 
+    // public void StopDefence()
+    // {
+        
+    //     stopShield = true;
+        
+    
+    // }
+
+    // public void ReDefence()
+    // {
+    
+    //     stopShield = false;
+    // }
+    
+
     public void AttackOrDefense()
     {
+        
        
         if (dantianController.canUseDanTian())
         {
-            if (IsShield)
-            {
-                StartCoroutine(Shield());
-                dantianController.dantianUsed();
-            }
-            else
+            if(stopShield != true || dantianController.CurDanTian() < 1)
             {
 
-                UmbrellaSword();
-                dantianController.dantianUsed();
+              
+                if (IsShield)
+                {
+                    StartCoroutine(Shield());
+                    dantianController.dantianUsed();
+                }
+                else
+                {
+
+                    UmbrellaSword();
+                    dantianController.dantianUsed();
+                }
             }
+        
+            // else if(stopShield == true && dantianController.CurDanTian() < 1)
+            // {
+            //     {
+            //         StartCoroutine(ShowWarning("滑切期间无法开伞"));
+            //     }
+            // }
 
 
         }
         else
         {
-            StartCoroutine(ShowWarning("丹田不足，无法开伞/滑切"));
+            StartCoroutine(ShowWarning("丹田不足，无法开伞"));
         }
     }
 

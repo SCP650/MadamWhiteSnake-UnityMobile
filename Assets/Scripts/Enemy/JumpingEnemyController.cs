@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JumpingEnemyController : MonoBehaviour
 {
@@ -10,8 +11,6 @@ public class JumpingEnemyController : MonoBehaviour
     [SerializeField] private AudioClip attackSound;
     [Tooltip("玩家的叫声")]
     [SerializeField] private AudioClip playJiao; 
-
-    [SerializeField] private MonoBehaviour MovementScript;
     
     private Score ScoreController;
     private Transform target;
@@ -19,7 +18,11 @@ public class JumpingEnemyController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator _animator;
     private bool isRunning;
+
+    public Text guiText;
+    // private int score = 0;
     
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class JumpingEnemyController : MonoBehaviour
         int LuckNumBase = Random.Range(1, 10);
         float RandomIndexBase = Random.Range(-3f, 5f);
         ScoreController = GetComponent<Score>();
+        // Text TT = Mytext.GetComponent<Text>();
         //baseSpeed += 1f * Time.deltaTime;
         if (LuckNumBase == 5)
         {
@@ -104,16 +108,40 @@ public class JumpingEnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision check 107");
+        // GameObject scoreText = GameObject.Find ("Score");
         string whatHitMe = collision.gameObject.tag;
+        string HIT = collider.gameObject.tag;
+        // HIT = GameObject.FindGameObjectsWithTag("SlidePoint");
         if ( whatHitMe == "Enemy")
         {
             Physics2D.IgnoreCollision(collision.collider, collider,true);
-        } else if(whatHitMe == "JumpPoint")
+        } 
+        else if(whatHitMe == "JumpPoint")
         {
             //Debug.Log("Jump is true");
             rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
             //Debug.Log("Jump is true");
         }
+        else if(whatHitMe ==  GameObject.Find("Blade").tag )
+        {
+            //Debug.Log("be destroyed");
+            ScoreController.StartCount();
+            
+            // StartCoroutine(ShowMessage("Abc", 2));
+            // ScoreController.getScore();
+            // ScoreController.inc();
+            _animator.SetTrigger("Die");
+            // Destroy(MovementScript);
+            StartCoroutine(Flicker());
+        }
+        else if(whatHitMe == "Wave" )
+        {
+            Debug.Log("be destroyed by wave");
+            _animator.SetTrigger("Die");
+            StartCoroutine(Flicker());
+        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -122,18 +150,19 @@ public class JumpingEnemyController : MonoBehaviour
         string whatHitMe = collision.gameObject.tag;
         if (whatHitMe == "PlayerHitbox")
         {
+            Debug.Log("hit box");
        
             Managers.Player.ChangeHealth(-damageToPlayer);
             Managers.Audio.PlaySound(playJiao);
         }
-        else if(whatHitMe == "SlidePoint")
-        {
-            
-            scoreText.GetComponent<Score>().incrementScore(1);
-            _animator.SetTrigger("Die");
-            Destroy(MovementScript);
-            StartCoroutine(Flicker());
-        }
+        // else if(whatHitMe == "SlidePoint")
+        // {
+        //     // Debug.Log("be destroyed");
+        //     ScoreController.incrementScore();
+        //     _animator.SetTrigger("Die");
+        //     Destroy(MovementScript);
+        //     StartCoroutine(Flicker());
+        // }
     }
 
     //private void OnTriggerEnter2D(Collider2D other)
@@ -161,5 +190,15 @@ public class JumpingEnemyController : MonoBehaviour
         Destroy(gameObject);
 
     }
+
+
+     IEnumerator ShowMessage (string message, float delay) {
+        guiText.text = message;
+        guiText.enabled = true;
+        yield return new WaitForSeconds(delay);
+        guiText.enabled = false;
+ }
+
+    
 
 }

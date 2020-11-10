@@ -10,16 +10,30 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     [SerializeField]
     private float requiredHoldTime;
+    public float waveHoldTime;
 
-    public UnityEvent onLongClick;
+    //public UnityEvent onLongClick;
+    public UnityEvent onLeftLongClick;
+    public UnityEvent onRightLongClick;
     public UnityEvent onClick;
     public UnityEvent afterLongClick;
+    
+
+    private float Width = Screen.width / 2;
+    private float Height = Screen.height / 2;
+
+    private float X;
+    private float Y;
+
+
 
     private bool isHolding = false;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         pointerDown = true;
+        X = eventData.position.x;
+        Y = eventData.position.y;
         if (onClick != null)
         {
             onClick.Invoke();
@@ -39,18 +53,38 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 afterLongClick.Invoke();
         }
     }
-
+   
     private void Update()
     {
         if (pointerDown)
         {
+            Debug.Log(" long click pointer down");
             pointerDownTimer += Time.deltaTime;
             if (pointerDownTimer >= requiredHoldTime)
             {
                 isHolding = true;
            
-                if (onLongClick != null)
-                    onLongClick.Invoke();
+                // if (onLongClick != null)
+                //     onLongClick.Invoke();
+                if(X < Width)
+                {
+                    Debug.Log("Left long click");
+                    if(pointerDownTimer >= waveHoldTime)
+                    {
+                        if(onLeftLongClick != null)
+                        {
+                            onLeftLongClick.Invoke();
+                        }
+                    }
+                }
+                else if(X > Width)
+                {
+                    Debug.Log("Right long click");
+                    if(onRightLongClick != null)
+                    {
+                        onRightLongClick.Invoke();
+                    }
+                }
 
                
             }

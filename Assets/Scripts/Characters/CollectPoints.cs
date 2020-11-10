@@ -38,8 +38,6 @@ public class CollectPoints : MonoBehaviour
     
     private void updateDanTian()
     {
-        // Debug.Log("maxnum = " + maxDanTian + " cur num = " + currentNum);
-        // Debug.Log("fill amount" + danTian.fillAmount);
         danTian.fillAmount = currentNum / maxDanTian;
          
     }
@@ -51,16 +49,20 @@ public class CollectPoints : MonoBehaviour
         return currentNum == maxDanTian;
 
     }
+    public void showDantian()
+    {
+        updateDanTian();
+    }
 
     public float CurDanTian()
     {
         return danTian.fillAmount;
+        
     }
 
     public void ResetDanTian()
     {
-        Debug.Log("resetttttttttttttttt");
-        currentNum = 0;
+        currentNum = 1;
         updateDanTian();
     }
 
@@ -82,4 +84,7 @@ public class CollectPoints : MonoBehaviour
         currentNum -= 2*Time.deltaTime;
         updateDanTian();
     }
+
+
+
 }

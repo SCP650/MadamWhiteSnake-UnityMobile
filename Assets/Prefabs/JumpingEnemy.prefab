@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2185384488413648195}
   - component: {fileID: 4682814083350730514}
   - component: {fileID: 1049635685650562056}
-  - component: {fileID: 5483157988453292415}
+  - component: {fileID: 7983156830867276438}
   m_Layer: 0
   m_Name: JumpingEnemy
   m_TagString: Enemy
@@ -104,7 +104,7 @@ MonoBehaviour:
   damageToPlayer: 5
   attackSound: {fileID: 8300000, guid: 63582ec3d371a49e1b247acefe38192c, type: 3}
   playJiao: {fileID: 8300000, guid: b910e88cb3e7046adb3d15639ab7b560, type: 3}
-  MovementScript: {fileID: 0}
+  guiText: {fileID: 6279585317196002412, guid: 01c097f19ab4b5c4a88bb1af6a035174, type: 3}
 --- !u!61 &2185384488413648198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5483157988453292415
+--- !u!114 &7983156830867276438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2185384488413648196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23683357c32b8a443b4f3c0fb14c2782, type: 3}
+  m_Script: {fileID: 11500000, guid: 962a3266efbbbf849936eed3e2098387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: {fileID: 0}
+  Mytext: {fileID: 5597763375199762218, guid: 56f0345d53f454f49a83a9e13c671ceb, type: 3}
