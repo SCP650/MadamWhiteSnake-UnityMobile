@@ -93,14 +93,14 @@ public class Blade : MonoBehaviour {
 		
 		
 
-		if(CountController.curTime() <= 0 && dantianController.CurDanTian() >= 1)
+		if(CountController.curTime() <= 0 && dantianController.CurDanTian() >= 1 && CountController.TimeIsZero())
 		{
 			
 			TextController.hideText();
 			ClickController.hidedbutton();
 			finished = false;
 			
-			dantianController.ResetDanTian();
+			// dantianController.ResetDanTian();
 			
 			
 			// Debug.Log("cur dan tian issss " + dantianController.CurDanTian());

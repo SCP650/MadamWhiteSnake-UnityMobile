@@ -62,7 +62,7 @@ public class CollectPoints : MonoBehaviour
 
     public void ResetDanTian()
     {
-        currentNum = 1;
+        currentNum = 0;
         updateDanTian();
     }
 
