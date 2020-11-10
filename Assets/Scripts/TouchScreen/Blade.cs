@@ -91,10 +91,7 @@ public class Blade : MonoBehaviour {
 		}
 
 		
-		if(CountController.TimeIsZero())
-		{
-			Debug.Log("we have counted   " + CountController.TimeIsZero());
-		}
+		
 
 		if(CountController.curTime() <= 0 && dantianController.CurDanTian() >= 1)
 		{
