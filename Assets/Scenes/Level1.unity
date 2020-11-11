@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1757,7 +1757,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 2
   m_Size: {x: 96.02728, y: 55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -1773,7 +1773,7 @@ Transform:
   m_GameObject: {fileID: 83846747}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -72.9, y: 11.46, z: 31.172056}
-  m_LocalScale: {x: 0.78943783, y: 0.78943783, z: 0.78943783}
+  m_LocalScale: {x: 0.78943783, y: 0.7894378, z: 0.78943783}
   m_Children: []
   m_Father: {fileID: 1581783342}
   m_RootOrder: 146
@@ -46156,7 +46156,7 @@ PrefabInstance:
     - target: {fileID: 504604195393990331, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1278098692213124700, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
@@ -46461,7 +46461,7 @@ PrefabInstance:
     - target: {fileID: 4657216946663938533, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4711881382008785522, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
