@@ -5,7 +5,8 @@ using UnityEngine;
 public class hedengmove : MonoBehaviour
 {
     [SerializeField] float Horizontalspeed;
-    [SerializeField] float Verticalspeed;
+    [SerializeField] float Frequency;
+    [SerializeField] float Magnitude;
     public Rigidbody2D r1;
 
 
@@ -15,16 +16,7 @@ public class hedengmove : MonoBehaviour
     }
     void Update()
     {
-        r1.velocity = new Vector3(-Horizontalspeed, Verticalspeed, 0.0f);
+        r1.velocity = new Vector3(-Horizontalspeed, Mathf.Sin(Time.time*Frequency)* Magnitude, 0.0f);
 
-        if (transform.position.y > -122.0f )
-        {
-            Verticalspeed = Verticalspeed * -1;
-        }
-
-        if (transform.position.y < -128.0f)
-        {
-            Verticalspeed = Verticalspeed * -1;
-        }
     }
 }
