@@ -11,8 +11,10 @@ public class CameraControllerLevel2 : MonoBehaviour
     private Vector3 lastPlayerPosition;
 
     // Update is called once per frame
-
-
+    void Awake()
+    {
+        Messenger.AddListener("level2move", Move);
+    }
     private void Start()
     {
         cameraTransform = PlayerLocation.transform;
@@ -26,6 +28,17 @@ public class CameraControllerLevel2 : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(PlayerLocation.position.x, PlayerLocation.position.y + 6.8f, transform.position.z);
-    }
 
+        float y = transform.position.y;
+        if (isMoving && y > -155.0f)
+        {
+            Debug.Log("hihi");
+            y -= 5 * Time.deltaTime;
+            transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
+        }
+    }
+    void Move()
+    {
+        isMoving = true;        
+    }
 }
