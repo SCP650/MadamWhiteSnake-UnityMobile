@@ -19,6 +19,9 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] AudioClip Attack1Sound;
     [SerializeField] AudioClip Attack2Sound;
     [SerializeField] AudioClip Attack3Sound;
+    [SerializeField] GameObject landBtn;
+    [SerializeField] Animator DustAnimator;
+    [SerializeField] GameObject LineObject;
     [SerializeField] Text warningText;
     [SerializeField] private bool IsShield = true;
     [SerializeField] private GameObject AttackArea;
@@ -136,7 +139,7 @@ public class MoveByTouch : MonoBehaviour
 
     public void Land()
     {
-   
+        LineObject.SetActive(true);
         rb.AddForce(Vector2.down * 130, ForceMode2D.Impulse);
     }
 
@@ -164,7 +167,7 @@ public class MoveByTouch : MonoBehaviour
     private void SingleJump()
     {
 
-        
+        landBtn.SetActive(true);
         //Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
        _animator.SetBool("Jumping", true);
 
@@ -189,7 +192,9 @@ public class MoveByTouch : MonoBehaviour
         // allow jumping again whe nhit ground 
         if (col.gameObject.tag == "Ground")
         {
-       
+            landBtn.SetActive(false);
+            LineObject.SetActive(false);
+            DustAnimator.SetTrigger("Land");
             _animator.SetBool("Jumping", false);
             canJump = true;
         }
