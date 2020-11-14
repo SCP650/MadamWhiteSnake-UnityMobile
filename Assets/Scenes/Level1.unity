@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6557,6 +6557,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7702d2cc2994431439c25df9221adfae,
         type: 3}
+    - target: {fileID: 7173848510689094162, guid: 276f68bcb96cacb4ca6575a35a896e7f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173848510689094162, guid: 276f68bcb96cacb4ca6575a35a896e7f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.2000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173848510689094162, guid: 276f68bcb96cacb4ca6575a35a896e7f,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.6494368
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173848510689094162, guid: 276f68bcb96cacb4ca6575a35a896e7f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.8721995
+      objectReference: {fileID: 0}
     - target: {fileID: 9117515611241620276, guid: 276f68bcb96cacb4ca6575a35a896e7f,
         type: 3}
       propertyPath: m_Name
@@ -64602,6 +64622,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7702d2cc2994431439c25df9221adfae,
         type: 3}
+    - target: {fileID: 7173848510689094162, guid: 276f68bcb96cacb4ca6575a35a896e7f,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.308301
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173848510689094162, guid: 276f68bcb96cacb4ca6575a35a896e7f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173848510689094162, guid: 276f68bcb96cacb4ca6575a35a896e7f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.6201808
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173848510689094162, guid: 276f68bcb96cacb4ca6575a35a896e7f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.2000001
+      objectReference: {fileID: 0}
     - target: {fileID: 9117515611241620276, guid: 276f68bcb96cacb4ca6575a35a896e7f,
         type: 3}
       propertyPath: m_Name
