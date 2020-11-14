@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &22090436
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -538,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &27416661
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -1336,6 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &79476341
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -1451,7 +1454,7 @@ PrefabInstance:
     - target: {fileID: 877578092603008159, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 116.78
+      value: 117.26
       objectReference: {fileID: 0}
     - target: {fileID: 877578092603008159, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
@@ -2143,6 +2146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &107119008
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -5952,6 +5956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &369956948
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -6363,6 +6368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &384010437
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -8224,6 +8230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &505809348
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -8712,6 +8719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &552944672
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -9719,6 +9727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &628519178
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -10422,6 +10431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &657151139
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -27583,6 +27593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &1515293280
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -27748,6 +27759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &1515597628
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -47446,6 +47458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &1953286382
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -49394,6 +49407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &2106445163
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -49817,6 +49831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047cc27dca414e4439852f242fb0b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waittime: 0
 --- !u!231 &2145421823
 SpringJoint2D:
   m_ObjectHideFlags: 0
