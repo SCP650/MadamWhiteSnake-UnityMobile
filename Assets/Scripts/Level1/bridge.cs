@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class bridge : MonoBehaviour
 {
-   
+    [SerializeField] float Waittime;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-        {            
+        {        
             GetComponent<SpringJoint2D>().enabled = false;
         }
     }
