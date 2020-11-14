@@ -8,7 +8,7 @@ public class cameramove : MonoBehaviour
     {
         if (dragon.tag == "Player")
         {
-            Messenger.Broadcast("cameramove");
+            Messenger.Broadcast("cameramove3");
         }
     }
 }
