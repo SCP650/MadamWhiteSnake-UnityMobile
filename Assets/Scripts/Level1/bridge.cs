@@ -8,9 +8,13 @@ public class bridge : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-        {        
-            GetComponent<SpringJoint2D>().enabled = false;
+        {
+            StartCoroutine("Fall");
         }
-    }
-
+    }    
+    IEnumerator Fall()
+    {
+        yield return new WaitForSeconds(Waittime);
+        GetComponent<SpringJoint2D>().enabled = false;
+    }                                 
 }
