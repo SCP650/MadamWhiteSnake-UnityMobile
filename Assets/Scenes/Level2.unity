@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1756,6 +1756,11 @@ PrefabInstance:
       propertyPath: IsShield
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8948670029201453817, guid: f6da10800a4454832b2975d6f3c0cd69,
+        type: 3}
+      propertyPath: landBtn
+      value: 
+      objectReference: {fileID: 1922448642}
     - target: {fileID: 9094065029660365160, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: m_RootOrder
@@ -36794,6 +36799,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3998122381430899389, guid: a92c7f39561d51f41816e28aadb0ddee,
     type: 3}
   m_PrefabInstance: {fileID: 1132082895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1922448642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7254448858015761665, guid: bea218b756491414d8e4c599a5eb4a53,
+    type: 3}
+  m_PrefabInstance: {fileID: 226451914}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1932093948
 PrefabInstance:
