@@ -5,6 +5,7 @@ using UnityEngine;
 public class dragonboat1 : MonoBehaviour
 {
     public bool isMoving;
+    public float Speed;
     void Awake()
     {     
         Messenger.AddListener("dragonmoving", move);        
@@ -13,7 +14,7 @@ public class dragonboat1 : MonoBehaviour
     {
         if (isMoving) 
         {
-            this.transform.position += Vector3.right * Time.deltaTime * 0.8f;
+            this.transform.position += Vector3.right * Time.deltaTime * Speed;
         }
     }
     void move()
