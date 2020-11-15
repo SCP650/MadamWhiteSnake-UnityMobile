@@ -6,6 +6,7 @@ public class dragonboat1 : MonoBehaviour
 {
     public bool isMoving;
     public float Speed;
+    [SerializeField] float Waittime;
     void Awake()
     {     
         Messenger.AddListener("dragonmoving", move);        
@@ -14,8 +15,13 @@ public class dragonboat1 : MonoBehaviour
     {
         if (isMoving) 
         {
-            this.transform.position += Vector3.right * Time.deltaTime * Speed;
+            StartCoroutine("DragonMove");
         }
+    }
+    IEnumerator DragonMove()
+    {
+        yield return new WaitForSeconds(Waittime);
+        this.transform.position += Vector3.right * Time.deltaTime * Speed;
     }
     void move()
     {
