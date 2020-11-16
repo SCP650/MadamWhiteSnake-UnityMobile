@@ -15,7 +15,7 @@ public class AttachToLadyWhite : MonoBehaviour
         {
           
             transform.SetParent(collision.gameObject.transform);
-            transform.localPosition = new Vector3(0, -5, 0);
+            transform.localPosition = new Vector3(1, -5, 0);
             isMoving = false;
         }
     }
