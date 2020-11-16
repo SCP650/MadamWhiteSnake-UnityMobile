@@ -33,8 +33,8 @@ public class CameraControllerLevel2 : MonoBehaviour
         if (isMoving && y > -125.0f)
         {
             Debug.Log("hihi");
-            y -= 20 * Time.deltaTime;
-            transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
+            y -=9 * Time.deltaTime;
+            transform.position = new Vector3(PlayerLocation.position.x, PlayerLocation.position.y, transform.position.z);
         }
     }
     void Move()
