@@ -29,10 +29,7 @@ public class maindragon : MonoBehaviour
         yield return new WaitForSeconds(Waittime);
         this.transform.position += Vector3.right * Time.deltaTime * Speed;
     }
-    IEnumerator Dragonstop()
-    {        
-        this.transform.position -= Vector3.right * Time.deltaTime * Speed;
-    }
+
 
     void move()
     {

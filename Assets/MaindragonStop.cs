@@ -5,14 +5,11 @@ using UnityEngine;
 public class MaindragonStop : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public void OnTriggerEnter2D(Collider2D dragon)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (dragon.tag == "Player")
+        {
+            Messenger.Broadcast("Maindragonstop");
+        }
     }
 }
