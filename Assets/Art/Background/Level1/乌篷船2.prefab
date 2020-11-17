@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 360233280969881473}
   - component: {fileID: 6717669692598907412}
   - component: {fileID: 5695780044228892773}
+  - component: {fileID: 7970232254113970922}
   m_Layer: 0
   m_Name: "\u4E4C\u7BF7\u82392"
   m_TagString: Ground
@@ -131,6 +132,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &7970232254113970922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342035329900830126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5747740bd181c4083a6ece3473db3a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepOnBoat:
+  - {fileID: 8300000, guid: ee921f1a5650d4c07bcf317a16f94693, type: 3}
+  - {fileID: 8300000, guid: 0726602f4d484446391247a7f593e6be, type: 3}
+  - {fileID: 8300000, guid: d29d573dcae9240688bccd97fdd2afcd, type: 3}
 --- !u!1 &8257336637237415594
 GameObject:
   m_ObjectHideFlags: 0
