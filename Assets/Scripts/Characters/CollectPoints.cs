@@ -66,6 +66,16 @@ public class CollectPoints : MonoBehaviour
         updateDanTian();
     }
 
+    public void WaveDantianCost()
+    {
+        while(currentNum > 0)
+        {
+            currentNum -= 2*Time.deltaTime;
+        }
+        
+        updateDanTian();
+    }
+
     public bool canUseDanTian()
     {
         return currentNum > numNeeded;

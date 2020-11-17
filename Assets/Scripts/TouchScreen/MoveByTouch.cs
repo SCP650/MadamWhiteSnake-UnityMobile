@@ -48,6 +48,8 @@ public class MoveByTouch : MonoBehaviour
     private float acumTime = 0;
     private float OldGravity;
     private PlayerViewHoriMove horiSpeed;
+
+    private WAVE waveController;
     private float oldSpeed;
     private bool canJump;
     private float previousAttackTime = 0;
@@ -56,6 +58,8 @@ public class MoveByTouch : MonoBehaviour
 
     private bool canFLY = false;
     private bool canWave = false;
+    private GameObject X;
+    private GameObject Q;
 
     bool stopShield;
     bool yes;
@@ -70,10 +74,17 @@ public class MoveByTouch : MonoBehaviour
         MidHeight = Screen.height / 2;
         _animator = GetComponent<Animator>();
         dantianController = GetComponent<CollectPoints>();
+        waveController = GetComponent<WAVE>();
         // BladeController = GetComponent<Blade>();
         shield.SetActive(false);
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
+        // GameObject.Find("WavePoint").SetActive(false);
+        X = GameObject.Find("XULI");
+        Q = GameObject.Find("QIBO");
+    
+        X.SetActive(false);
+        Q.SetActive(false);
 
         if (Managers.mission.curLevel == 3)
         {
@@ -123,29 +134,26 @@ public class MoveByTouch : MonoBehaviour
 
     public void StartFly()
     {
-        Debug.Log("flying");
-        // Debug.Log(" stopfly is  " + stopfly);
-        // if(!stopfly)
-        // {
-            _animator.SetBool("IsFlying", true);
-            if (IsGrounded())
-            {
-                canFLY = false;
-                EndFly();
-            }else if (dantianController.canUseDanTian())// && CutController.canfly != false)
-            {
-            
-                horiSpeed.IncreaseFlyingSpeed();
-                rb.gravityScale = PlayGravity;
-                dantianController.FlyingCost();
-            }
-            else
-            {
-                canFLY = false;
-                StartCoroutine(ShowWarning("丹田不足，无法滑翔"));
-                EndFly();
-            }
-        // }
+    
+        _animator.SetBool("IsFlying", true);
+        if (IsGrounded())
+        {
+            canFLY = false;
+            EndFly();
+        }else if (dantianController.canUseDanTian())// && CutController.canfly != false)
+        {
+        
+            horiSpeed.IncreaseFlyingSpeed();
+            rb.gravityScale = PlayGravity;
+            dantianController.FlyingCost();
+        }
+        else
+        {
+            canFLY = false;
+            StartCoroutine(ShowWarning("丹田不足，无法滑翔"));
+            EndFly();
+        }
+
     }
 
 
@@ -159,24 +167,48 @@ public class MoveByTouch : MonoBehaviour
 
     public void WaveAttack()
     {
-       // Debug.Log("Wave attack");
+        
+        Debug.Log("Wave attack");
+        bool finished = false;
+        // GameObject XX =  this.transform.Find("XULI").gameObject;
+        // GameObject QQ =  this.transform.Find("XULI").gameObject;
+        // QQ.SetActive(true);
+        // X.SetActive(true);
+        // Q.SetActive(true);
+        
+        
+        
         if(dantianController.CurDanTian() >= 1)
         {
             //Debug.Log("CanWave");
+            // X.SetActive(true);
             StartCoroutine(ShowWarning("长按左边屏幕，发动光波"));
             CanWave();
+            
         }
         else if(dantianController.CurDanTian() < 1)
         {
-            EndWave();
+            if(finished)
+            {
+                EndWave();
+            }
+            
             StartCoroutine(ShowWarning("丹田不足，无法达成蓄力发动光波"));
+            finished = false;
         }
 
         if(IsGrounded() && canWave)
         {
-            // Debug.Log("WAVEEEEE");
-            Instantiate(WavePrefab, transform.position, transform.rotation);
+            // X.SetActive(false);
+            
+            Q.SetActive(true);
+            // waveController.Xuli();
+            // waveController.Qibo();
+            //Instantiate(WavePrefab, transform.position, transform.rotation);
             dantianController.ResetDanTian();
+
+            finished = true;
+            // EndWave();
             //Debug.Log("Cur dan tian is " + dantianController.CurDanTian());
             
         }
@@ -185,7 +217,13 @@ public class MoveByTouch : MonoBehaviour
 
     public void EndWave()
     {
+        // GameObject XX =  this.transform.Find("XULI").gameObject;
+        // GameObject QQ =  this.transform.Find("XULI").gameObject;
         canWave = false;
+        X.SetActive(false);
+        Q.SetActive(false);
+        // waveController.EndSendWaves();
+        // _animator.SetBool("QIBO", false);
     }
 
     public void CanWave()

@@ -12,6 +12,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     private float requiredHoldTime;
     public float waveHoldTime;
 
+    // public Animator _animator;
+
     //public UnityEvent onLongClick;
     public UnityEvent onLeftLongClick;
     public UnityEvent onRightLongClick;
@@ -28,12 +30,16 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
 
     private bool isHolding = false;
+    private GameObject Xu;
+    private GameObject Qi;
+    
 
     public void OnPointerDown(PointerEventData eventData)
     {
         pointerDown = true;
         X = eventData.position.x;
         Y = eventData.position.y;
+        Xu = GameObject.Find("XULI");
         if (onClick != null)
         {
             onClick.Invoke();
@@ -58,7 +64,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         if (pointerDown)
         {
-            Debug.Log(" long click pointer down");
+           // Debug.Log(" long click pointer down");
+           
             pointerDownTimer += Time.deltaTime;
             if (pointerDownTimer >= requiredHoldTime)
             {
@@ -68,7 +75,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 //     onLongClick.Invoke();
                 if(X < Width)
                 {
-                    Debug.Log("Left long click");
+                    //Debug.Log("Left long click");
                     if(pointerDownTimer >= waveHoldTime)
                     {
                         if(onLeftLongClick != null)
@@ -80,10 +87,16 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 else if(X > Width)
                 {
                     Debug.Log("Right long click");
+                    Xu.SetActive(true);
                     if(onRightLongClick != null)
                     {
                         onRightLongClick.Invoke();
                     }
+                }
+                else{
+                    Xu.SetActive(false);
+                    
+
                 }
 
                
