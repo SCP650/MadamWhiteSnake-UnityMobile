@@ -11,7 +11,7 @@ public class maindragon : MonoBehaviour
     void Awake()
     {
         Messenger.AddListener("Maindragon", move);
-        Messenger.AddListener("aindragonstop", stop);
+        Messenger.AddListener("Maindragonstop", stop);
     }
     void Update()
     {
@@ -21,7 +21,7 @@ public class maindragon : MonoBehaviour
         }
         if (issMoving)
         {
-            StartCoroutine("Dragonstop");
+            Speed = 0;
         }
     }
     IEnumerator DragonMove()
