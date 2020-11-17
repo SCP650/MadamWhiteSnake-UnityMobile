@@ -199,7 +199,7 @@ public class MoveByTouch : MonoBehaviour
 
         if(IsGrounded() && canWave)
         {
-            // X.SetActive(false);
+            X.SetActive(true);
             
             Q.SetActive(true);
             // waveController.Xuli();
