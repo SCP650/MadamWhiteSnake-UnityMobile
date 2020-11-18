@@ -27,6 +27,8 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] private GameObject AttackArea;
     [SerializeField] private float PlayGravity = 0.5f;
     //[SerializeField] float jumpHeight = 10f;
+
+    public bool isRolling;
   
     private Animator _animator;
     private Vector3 jumpTarget;
@@ -104,7 +106,19 @@ public class MoveByTouch : MonoBehaviour
         //return false;
 
  
-    } 
+    }
+
+    public void StartRolling()
+    {
+        horiSpeed.IncreaseSpeedBy(0);//set speed to zero
+        isRolling = true;
+    }
+
+    public void EndRolling()
+    {
+        horiSpeed.ResetSpeed();
+        isRolling = false;
+    }
   
 
     public void StartFly()
@@ -217,6 +231,14 @@ public class MoveByTouch : MonoBehaviour
 
     public void AttackOrDefense()
     {
+        if (isRolling)
+        {
+            //UmbrellaSword();
+            StartCoroutine(Shield());
+
+            rb.AddForce(Vector2.right * 100, ForceMode2D.Impulse);
+            return;
+        }
        
         if (dantianController.canUseDanTian())
         {
