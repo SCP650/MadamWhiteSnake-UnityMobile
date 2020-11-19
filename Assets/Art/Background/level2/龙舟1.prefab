@@ -451,6 +451,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5610932830076444059, guid: d612b3981a0fbb94aa4808e8df6f2f23,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d612b3981a0fbb94aa4808e8df6f2f23, type: 3}
 --- !u!4 &8227642000047567880 stripped
@@ -544,7 +549,7 @@ PrefabInstance:
     - target: {fileID: 1660980624585302375, guid: 975b6d01a03824d34a3817ac3d02ea99,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 1660980624585302392, guid: 975b6d01a03824d34a3817ac3d02ea99,
         type: 3}
