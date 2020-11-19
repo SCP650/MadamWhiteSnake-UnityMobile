@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3541,7 +3541,7 @@ PrefabInstance:
     - target: {fileID: 877578092603008159, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.1
+      value: -14.4
       objectReference: {fileID: 0}
     - target: {fileID: 877578092603008159, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
@@ -3647,7 +3647,7 @@ PrefabInstance:
     - target: {fileID: 6588895286548178688, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7898702684808452887, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
@@ -3687,7 +3687,7 @@ PrefabInstance:
     - target: {fileID: 9094065029660365160, guid: f6da10800a4454832b2975d6f3c0cd69,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 877578092735667468, guid: f6da10800a4454832b2975d6f3c0cd69, type: 3}
@@ -18494,7 +18494,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 519134154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b4444eec49fc694eafa09ce05139913, type: 3}
+  m_Script: {fileID: 11500000, guid: e3aadcafc686ab14d836de7be709cc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &519134157
@@ -21805,6 +21805,7 @@ Transform:
   - {fileID: 1606705547}
   - {fileID: 1832501124}
   - {fileID: 1408431210}
+  - {fileID: 859642568}
   - {fileID: 840686482}
   - {fileID: 144054002}
   - {fileID: 696482880}
@@ -21832,7 +21833,6 @@ Transform:
   - {fileID: 1395831150}
   - {fileID: 2097707521}
   - {fileID: 208088457}
-  - {fileID: 859642568}
   - {fileID: 380284379}
   - {fileID: 1455636922}
   - {fileID: 494494690}
@@ -27787,7 +27787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784013332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 680.3, y: -120.8, z: -284.34775}
+  m_LocalPosition: {x: 672.9, y: -119.82, z: -284.34775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27806,8 +27806,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerLocation: {fileID: 877578092674830314}
-  cameraspeed: {x: 0, y: -0.8}
+  cameraspeed: {x: 0, y: 1}
   isMoving: 0
+  multiplier: 0
 --- !u!1001 &784254121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29680,7 +29681,7 @@ Transform:
   - {fileID: 484934345}
   - {fileID: 1252901158}
   m_Father: {fileID: 627635559}
-  m_RootOrder: 50
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &860391319
 GameObject:

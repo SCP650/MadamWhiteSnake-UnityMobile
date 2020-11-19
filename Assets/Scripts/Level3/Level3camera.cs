@@ -20,10 +20,12 @@ public class Level3camera : MonoBehaviour
         float y = transform.position.y;
         if (isMoving && y < -148.4f)
         {
+            Debug.Log("hihihihi");
             y += 1 * Time.deltaTime;
         }       
         if (issMoving && y > -152.9f)
         {
+            Debug.Log("hihihihi2");
             y -= 1 * Time.deltaTime;
             isMoving = false;
         }
