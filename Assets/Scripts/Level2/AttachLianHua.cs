@@ -16,11 +16,15 @@ public class AttachLianHua : MonoBehaviour
             StartCoroutine(blockEnemy());
             StartCoroutine(ShowHintText());
         }
+        else if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+        }
     }
     IEnumerator ShowHintText()
     {
         yield return new WaitForSeconds(1);
-        hintText.text = "点击左边加速，点击右边跳跃，赢下龙舟大赛！";
+        hintText.text = "点击左边加速，点击右边跳跃，赢下龙舟比赛！";
         hintText.gameObject.SetActive(true);
         yield return new WaitForSeconds(6);
         hintText.gameObject.SetActive(false);
