@@ -34,7 +34,7 @@ public class CameraControllerLevel2 : MonoBehaviour
         {
             cameraspeed.y = -1;
             y -=5 * Time.deltaTime;
-            transform.position = new Vector3(PlayerLocation.position.x, y, transform.position.z);
+            transform.position = new Vector3(PlayerLocation.position.x, PlayerLocation.position.y, transform.position.z);
         }
     }
     void Move()
