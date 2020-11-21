@@ -7,7 +7,7 @@ public class maindragon : MonoBehaviour
     [SerializeField] Transform target;
     private bool isMoving;
     private bool issMoving;
-    private float Speed = 10;
+    private float Speed = 8;
     private float oldSpeed;
     private float Waittime = 0.3f;
     private void Start()
