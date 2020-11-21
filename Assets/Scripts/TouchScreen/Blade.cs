@@ -82,6 +82,9 @@ public class Blade : MonoBehaviour {
 	
 
 				Cut();
+
+				// finished = true;
+				
 			}
 		}
 		else
@@ -98,13 +101,18 @@ public class Blade : MonoBehaviour {
 			
 			TextController.hideText();
 			ClickController.hidedbutton();
+			
 			finished = false;
+			if(dantianController.CurDanTian() >= 1)
+			{
+				Debug.Log("cur dan tian issss " + dantianController.CurDanTian());
+
+				dantianController.ResetDanTian();
+			}
 			
-			// dantianController.ResetDanTian();
 			
+			Time.timeScale = 0.999f;
 			
-			// Debug.Log("cur dan tian issss " + dantianController.CurDanTian());
-			Time.timeScale = 0.99f;
 			//MoveController.ReDefence();
 			
 		}

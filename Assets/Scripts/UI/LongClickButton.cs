@@ -10,6 +10,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     [SerializeField]
     private float requiredHoldTime;
+
+    private float HoldTime;
     public float waveHoldTime;
 
     // public Animator _animator;
@@ -19,6 +21,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public UnityEvent onRightLongClick;
     public UnityEvent onClick;
     public UnityEvent afterLongClick;
+
+    // private Animator _animator;
     
 
     private float Width = Screen.width / 2;
@@ -39,7 +43,6 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         pointerDown = true;
         X = eventData.position.x;
         Y = eventData.position.y;
-        Xu = GameObject.Find("XULI");
         if (onClick != null)
         {
             onClick.Invoke();
@@ -62,10 +65,15 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
    
     private void Update()
     {
+        // Xu = GameObject.Find("XULI");
+        // Xu.SetActive(false);
+        // _animator = GetComponent<Animator>();
+
         if (pointerDown)
         {
            // Debug.Log(" long click pointer down");
            
+          
             pointerDownTimer += Time.deltaTime;
             if (pointerDownTimer >= requiredHoldTime)
             {
@@ -75,9 +83,11 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 //     onLongClick.Invoke();
                 if(X < Width)
                 {
-                    //Debug.Log("Left long click");
+                    // Debug.Log(" long click pointer down");
+                    // _animator.SetBool("X", true);
                     if(pointerDownTimer >= waveHoldTime)
                     {
+                        HoldTime = pointerDownTimer;
                         if(onLeftLongClick != null)
                         {
                             onLeftLongClick.Invoke();
@@ -86,22 +96,19 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 }
                 else if(X > Width)
                 {
-                    Debug.Log("Right long click");
-                    Xu.SetActive(true);
                     if(onRightLongClick != null)
                     {
                         onRightLongClick.Invoke();
                     }
                 }
-                else{
-                    Xu.SetActive(false);
-                    
-
-                }
 
                
             }
         }
+        else{
+            // _animator.SetBool("X", false);
+        }
+        
     }
 
     private void Reset()
@@ -109,5 +116,12 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         pointerDown = false;
         pointerDownTimer = 0;
     }
+
+    public float Hold()
+    {
+        return HoldTime;
+    }
+
+    
 
 }

@@ -1,4 +1,4 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,8 +24,8 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] private GameObject AttackArea;
     [SerializeField] private float PlayGravity = 0.5f;
 
-    [SerializeField] private Transform WavePoint;
-    [SerializeField] private GameObject WavePrefab;
+    // [SerializeField] private Transform WavePoint;
+    // [SerializeField] private GameObject WavePrefab;
     //[SerializeField] float jumpHeight = 10f;
   
     private Animator _animator;
@@ -38,6 +38,8 @@ public class MoveByTouch : MonoBehaviour
     private float MidWidth;
     private float MidHeight;
     private CollectPoints dantianController;
+
+    // private LongClickButton ClickController;
 
     // private Blade BladeController;
 
@@ -61,6 +63,11 @@ public class MoveByTouch : MonoBehaviour
     private GameObject X;
     private GameObject Q;
 
+    private float QIBOTimer;
+    private float XULITimer;
+
+    private Vector3 scaleChange, curScale, positionChange, curPosition;
+
     bool stopShield;
     bool yes;
 
@@ -74,7 +81,7 @@ public class MoveByTouch : MonoBehaviour
         MidHeight = Screen.height / 2;
         _animator = GetComponent<Animator>();
         dantianController = GetComponent<CollectPoints>();
-        waveController = GetComponent<WAVE>();
+        // ClickController = GetComponent<LongClickButton>();
         // BladeController = GetComponent<Blade>();
         shield.SetActive(false);
         OldGravity = rb.gravityScale;
@@ -91,6 +98,14 @@ public class MoveByTouch : MonoBehaviour
             IsShield = !Managers.mission.GetPlayerChoice(2);
         }
         stopShield = true;
+
+        curScale = Q.transform.localScale;
+        scaleChange = new Vector3(0.03f, 0.03f, 0.03f);
+
+        curPosition = Q.transform.position;
+        positionChange = new Vector3(-0.03f, 0.0f, 0.0f);
+
+        
 
         
     }
@@ -168,7 +183,6 @@ public class MoveByTouch : MonoBehaviour
     public void WaveAttack()
     {
         
-        Debug.Log("Wave attack");
         bool finished = false;
         // GameObject XX =  this.transform.Find("XULI").gameObject;
         // GameObject QQ =  this.transform.Find("XULI").gameObject;
@@ -199,15 +213,46 @@ public class MoveByTouch : MonoBehaviour
 
         if(IsGrounded() && canWave)
         {
-            X.SetActive(true);
+            _animator.SetBool("XULI", true);
+            //X.SetActive(true);
+            QIBOTimer += Time.deltaTime;
             
-            Q.SetActive(true);
+            // Debug.Log("qibo timer is " + QIBOTimer);
+            if(QIBOTimer < 3.0f)
+            {
+                
+                Q.SetActive(true);
+                Q.transform.localScale += scaleChange;
+                Q.transform.position += positionChange;
+                QIBOTimer += Time.deltaTime;
+
+            }
+
+            if(QIBOTimer + 0.1f >= 3.0f)
+            {
+                EndWave();
+                dantianController.ResetDanTian();
+
+                finished = true;
+                
+
+            }
+
+
+            
+            
+
+            // if(Q.transform.localScale.x < 2 && Q.transform.localScale.y < 2)
+            // {
+            //     Q.transform.localScale += scaleChange;;
+            // }
+            // Q.transform.position += positionChange;
             // waveController.Xuli();
             // waveController.Qibo();
             //Instantiate(WavePrefab, transform.position, transform.rotation);
-            dantianController.ResetDanTian();
+            // dantianController.ResetDanTian();
 
-            finished = true;
+            // finished = true;
             // EndWave();
             //Debug.Log("Cur dan tian is " + dantianController.CurDanTian());
             
@@ -220,8 +265,12 @@ public class MoveByTouch : MonoBehaviour
         // GameObject XX =  this.transform.Find("XULI").gameObject;
         // GameObject QQ =  this.transform.Find("XULI").gameObject;
         canWave = false;
-        X.SetActive(false);
+        // X.SetActive(false);
         Q.SetActive(false);
+        Q.transform.localScale = curScale;
+        Q.transform.position -= positionChange;
+        _animator.SetBool("XULI", false);
+        QIBOTimer = 0.0f;
         // waveController.EndSendWaves();
         // _animator.SetBool("QIBO", false);
     }

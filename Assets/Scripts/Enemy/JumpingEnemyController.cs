@@ -112,6 +112,8 @@ public class JumpingEnemyController : MonoBehaviour
         // GameObject scoreText = GameObject.Find ("Score");
         string whatHitMe = collision.gameObject.tag;
         string HIT = collider.gameObject.tag;
+
+        Debug.Log("What hit me is " + whatHitMe);
         // HIT = GameObject.FindGameObjectsWithTag("SlidePoint");
         if ( whatHitMe == "Enemy")
         {
@@ -123,10 +125,10 @@ public class JumpingEnemyController : MonoBehaviour
             rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
             //Debug.Log("Jump is true");
         }
-        else if(whatHitMe ==  GameObject.Find("Blade").tag )
+        else if(whatHitMe ==  GameObject.Find("Blade").tag  )
         {
             //Debug.Log("be destroyed");
-            ScoreController.StartCount();
+            // ScoreController.StartCount();
             
             // StartCoroutine(ShowMessage("Abc", 2));
             // ScoreController.getScore();
@@ -135,12 +137,12 @@ public class JumpingEnemyController : MonoBehaviour
             // Destroy(MovementScript);
             StartCoroutine(Flicker());
         }
-        else if(whatHitMe == "Wave" )
-        {
-            Debug.Log("be destroyed by wave");
-            _animator.SetTrigger("Die");
-            StartCoroutine(Flicker());
-        }
+        // else if(whatHitMe == GameObject.Find("QIBO").tag )
+        // {
+        //     Debug.Log("be destroyed by wave");
+        //     _animator.SetTrigger("Die");
+        //     StartCoroutine(Flicker());
+        // }
         
     }
 
