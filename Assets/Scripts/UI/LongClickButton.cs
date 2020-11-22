@@ -19,6 +19,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public UnityEvent onClick;
     public UnityEvent afterLongClick;
 
+    public UnityEvent LeftDoubleClick;
+
     // private Animator _animator;
     
 
@@ -27,6 +29,9 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private float X;
     private float Y;
+    float clicked = 0;
+    float clicktime = 0;
+    float clickdelay = 0.5f;
 
 
 
@@ -38,12 +43,19 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public void OnPointerDown(PointerEventData eventData)
     {
         pointerDown = true;
-        X = eventData.position.x;
-        Y = eventData.position.y;
-        if (onClick != null)
+        clicked++;
+        // X = eventData.position.x;
+        // Y = eventData.position.y;
+        if (onClick != null && clicked == 1)
         {
             onClick.Invoke();
-
+            clicktime = Time.time;
+        }
+        else if(onClick != null && clicked > 1 && Time.time - clicktime < clickdelay)
+        {
+            clicked = 0;
+            clicktime = 0;
+            LeftDoubleClick.Invoke();
         }
 
     }

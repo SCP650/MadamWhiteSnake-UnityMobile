@@ -110,6 +110,15 @@ public class JumpingEnemyController : MonoBehaviour
             rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
             //Debug.Log("Jump is true");
         }
+         else if(whatHitMe ==  GameObject.Find("Blade").tag  )
+        {
+            _animator.SetTrigger("Die");
+        }
+        else if(GameObject.Find("QIBO") != null)
+        {
+            _animator.SetTrigger("Die");
+            
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
