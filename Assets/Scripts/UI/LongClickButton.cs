@@ -44,19 +44,27 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         pointerDown = true;
         clicked++;
-        // X = eventData.position.x;
-        // Y = eventData.position.y;
-        if (onClick != null && clicked == 1)
+        X = eventData.position.x;
+        Y = eventData.position.y;
+
+        // Debug.Log(" click ");
+        if (onClick != null)
         {
-            onClick.Invoke();
+            // onClick.Invoke();
             clicktime = Time.time;
+            if(clicked == 2 && Time.time - clicktime < clickdelay)
+            {
+                // Debug.Log(" click time + " + clicked);
+                clicked = 0;
+                LeftDoubleClick.Invoke();
+            }
+            else
+            {
+                onClick.Invoke();
+            }
+            
         }
-        else if(onClick != null && clicked > 1 && Time.time - clicktime < clickdelay)
-        {
-            clicked = 0;
-            clicktime = 0;
-            LeftDoubleClick.Invoke();
-        }
+        
 
     }
 
@@ -118,12 +126,12 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             }
             else
             {
-                Xu.SetActive(false);
+                // Xu.SetActive(false);
                 // Xu.transform.localScale = curScale;
             }
         }
         else{
-            Xu.SetActive(false);
+            // Xu.SetActive(false);
             // Xu.transform.localScale = curScale;
             
         }

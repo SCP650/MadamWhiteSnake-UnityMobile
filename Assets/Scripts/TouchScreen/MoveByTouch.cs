@@ -359,7 +359,7 @@ public class MoveByTouch : MonoBehaviour
         }
         else
         {
-            StartCoroutine(ShowWarning("丹田不足，无法开伞"));
+            StartCoroutine(ShowWarning("丹田不足，无法开伞/滑切"));
         }
     }
 

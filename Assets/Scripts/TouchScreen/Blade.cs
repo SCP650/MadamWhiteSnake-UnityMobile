@@ -22,6 +22,8 @@ public class Blade : MonoBehaviour {
 	Camera cam;
 	CircleCollider2D circleCollider;
 
+	float Timeleft = 2.0f;
+
 	void Start ()
 	{
 		cam = Camera.main;
@@ -37,6 +39,7 @@ public class Blade : MonoBehaviour {
 		currentBladeTrail = Instantiate(bladeTrailPrefab, transform);
 		previousPosition = cam.ScreenToWorldPoint(Input.mousePosition);
 		circleCollider.enabled = false;
+		dantianController.dantianUsed();
 	}
 
 
@@ -48,19 +51,38 @@ public class Blade : MonoBehaviour {
             // Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
         if(Input.touchCount > 0)
         {
-           	if(dantianController.CurDanTian() >= 1)
+           	if(dantianController.CurDanTian() >= 1 && Timeleft >= 0.0f && Cancut() == true)
 			{
 				// CountController.StartCount();
-				Time.timeScale = 0.4f;
-				Cut();
+				// while(dantianController.CurDanTian() > 0)
+				// {
+					Debug.Log("cur dqn tian is " + dantianController.CurDanTian());
+					StartCoroutine(ShowWarning(Timeleft.ToString()));
+					Timeleft -= 1.0f;
+					Time.timeScale = 0.4f;
+					Cut();
+				// }
+				
 			}
 			else
 			{
-				StartCoroutine(ShowWarning("丹田不足，无法滑切"));
+				// StartCoroutine(ShowWarning("丹田不足，无法滑切"));
 			}
         }
+		else if(Input.touchCount == 0 && Timeleft <= 0.0f)
+		{
+			StartCoroutine(ShowWarning("滑切结束"));
+			//dantianController.ResetDanTian();
+			Timeleft = 2.0f;
+			Time.timeScale = 0.999999f;
+		}
 
     }
+
+	public bool Cancut()
+	{
+		return true;
+	}
 
 	public void Cut()
 	{
