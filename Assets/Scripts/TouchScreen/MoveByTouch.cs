@@ -210,6 +210,11 @@ public class MoveByTouch : MonoBehaviour
             StartCoroutine(ShowWarning("丹田不足，无法达成蓄力发动光波"));
             finished = false;
         }
+        else if(dantianController.CurDanTian() >= 1 && Input.touchCount > 0)
+        {
+            StartCoroutine(ShowWarning("开始蓄力"));
+            X.SetActive(true);
+        }
 
         if(IsGrounded() && canWave)
         {
@@ -268,7 +273,7 @@ public class MoveByTouch : MonoBehaviour
         // X.SetActive(false);
         Q.SetActive(false);
         Q.transform.localScale = curScale;
-        Q.transform.position -= positionChange;
+        Q.transform.position -= positionChange * 2;
         _animator.SetBool("XULI", false);
         QIBOTimer = 0.0f;
         // waveController.EndSendWaves();

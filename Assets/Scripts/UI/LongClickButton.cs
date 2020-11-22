@@ -35,7 +35,9 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private bool isHolding = false;
     private GameObject Xu;
-    private GameObject Qi;
+
+
+    // private GameObject Qi;
     
 
     public void OnPointerDown(PointerEventData eventData)
@@ -67,7 +69,6 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         // Xu = GameObject.Find("XULI");
         // Xu.SetActive(false);
-        // _animator = GetComponent<Animator>();
 
         if (pointerDown)
         {
@@ -84,7 +85,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 if(X < Width)
                 {
                     // Debug.Log(" long click pointer down");
-                    // _animator.SetBool("X", true);
+                    // Xu.SetActive(true);
                     if(pointerDownTimer >= waveHoldTime)
                     {
                         HoldTime = pointerDownTimer;
