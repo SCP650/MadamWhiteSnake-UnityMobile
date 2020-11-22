@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -27909,6 +27909,7 @@ GameObject:
   - component: {fileID: 871750872}
   - component: {fileID: 871750871}
   - component: {fileID: 871750870}
+  - component: {fileID: 871750875}
   m_Layer: 0
   m_Name: Blade
   m_TagString: SlidePoint
@@ -27930,6 +27931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bladeTrailPrefab: {fileID: 1146315631}
   minCuttingVelocity: 0.001
+  Attack: {fileID: 0}
 --- !u!135 &871750871
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -28005,6 +28007,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &871750875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871750869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0ba76465d864b16bbde548250cab57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numNeeded: 3
+  totalAttack: 7
+  danTian: {fileID: 1744296472}
+  collectSound: {fileID: 8300000, guid: e696d7bba4fb748b296761f6889c770e, type: 3}
 --- !u!1001 &882257924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58771,7 +58789,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemySpawer: {fileID: 595496340}
-  Level1MidMusic: Music/level1-mid
 --- !u!61 &1568859462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72647,7 +72664,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerLocation: {fileID: 171914981}
-  cameraspeed: {x: 0, y: -0.8}
   isMoving: 0
 --- !u!81 &2026197903
 AudioListener:
