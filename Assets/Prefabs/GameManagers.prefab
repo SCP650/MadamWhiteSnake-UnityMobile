@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a638dc81ca21d48faafb395b51f99706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerChoice: 
 --- !u!114 &227723339362436053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,9 +135,9 @@ MonoBehaviour:
   BGMSource: {fileID: 1015239884901998199}
   Music2Source: {fileID: 4773051172143811577}
   introBGMLocation: Music/intro
-  level1BGMLocation: Music/8Bit
-  level2BGMLocation: 
-  level3BGMLocation: 
+  level1BGMLocation: Music/level1-begin
+  level2BGMLocation: Music/level2
+  level3BGMLocation: Music/level3
   crossFadeRate: 1.5
 --- !u!114 &5100232606152461873
 MonoBehaviour:
@@ -320,13 +321,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 192
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

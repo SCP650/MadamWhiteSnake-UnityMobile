@@ -23,7 +23,7 @@ public class FireBallController : MonoBehaviour
         if (whatHitMe == "PlayerHitbox")
         {
 
-            Managers.Player.ChangeHealth(-10);
+            Managers.Player.ChangeHealth(-5);
             Managers.Audio.PlaySound(playJiao);
         }
 
