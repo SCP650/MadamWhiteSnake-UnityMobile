@@ -178,7 +178,6 @@ public class MoveByTouch : MonoBehaviour
         bool finished = false;
         
         Debug.Log("wave attack");
-        StartCoroutine(ShowWarning("丹田满，则长按左边屏幕发送光波"));
         if(dantianController.CurDanTian() >= 1)
         {
             // X.SetActive(true);
