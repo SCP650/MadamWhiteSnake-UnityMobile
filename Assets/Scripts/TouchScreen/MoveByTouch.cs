@@ -19,6 +19,9 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] AudioClip Attack1Sound;
     [SerializeField] AudioClip Attack2Sound;
     [SerializeField] AudioClip Attack3Sound;
+    [SerializeField] GameObject landBtn;
+    [SerializeField] Animator DustAnimator;
+    [SerializeField] GameObject LineObject;
     [SerializeField] Text warningText;
     [SerializeField] private bool IsShield = true;
     [SerializeField] private GameObject AttackArea;
@@ -27,6 +30,8 @@ public class MoveByTouch : MonoBehaviour
     // [SerializeField] private Transform WavePoint;
     // [SerializeField] private GameObject WavePrefab;
     //[SerializeField] float jumpHeight = 10f;
+
+    public bool isRolling;
   
     private Animator _animator;
     private Vector3 jumpTarget;
@@ -142,9 +147,25 @@ public class MoveByTouch : MonoBehaviour
         //return false;
 
  
+<<<<<<< HEAD
     } 
 
     
+=======
+    }
+
+    public void StartRolling()
+    {
+        horiSpeed.IncreaseSpeedBy(0);//set speed to zero
+        isRolling = true;
+    }
+
+    public void EndRolling()
+    {
+        horiSpeed.ResetSpeed();
+        isRolling = false;
+    }
+>>>>>>> dev
   
 
     public void StartFly()
@@ -180,6 +201,7 @@ public class MoveByTouch : MonoBehaviour
         rb.gravityScale = OldGravity;
     }
 
+<<<<<<< HEAD
     public void WaveAttack()
     {
         
@@ -318,6 +340,14 @@ public class MoveByTouch : MonoBehaviour
 
     
 
+=======
+    public void Land()
+    {
+        LineObject.SetActive(true);
+        rb.AddForce(Vector2.down * 130, ForceMode2D.Impulse);
+    }
+
+>>>>>>> dev
     public void Jump()
     {
         //CheckCut();
@@ -345,10 +375,17 @@ public class MoveByTouch : MonoBehaviour
 
     private void SingleJump()
     {
+<<<<<<< HEAD
         
 
             //Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
         _animator.SetBool("Jumping", true);
+=======
+
+        landBtn.SetActive(true);
+        //Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
+       _animator.SetBool("Jumping", true);
+>>>>>>> dev
 
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         //Vector3 curr = transform.position;
@@ -373,7 +410,9 @@ public class MoveByTouch : MonoBehaviour
         // allow jumping again whe nhit ground 
         if (col.gameObject.tag == "Ground")
         {
-       
+            landBtn.SetActive(false);
+            LineObject.SetActive(false);
+            DustAnimator.SetTrigger("Land");
             _animator.SetBool("Jumping", false);
             canJump = true;
         }
@@ -381,6 +420,7 @@ public class MoveByTouch : MonoBehaviour
 
     }
 
+<<<<<<< HEAD
     private void OnCollisionStay2D(Collision2D collision)
     {
 
@@ -392,6 +432,9 @@ public class MoveByTouch : MonoBehaviour
             canJump = true;
         }
     }
+=======
+   
+>>>>>>> dev
 
     private IEnumerator Shield()
     {
@@ -422,7 +465,18 @@ public class MoveByTouch : MonoBehaviour
 
     public void AttackOrDefense()
     {
+<<<<<<< HEAD
         
+=======
+        if (isRolling)
+        {
+            //UmbrellaSword();
+            StartCoroutine(Shield());
+
+            rb.AddForce(Vector2.right * 100, ForceMode2D.Impulse);
+            return;
+        }
+>>>>>>> dev
        
         if (dantianController.canUseDanTian())
         {
