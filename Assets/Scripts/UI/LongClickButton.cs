@@ -32,6 +32,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private bool isHolding = false;
     public GameObject Xu;
+    private Vector3 scaleChange, curScale;
 
 
     public void OnPointerDown(PointerEventData eventData)
@@ -63,6 +64,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         // Xu = GameObject.Find("XULI");
         // Xu.SetActive(false);
+        // curScale = Xu.transform.localScale;
+        // scaleChange = new Vector3(0.05f, 0.05f, 0.05f);
 
         if (pointerDown)
         {
@@ -80,6 +83,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 {
                     // Debug.Log(" long click pointer down");
                     Xu.SetActive(true);
+                    Xu.transform.localScale += scaleChange;
                     
                     if(pointerDownTimer >= waveHoldTime)
                     {
@@ -100,9 +104,16 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
                
             }
+            else
+            {
+                Xu.SetActive(false);
+                // Xu.transform.localScale = curScale;
+            }
         }
         else{
-            // _animator.SetBool("X", false);
+            Xu.SetActive(false);
+            // Xu.transform.localScale = curScale;
+            
         }
         
     }
