@@ -29,9 +29,14 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private float X;
     private float Y;
-    float clicked = 0;
+    float clicked = 1;
+
+    float curclicked = 0;
     float clicktime = 0;
     float clickdelay = 0.5f;
+    bool single = false;
+    float timer = 0.0f;
+    float lastTimeClick = -1.0f;
 
 
 
@@ -43,25 +48,41 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public void OnPointerDown(PointerEventData eventData)
     {
         pointerDown = true;
-        clicked++;
+        curclicked++;
         X = eventData.position.x;
         Y = eventData.position.y;
 
         // Debug.Log(" click ");
-        if (onClick != null)
+        if (onClick != null && LeftDoubleClick != null)
         {
             // onClick.Invoke();
+            // Debug.Log(" click ");
+            
             clicktime = Time.time;
-            if(clicked == 2 && Time.time - clicktime < clickdelay)
+            float currentTimeClick = Time.time;
+
+            Debug.Log("timer is " + (currentTimeClick - lastTimeClick));
+            if(currentTimeClick - lastTimeClick > 0.5f) // single clicked
             {
-                // Debug.Log(" click time + " + clicked);
-                clicked = 0;
+                Debug.Log(" single click + " + curclicked);
+                onClick.Invoke();
+                clicktime = Time.time;
+                
+            }
+            if(currentTimeClick - lastTimeClick < 0.5f) // double clicked here
+            {
+                Debug.Log(" double click + " + curclicked);
+                curclicked = 0;
+                // clicktime = 0;
                 LeftDoubleClick.Invoke();
             }
-            else
-            {
-                onClick.Invoke();
-            }
+
+            lastTimeClick = currentTimeClick;
+           
+            
+            
+            
+            
             
         }
         
