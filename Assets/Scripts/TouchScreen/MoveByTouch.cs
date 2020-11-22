@@ -176,14 +176,9 @@ public class MoveByTouch : MonoBehaviour
     {
         
         bool finished = false;
-        // GameObject XX =  this.transform.Find("XULI").gameObject;
-        // GameObject QQ =  this.transform.Find("XULI").gameObject;
-        // QQ.SetActive(true);
-        // X.SetActive(true);
-        // Q.SetActive(true);
         
-        
-        
+        Debug.Log("wave attack");
+        StartCoroutine(ShowWarning("丹田满，则长按左边屏幕发送光波"));
         if(dantianController.CurDanTian() >= 1)
         {
             // X.SetActive(true);
@@ -229,24 +224,6 @@ public class MoveByTouch : MonoBehaviour
                 
 
             }
-
-
-            
-            
-
-            // if(Q.transform.localScale.x < 2 && Q.transform.localScale.y < 2)
-            // {
-            //     Q.transform.localScale += scaleChange;;
-            // }
-            // Q.transform.position += positionChange;
-            // waveController.Xuli();
-            // waveController.Qibo();
-            //Instantiate(WavePrefab, transform.position, transform.rotation);
-            // dantianController.ResetDanTian();
-
-            // finished = true;
-            // EndWave();
-            //Debug.Log("Cur dan tian is " + dantianController.CurDanTian());
             
         }
         
