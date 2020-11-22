@@ -137,12 +137,12 @@ public class JumpingEnemyController : MonoBehaviour
             // Destroy(MovementScript);
             StartCoroutine(Flicker());
         }
-        // else if(whatHitMe == GameObject.Find("QIBO").tag )
-        // {
-        //     Debug.Log("be destroyed by wave");
-        //     _animator.SetTrigger("Die");
-        //     StartCoroutine(Flicker());
-        // }
+        else if(GameObject.Find("QIBO") != null)
+        {
+            Debug.Log("be destroyed by wave");
+            _animator.SetTrigger("Die");
+            StartCoroutine(Flicker());
+        }
         
     }
 

@@ -100,7 +100,7 @@ public class MoveByTouch : MonoBehaviour
         stopShield = true;
 
         curScale = Q.transform.localScale;
-        scaleChange = new Vector3(0.03f, 0.03f, 0.03f);
+        scaleChange = new Vector3(0.08f, 0.08f, 0.08f);
 
         curPosition = Q.transform.position;
         positionChange = new Vector3(-0.03f, 0.0f, 0.0f);
