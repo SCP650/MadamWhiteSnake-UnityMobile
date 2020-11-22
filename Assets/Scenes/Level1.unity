@@ -63680,7 +63680,7 @@ PrefabInstance:
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: LeftDoubleClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
@@ -63730,7 +63730,7 @@ PrefabInstance:
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Cancut
+      value: Cut
       objectReference: {fileID: 0}
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
@@ -63755,13 +63755,13 @@ PrefabInstance:
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: onLeftLongClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: onLeftLongClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 445568590}
+      objectReference: {fileID: 0}
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: onLeftLongClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -63770,12 +63770,37 @@ PrefabInstance:
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: onLeftLongClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: LeftDoubleClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: LeftDoubleClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: LeftDoubleClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 445568590}
+    - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: LeftDoubleClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CancelInvoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935160231254296155, guid: bea218b756491414d8e4c599a5eb4a53,
+        type: 3}
+      propertyPath: LeftDoubleClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea218b756491414d8e4c599a5eb4a53, type: 3}

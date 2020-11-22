@@ -55,20 +55,20 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         // Debug.Log(" click ");
         if (onClick != null)
         {
-            onClick.Invoke();
+            // onClick.Invoke();
             // Debug.Log(" click ");
             
             // clicktime = Time.time;
             float currentTimeClick = Time.time;
 
             Debug.Log("timer is " + (currentTimeClick - lastTimeClick));
-            // if(currentTimeClick - lastTimeClick > 0.5f) // single clicked
-            // {
+            if(currentTimeClick - lastTimeClick > 0.5f) // single clicked
+            {
             //     Debug.Log(" single click + " + curclicked);
-            //     onClick.Invoke();
-            //     clicktime = Time.time;
+                onClick.Invoke();
+                clicktime = Time.time;
                 
-            // }
+            }
             if(currentTimeClick - lastTimeClick < 0.2f) // double clicked here
             {
                 Debug.Log(" double click + " + curclicked);
