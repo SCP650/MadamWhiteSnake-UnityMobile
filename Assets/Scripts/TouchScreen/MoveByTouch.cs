@@ -54,6 +54,15 @@ public class MoveByTouch : MonoBehaviour
     private float followUpThresholh = 1f;
     private int AttackCounter = 0;
 
+    private bool canWave = false;
+    private GameObject X;
+    private GameObject Q;
+
+    private float QIBOTimer;
+    private float XULITimer;
+
+    private Vector3 scaleChange, curScale, positionChange, curPosition;
+
     void Start()
     {
 
@@ -67,11 +76,23 @@ public class MoveByTouch : MonoBehaviour
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
 
+        X = GameObject.Find("XULI");
+        Q = GameObject.Find("QIBO");
+    
+        X.SetActive(false);
+        Q.SetActive(false);
+
         if (Managers.mission.curLevel == 3)
         {
             IsShield = !Managers.mission.GetPlayerChoice(2);
         }
-        //StartPosY =  0.1947699f;
+        // stopShield = true;
+
+        curScale = Q.transform.localScale;
+        scaleChange = new Vector3(0.05f, 0.05f, 0.05f);
+
+        curPosition = Q.transform.position;
+        positionChange = new Vector3(-0.03f, 0.0f, 0.0f);
     }
 
     bool IsGrounded() 
@@ -149,6 +170,110 @@ public class MoveByTouch : MonoBehaviour
         horiSpeed.ResetSpeed();
         _animator.SetBool("IsFlying",false);
         rb.gravityScale = OldGravity;
+    }
+
+    public void WaveAttack()
+    {
+        
+        bool finished = false;
+        // GameObject XX =  this.transform.Find("XULI").gameObject;
+        // GameObject QQ =  this.transform.Find("XULI").gameObject;
+        // QQ.SetActive(true);
+        // X.SetActive(true);
+        // Q.SetActive(true);
+        
+        
+        
+        if(dantianController.CurDanTian() >= 1)
+        {
+            // X.SetActive(true);
+            StartCoroutine(ShowWarning("长按左边屏幕，发动光波"));
+            CanWave();
+            
+        }
+        else if(dantianController.CurDanTian() < 1)
+        {
+            if(finished)
+            {
+                EndWave();
+            }
+            
+            StartCoroutine(ShowWarning("丹田不足，无法达成蓄力发动光波"));
+            finished = false;
+        }
+        
+
+        if(IsGrounded() && canWave)
+        {
+            _animator.SetBool("XULI", true);
+            // X.SetActive(true);
+            QIBOTimer += Time.deltaTime;
+            
+            // Debug.Log("qibo timer is " + QIBOTimer);
+            if(QIBOTimer < 3.0f)
+            {
+                
+                Q.SetActive(true);
+                Q.transform.localScale += scaleChange;
+                Q.transform.position += positionChange;
+                QIBOTimer += Time.deltaTime;
+
+            }
+
+            if(QIBOTimer + 0.1f >= 3.0f)
+            {
+                EndWave();
+                dantianController.ResetDanTian();
+
+                finished = true;
+                
+
+            }
+
+
+            
+            
+
+            // if(Q.transform.localScale.x < 2 && Q.transform.localScale.y < 2)
+            // {
+            //     Q.transform.localScale += scaleChange;;
+            // }
+            // Q.transform.position += positionChange;
+            // waveController.Xuli();
+            // waveController.Qibo();
+            //Instantiate(WavePrefab, transform.position, transform.rotation);
+            // dantianController.ResetDanTian();
+
+            // finished = true;
+            // EndWave();
+            //Debug.Log("Cur dan tian is " + dantianController.CurDanTian());
+            
+        }
+        
+    }
+
+    public void EndWave()
+    {
+        // GameObject XX =  this.transform.Find("XULI").gameObject;
+        // GameObject QQ =  this.transform.Find("XULI").gameObject;
+        canWave = false;
+        X.SetActive(false);
+        Q.SetActive(false);
+        Q.transform.localScale = curScale;
+        Q.transform.position -= positionChange * 2;
+        _animator.SetBool("XULI", false);
+        QIBOTimer = 0.0f;
+
+
+
+
+        // waveController.EndSendWaves();
+        // _animator.SetBool("QIBO", false);
+    }
+
+    public void CanWave()
+    {
+        canWave = true;
     }
 
     public void Land()

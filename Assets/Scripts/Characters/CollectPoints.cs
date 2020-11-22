@@ -56,4 +56,16 @@ public class CollectPoints : MonoBehaviour
         currentNum -= 5*Time.deltaTime;
         updateDanTian();
     }
+
+    public float CurDanTian()
+    {
+        return danTian.fillAmount;
+        
+    }
+
+    public void ResetDanTian()
+    {
+        currentNum = 0;
+        updateDanTian();
+    }
 }
