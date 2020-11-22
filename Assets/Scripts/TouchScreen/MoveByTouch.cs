@@ -100,7 +100,7 @@ public class MoveByTouch : MonoBehaviour
         stopShield = true;
 
         curScale = Q.transform.localScale;
-        scaleChange = new Vector3(0.08f, 0.08f, 0.08f);
+        scaleChange = new Vector3(0.05f, 0.05f, 0.05f);
 
         curPosition = Q.transform.position;
         positionChange = new Vector3(-0.03f, 0.0f, 0.0f);
@@ -194,7 +194,6 @@ public class MoveByTouch : MonoBehaviour
         
         if(dantianController.CurDanTian() >= 1)
         {
-            //Debug.Log("CanWave");
             // X.SetActive(true);
             StartCoroutine(ShowWarning("长按左边屏幕，发动光波"));
             CanWave();
@@ -210,16 +209,12 @@ public class MoveByTouch : MonoBehaviour
             StartCoroutine(ShowWarning("丹田不足，无法达成蓄力发动光波"));
             finished = false;
         }
-        else if(dantianController.CurDanTian() >= 1 && Input.touchCount > 0)
-        {
-            StartCoroutine(ShowWarning("开始蓄力"));
-            X.SetActive(true);
-        }
+        
 
         if(IsGrounded() && canWave)
         {
             _animator.SetBool("XULI", true);
-            //X.SetActive(true);
+            // X.SetActive(true);
             QIBOTimer += Time.deltaTime;
             
             // Debug.Log("qibo timer is " + QIBOTimer);
@@ -270,12 +265,16 @@ public class MoveByTouch : MonoBehaviour
         // GameObject XX =  this.transform.Find("XULI").gameObject;
         // GameObject QQ =  this.transform.Find("XULI").gameObject;
         canWave = false;
-        // X.SetActive(false);
+        X.SetActive(false);
         Q.SetActive(false);
         Q.transform.localScale = curScale;
         Q.transform.position -= positionChange * 2;
         _animator.SetBool("XULI", false);
         QIBOTimer = 0.0f;
+
+
+
+
         // waveController.EndSendWaves();
         // _animator.SetBool("QIBO", false);
     }
