@@ -79,7 +79,6 @@ public class Blade : MonoBehaviour {
 				touchPosition.z = 0f;
 				transform.position = touchPosition;
 				StartCutting();
-				dantianController.dantianUsed();
 				
 
 				
