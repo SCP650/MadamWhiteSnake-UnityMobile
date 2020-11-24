@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class Blade : MonoBehaviour {
@@ -23,15 +22,7 @@ public class Blade : MonoBehaviour {
 	Camera cam;
 	CircleCollider2D circleCollider;
 
-	private GameObject Player;
-
-	bool CUT;
-	bool pointerDown;
-
-	float Timeleft = 5.0f;
-
-	Vector2 pos;
-	// Touch touch;
+	float Timeleft = 2.0f;
 
 	void Start ()
 	{
@@ -54,6 +45,7 @@ public class Blade : MonoBehaviour {
 
 
     // Update is called once per frame
+<<<<<<< HEAD
     // void Update()
 	public void StartCUT()
     {
@@ -97,18 +89,45 @@ public class Blade : MonoBehaviour {
 			
 		}
 		if(Timeleft <= 0.0f)
+=======
+    void Update()
+    {
+        // Touch touch = Input.GetTouch(0);
+            // Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+        if(Input.touchCount > 0)
+        {
+           	if(dantianController.CurDanTian() >= 1 && Timeleft >= 0.0f && Cancut() == true)
+			{
+				// CountController.StartCount();
+				// while(dantianController.CurDanTian() > 0)
+				// {
+					Debug.Log("cur dqn tian is " + dantianController.CurDanTian());
+					StartCoroutine(ShowWarning(Timeleft.ToString()));
+					Timeleft -= 1.0f;
+					Time.timeScale = 0.4f;
+					Cut();
+				// }
+				
+			}
+			else
+			{
+				// StartCoroutine(ShowWarning("丹田不足，无法滑切"));
+			}
+        }
+		else if(Input.touchCount == 0 && Timeleft <= 0.0f)
+>>>>>>> parent of 8b51342... 11
 		{
-			// StartCoroutine(ShowWarning("滑切结束"));
+			StartCoroutine(ShowWarning("滑切结束"));
 			//dantianController.ResetDanTian();
-			Timeleft = 5.0f;
+			Timeleft = 2.0f;
 			Time.timeScale = 0.999999f;
-			CUT = false;
 		}
 
     }
 
-	public void Cancut()
+	public bool Cancut()
 	{
+<<<<<<< HEAD
 		CUT = true;
 		Debug.Log("touch count is " + Input.touchCount);
 		// touch = Input.touches[0];
@@ -122,43 +141,28 @@ public class Blade : MonoBehaviour {
 		}
 		StartCUT();
 
+=======
+		return true;
+>>>>>>> parent of 8b51342... 11
 	}
 
-	public void StopCut()
+	public void Cut()
 	{
-		CUT = false;
+		Touch touch = Input.GetTouch(0);
+		// these 3 lines
+		Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+		touchPosition.z = 0f;
+		transform.position = touchPosition;
+		StartCutting();
 	}
-
-	// public void Cut()
-	// {
-	// 	Touch touch = Input.GetTouch(0);
-	// 	// these 3 lines
-	// 	Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-	// 	touchPosition.z = 0f;
-	// 	transform.position = touchPosition;
-	// 	StartCutting();
-	// }
 
 	private IEnumerator ShowWarning(string text)
     {
         warningText.text = text;
         warningText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         warningText.gameObject.SetActive(false);
-		
 
     }
-
-
-	public void OnPointerDown(PointerEventData eventData)
-    {
-        pointerDown = true;
-		pos = eventData.position;
-	}
-
-	public void OnPointerUp(PointerEventData eventData)
-    {
-		pointerDown = false;
-	}
 
 }
