@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class MoveByTouch : MonoBehaviour
@@ -58,8 +59,12 @@ public class MoveByTouch : MonoBehaviour
     private GameObject X;
     private GameObject Q;
 
-    private float QIBOTimer;
+    float QIBOTimer = 0.0f;
     private float XULITimer;
+
+    float presstime = 0.0f;
+
+    bool toucheed = false;
 
     private Vector3 scaleChange, curScale, positionChange, curPosition;
 
@@ -178,14 +183,14 @@ public class MoveByTouch : MonoBehaviour
         bool finished = false;
         
         Debug.Log("wave attack");
-        if(dantianController.CurDanTian() >= 1)
+        if(dantianController.canUseDanTian())
         {
             // X.SetActive(true);
             StartCoroutine(ShowWarning("长按左边屏幕，发动光波"));
             CanWave();
             
         }
-        else if(dantianController.CurDanTian() < 1)
+        else if(!dantianController.canUseDanTian())
         {
             if(finished)
             {
@@ -199,29 +204,34 @@ public class MoveByTouch : MonoBehaviour
 
         if(IsGrounded() && canWave)
         {
-            _animator.SetBool("XULI", true);
-            // X.SetActive(true);
-            QIBOTimer += Time.deltaTime;
             
-            // Debug.Log("qibo timer is " + QIBOTimer);
-            if(QIBOTimer < 3.0f)
+            if(Input.touchCount > 0)
             {
                 
+                presstime += Time.deltaTime;
+                // Debug.Log("touching + presstime is " + presstime);
+                // toucheed = true;
+            }
+
+            
+            if(QIBOTimer < presstime && dantianController.canUseDanTian())
+            {
+                X.SetActive(false);
+                _animator.SetBool("XULI", true);
                 Q.SetActive(true);
                 Q.transform.localScale += scaleChange;
                 Q.transform.position += positionChange;
                 QIBOTimer += Time.deltaTime;
+                dantianController.FlyingCost();
+                toucheed = true;
 
             }
 
-            if(QIBOTimer + 0.1f >= 3.0f)
+            if(!dantianController.canUseDanTian())
             {
                 EndWave();
-                dantianController.ResetDanTian();
-
+                // dantianController.ResetDanTian();
                 finished = true;
-                
-
             }
             
         }
@@ -239,6 +249,8 @@ public class MoveByTouch : MonoBehaviour
         Q.transform.position -= positionChange * 2;
         _animator.SetBool("XULI", false);
         QIBOTimer = 0.0f;
+        presstime = 0.0f;
+        toucheed = false;
 
 
 
@@ -359,7 +371,7 @@ public class MoveByTouch : MonoBehaviour
         }
         else
         {
-            StartCoroutine(ShowWarning("丹田不足，无法开伞/滑切"));
+            StartCoroutine(ShowWarning("丹田不足，无法开伞/蓄力/滑切"));
         }
     }
 
@@ -419,7 +431,7 @@ public class MoveByTouch : MonoBehaviour
         {
             canJump = false;
         }
-}
+    }
 
 
 

@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -19,7 +21,9 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public UnityEvent onClick;
     public UnityEvent afterLongClick;
 
+
     public UnityEvent LeftDoubleClick;
+    private float check = 1f;
 
     // private Animator _animator;
     
@@ -31,9 +35,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     private float Y;
     float clicked = 1;
 
-    float curclicked = 0;
-    float clicktime = 0;
-    float clickdelay = 0.5f;
+    int curclicked = 0;
+    float clickdelay = 1f;
     bool single = false;
     float timer = 0.0f;
     float lastTimeClick = 0f;
@@ -44,6 +47,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public GameObject Xu;
     private Vector3 scaleChange, curScale;
 
+    bool stopShield = false;
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -52,41 +57,42 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         X = eventData.position.x;
         Y = eventData.position.y;
 
-        // Debug.Log(" click ");
-        if (onClick != null)
+        pointerDownTimer += Time.deltaTime;
+
+        if (Time.time - lastTimeClick > clickdelay)
         {
-            // onClick.Invoke();
-            // Debug.Log(" click ");
-            
-            // clicktime = Time.time;
-            float currentTimeClick = Time.time;
-
-            Debug.Log("timer is " + (currentTimeClick - lastTimeClick));
-            if(currentTimeClick - lastTimeClick > 0.5f) // single clicked
-            {
-            //     Debug.Log(" single click + " + curclicked);
-                onClick.Invoke();
-                clicktime = Time.time;
-                
-            }
-            if(currentTimeClick - lastTimeClick < 0.2f) // double clicked here
-            {
-                Debug.Log(" double click + " + curclicked);
-                // curclicked = 0;
-                // clicktime = 0;
-                LeftDoubleClick.Invoke();
-            }
-
-            lastTimeClick = currentTimeClick;
-           
-            
-            
-            
-            
+            // Debug.Log(" the time gap is " + (Time.time - lastTimeClick) );
+            curclicked = 0;
             
         }
+        else
+        {
+            curclicked++;
+        }
+        StartCoroutine(Shield(curclicked));
         
+        lastTimeClick = Time.time;
 
+        if(curclicked >= 2)
+        {
+            Debug.Log("double clicked");
+            stopShield = true;
+            LeftDoubleClick.Invoke();
+            // curclicked = 0;
+            // stopShield = false;
+            
+        }
+        else{
+            StartCoroutine(Shield(curclicked));
+        }
+    
+
+    }
+
+    private IEnumerator Shield(int type)
+    {
+        onClick.Invoke();
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -103,11 +109,6 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
    
     private void Update()
     {
-        // Xu = GameObject.Find("XULI");
-        // Xu.SetActive(false);
-        // curScale = Xu.transform.localScale;
-        // scaleChange = new Vector3(0.05f, 0.05f, 0.05f);
-
         if (pointerDown)
         {
            // Debug.Log(" long click pointer down");
@@ -117,12 +118,9 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             if (pointerDownTimer >= requiredHoldTime)
             {
                 isHolding = true;
-           
-                // if (onLongClick != null)
-                //     onLongClick.Invoke();
+
                 if(X < Width)
                 {
-                    // Debug.Log(" long click pointer down");
                     Xu.SetActive(true);
                     Xu.transform.localScale += scaleChange;
                     
@@ -131,6 +129,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                         HoldTime = pointerDownTimer;
                         if(onLeftLongClick != null)
                         {
+                            // Xu.SetActive(false);
                             onLeftLongClick.Invoke();
                         }
                     }
@@ -147,8 +146,10 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             }
             else
             {
-                // Xu.SetActive(false);
-                // Xu.transform.localScale = curScale;
+                // if(onClick != null)
+                // {
+                //     onClick.Invoke();
+                // }
             }
         }
         else{
@@ -169,6 +170,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         return HoldTime;
     }
+
 
     
 
