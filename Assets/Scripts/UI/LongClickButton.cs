@@ -65,25 +65,15 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             curclicked = 0;
             
         }
-        else
-        {
-            curclicked++;
-        }
-        StartCoroutine(Shield(curclicked));
         
+        curclicked++;
         lastTimeClick = Time.time;
+        StartCoroutine(Shield(curclicked));
 
         if(curclicked >= 2)
         {
-            Debug.Log("double clicked");
-            stopShield = true;
-            LeftDoubleClick.Invoke();
-            // curclicked = 0;
-            // stopShield = false;
+            curclicked = 0;
             
-        }
-        else{
-            StartCoroutine(Shield(curclicked));
         }
     
 
@@ -91,7 +81,19 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private IEnumerator Shield(int type)
     {
-        onClick.Invoke();
+        switch (type)
+        {
+            case 0:
+                onClick.Invoke();
+                break;
+            case 1:
+                onClick.Invoke();
+                break;
+            case 2:
+                LeftDoubleClick.Invoke();
+                break;
+
+        }
         yield return new WaitForSeconds(0.1f);
     }
 
