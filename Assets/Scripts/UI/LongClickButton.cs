@@ -59,7 +59,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         pointerDownTimer += Time.deltaTime;
 
-        onClick.Invoke();
+        // onClick.Invoke();
 ;
         if (Time.time - lastTimeClick > clickdelay)
         {
@@ -70,7 +70,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         
         curclicked++;
         lastTimeClick = Time.time;
-        //StartCoroutine(Shield(curclicked));
+        StartCoroutine(Shield(curclicked));
 
         if(curclicked >= 2)
         {
