@@ -54,8 +54,8 @@ public class Blade : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update()
-	// public void Cancut()
+    // void Update()
+	public void StartCUT()
     {
 		// CUT = true;
 
@@ -72,8 +72,8 @@ public class Blade : MonoBehaviour {
 		{
 			
 
-			// while(Timeleft > 0 | pointerDown)
-			// {
+			while(Timeleft > 0 | pointerDown)
+			{
 				Time.timeScale = 0.4f;
 				Debug.Log("INNNNNNN");
 				Debug.Log("Time left is " + Timeleft);
@@ -91,7 +91,7 @@ public class Blade : MonoBehaviour {
 				
 
 				
-			// }
+			}
 			
 
 			
@@ -120,6 +120,7 @@ public class Blade : MonoBehaviour {
 		{
 			StartCoroutine(ShowWarning("丹田不足，不可滑切"));
 		}
+		StartCUT();
 
 	}
 

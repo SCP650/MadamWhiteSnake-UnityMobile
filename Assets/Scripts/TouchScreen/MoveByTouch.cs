@@ -209,13 +209,14 @@ public class MoveByTouch : MonoBehaviour
             {
                 
                 presstime += Time.deltaTime;
-                // Debug.Log("touching + presstime is " + presstime);
+                Debug.Log("touching + presstime is " + presstime);
                 // toucheed = true;
             }
 
             
             if(QIBOTimer < presstime && dantianController.canUseDanTian())
             {
+                // Debug.Log("touching + presstime is " + presstime);
                 X.SetActive(false);
                 _animator.SetBool("XULI", true);
                 Q.SetActive(true);

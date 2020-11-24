@@ -36,7 +36,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     float clicked = 1;
 
     int curclicked = 0;
-    float clickdelay = 1f;
+    float clickdelay = 0.5f;
     bool single = false;
     float timer = 0.0f;
     float lastTimeClick = 0f;
@@ -59,6 +59,8 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         pointerDownTimer += Time.deltaTime;
 
+        onClick.Invoke();// can be commented
+;
         if (Time.time - lastTimeClick > clickdelay)
         {
             // Debug.Log(" the time gap is " + (Time.time - lastTimeClick) );
@@ -68,7 +70,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         
         curclicked++;
         lastTimeClick = Time.time;
-        StartCoroutine(Shield(curclicked));
+        //StartCoroutine(Shield(curclicked));
 
         if(curclicked >= 2)
         {
@@ -113,7 +115,7 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         if (pointerDown)
         {
-           // Debug.Log(" long click pointer down");
+           Debug.Log(" long click pointer down");
            
           
             pointerDownTimer += Time.deltaTime;
