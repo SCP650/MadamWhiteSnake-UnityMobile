@@ -72,7 +72,7 @@ public class Blade : MonoBehaviour {
 		{
 			
 
-			while(Timeleft > 0 | pointerDown)
+			while(Timeleft > 0)
 			{
 				Time.timeScale = 0.4f;
 				Debug.Log("INNNNNNN");
@@ -150,15 +150,15 @@ public class Blade : MonoBehaviour {
     }
 
 
-	public void OnPointerDown(PointerEventData eventData)
-    {
-        pointerDown = true;
-		pos = eventData.position;
-	}
+	// public void OnPointerDown(PointerEventData eventData)
+    // {
+    //     pointerDown = true;
+	// 	pos = eventData.position;
+	// }
 
-	public void OnPointerUp(PointerEventData eventData)
-    {
-		pointerDown = false;
-	}
+	// public void OnPointerUp(PointerEventData eventData)
+    // {
+	// 	pointerDown = false;
+	// }
 
 }

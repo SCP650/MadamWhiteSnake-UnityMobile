@@ -205,11 +205,11 @@ public class MoveByTouch : MonoBehaviour
         if(IsGrounded() && canWave)
         {
             
-            if(Input.touchCount > 0)
+            if(Input.touchCount > 0 | Input.GetMouseButtonDown(0))
             {
                 
                 presstime += Time.deltaTime;
-                // Debug.Log("touching + presstime is " + presstime);
+                Debug.Log("touching + presstime is " + presstime);
                 // toucheed = true;
             }
 
