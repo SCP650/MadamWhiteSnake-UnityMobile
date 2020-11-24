@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class Blade : MonoBehaviour {
@@ -22,7 +23,15 @@ public class Blade : MonoBehaviour {
 	Camera cam;
 	CircleCollider2D circleCollider;
 
-	float Timeleft = 2.0f;
+	private GameObject Player;
+
+	bool CUT;
+	bool pointerDown;
+
+	float Timeleft = 5.0f;
+
+	Vector2 pos;
+	// Touch touch;
 
 	void Start ()
 	{
@@ -45,14 +54,8 @@ public class Blade : MonoBehaviour {
 
 
     // Update is called once per frame
-<<<<<<< HEAD
-<<<<<<< HEAD
     // void Update()
 	public void StartCUT()
-=======
-    void Update()
-	// public void Cancut()
->>>>>>> parent of ecd2261... 1
     {
 		// CUT = true;
 
@@ -69,8 +72,8 @@ public class Blade : MonoBehaviour {
 		{
 			
 
-			// while(Timeleft > 0 | pointerDown)
-			// {
+			while(Timeleft > 0 | pointerDown)
+			{
 				Time.timeScale = 0.4f;
 				Debug.Log("INNNNNNN");
 				Debug.Log("Time left is " + Timeleft);
@@ -84,54 +87,28 @@ public class Blade : MonoBehaviour {
 				touchPosition.z = 0f;
 				transform.position = touchPosition;
 				StartCutting();
+				dantianController.dantianUsed();
 				
 
 				
-			// }
+			}
 			
 
 			
 		}
 		if(Timeleft <= 0.0f)
-=======
-    void Update()
-    {
-        // Touch touch = Input.GetTouch(0);
-            // Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-        if(Input.touchCount > 0)
-        {
-           	if(dantianController.CurDanTian() >= 1 && Timeleft >= 0.0f && Cancut() == true)
-			{
-				// CountController.StartCount();
-				// while(dantianController.CurDanTian() > 0)
-				// {
-					Debug.Log("cur dqn tian is " + dantianController.CurDanTian());
-					StartCoroutine(ShowWarning(Timeleft.ToString()));
-					Timeleft -= 1.0f;
-					Time.timeScale = 0.4f;
-					Cut();
-				// }
-				
-			}
-			else
-			{
-				// StartCoroutine(ShowWarning("丹田不足，无法滑切"));
-			}
-        }
-		else if(Input.touchCount == 0 && Timeleft <= 0.0f)
->>>>>>> parent of 8b51342... 11
 		{
-			StartCoroutine(ShowWarning("滑切结束"));
+			// StartCoroutine(ShowWarning("滑切结束"));
 			//dantianController.ResetDanTian();
-			Timeleft = 2.0f;
+			Timeleft = 5.0f;
 			Time.timeScale = 0.999999f;
+			CUT = false;
 		}
 
     }
 
-	public bool Cancut()
+	public void Cancut()
 	{
-<<<<<<< HEAD
 		CUT = true;
 		Debug.Log("touch count is " + Input.touchCount);
 		// touch = Input.touches[0];
@@ -143,29 +120,45 @@ public class Blade : MonoBehaviour {
 		{
 			StartCoroutine(ShowWarning("丹田不足，不可滑切"));
 		}
+		StartCUT();
 
-=======
-		return true;
->>>>>>> parent of 8b51342... 11
 	}
 
-	public void Cut()
+	public void StopCut()
 	{
-		Touch touch = Input.GetTouch(0);
-		// these 3 lines
-		Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-		touchPosition.z = 0f;
-		transform.position = touchPosition;
-		StartCutting();
+		CUT = false;
 	}
+
+	// public void Cut()
+	// {
+	// 	Touch touch = Input.GetTouch(0);
+	// 	// these 3 lines
+	// 	Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+	// 	touchPosition.z = 0f;
+	// 	transform.position = touchPosition;
+	// 	StartCutting();
+	// }
 
 	private IEnumerator ShowWarning(string text)
     {
         warningText.text = text;
         warningText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         warningText.gameObject.SetActive(false);
+		
 
     }
+
+
+	public void OnPointerDown(PointerEventData eventData)
+    {
+        pointerDown = true;
+		pos = eventData.position;
+	}
+
+	public void OnPointerUp(PointerEventData eventData)
+    {
+		pointerDown = false;
+	}
 
 }
