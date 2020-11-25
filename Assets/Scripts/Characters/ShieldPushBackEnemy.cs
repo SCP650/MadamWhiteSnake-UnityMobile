@@ -18,7 +18,7 @@ public class ShieldPushBackEnemy : MonoBehaviour
     {
         if (gb.gameObject.tag == "Enemy")
         {
-           
+            Managers.Player.ChangeScore(50);
             gb.gameObject.GetComponent<JumpingEnemyController>().PushBack();
         }
     }

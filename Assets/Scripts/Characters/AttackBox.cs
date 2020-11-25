@@ -10,6 +10,7 @@ public class AttackBox : MonoBehaviour
         {
      
             collision.gameObject.GetComponent<Die>().EnemyDie();
+            Managers.Player.ChangeScore(100);
         }
     }
   

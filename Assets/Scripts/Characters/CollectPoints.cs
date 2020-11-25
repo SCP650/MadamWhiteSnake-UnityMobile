@@ -31,6 +31,7 @@ public class CollectPoints : MonoBehaviour
             Destroy(collision.gameObject);
             Managers.Audio.PlaySound(collectSound);
             updateDanTian();
+            Managers.Player.ChangeScore(10);
         }
     }
  

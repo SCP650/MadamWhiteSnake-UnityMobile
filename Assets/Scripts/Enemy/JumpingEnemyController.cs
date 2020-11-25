@@ -119,6 +119,7 @@ public class JumpingEnemyController : MonoBehaviour
         {
        
             Managers.Player.ChangeHealth(-damageToPlayer);
+            Managers.Player.ChangeScore(-50);
             Managers.Audio.PlaySound(playJiao);
         }
     }

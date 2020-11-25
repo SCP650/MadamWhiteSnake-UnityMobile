@@ -13,7 +13,7 @@ public class PowerupItemController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             //TODO: Play rolling animation 
             Messenger.Broadcast(PowerupEvent.PICKUP_POWERUP);
-
+            Managers.Player.ChangeScore(30);
            
         }
     }
