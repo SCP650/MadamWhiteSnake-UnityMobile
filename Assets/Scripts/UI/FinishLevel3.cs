@@ -33,6 +33,7 @@ public class FinishLevel3 : MonoBehaviour
             Managers.Audio.StopMusic();
             EndLevelPanel.SetActive(true);
             NextConversation();
+            PlayerPrefs.SetInt("Level3", Managers.Player.score);
         }
        
     }
