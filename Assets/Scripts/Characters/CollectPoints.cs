@@ -10,6 +10,7 @@ public class CollectPoints : MonoBehaviour
     [Tooltip("Number attacks in a full danTian")]
     [SerializeField] private float totalAttack;
     [SerializeField] Image danTian;
+    [SerializeField] AudioClip collectSound;
 
     private float currentNum;
     private float maxDanTian;
@@ -24,16 +25,18 @@ public class CollectPoints : MonoBehaviour
     {
         if (collision.gameObject.tag == "Dots")
         {
-      
-            currentNum += 1;
+            //Debug.Log(currentNum);
+            currentNum += 2;
             currentNum = Mathf.Clamp(currentNum,0, maxDanTian + 1);
             Destroy(collision.gameObject);
+            Managers.Audio.PlaySound(collectSound);
             updateDanTian();
         }
     }
  
     private void updateDanTian()
     {
+        
         danTian.fillAmount = currentNum / maxDanTian;
     }
 
@@ -50,7 +53,7 @@ public class CollectPoints : MonoBehaviour
 
     public void FlyingCost()
     {
-        currentNum -= 2*Time.deltaTime;
+        currentNum -= 5*Time.deltaTime;
         updateDanTian();
     }
 }

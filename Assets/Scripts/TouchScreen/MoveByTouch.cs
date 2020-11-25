@@ -16,11 +16,19 @@ public class MoveByTouch : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip shieldSound;
+    [SerializeField] AudioClip Attack1Sound;
+    [SerializeField] AudioClip Attack2Sound;
+    [SerializeField] AudioClip Attack3Sound;
+    [SerializeField] GameObject landBtn;
+    [SerializeField] Animator DustAnimator;
+    [SerializeField] GameObject LineObject;
     [SerializeField] Text warningText;
     [SerializeField] private bool IsShield = true;
     [SerializeField] private GameObject AttackArea;
     [SerializeField] private float PlayGravity = 0.5f;
     //[SerializeField] float jumpHeight = 10f;
+
+    public bool isRolling;
   
     private Animator _animator;
     private Vector3 jumpTarget;
@@ -59,6 +67,10 @@ public class MoveByTouch : MonoBehaviour
         OldGravity = rb.gravityScale;
         horiSpeed = gameObject.GetComponent<PlayerViewHoriMove>();
 
+        if (Managers.mission.curLevel == 3)
+        {
+            IsShield = !Managers.mission.GetPlayerChoice(2);
+        }
         //StartPosY =  0.1947699f;
     }
 
@@ -94,7 +106,19 @@ public class MoveByTouch : MonoBehaviour
         //return false;
 
  
-    } 
+    }
+
+    public void StartRolling()
+    {
+        horiSpeed.IncreaseSpeedBy(0);//set speed to zero
+        isRolling = true;
+    }
+
+    public void EndRolling()
+    {
+        horiSpeed.ResetSpeed();
+        isRolling = false;
+    }
   
 
     public void StartFly()
@@ -127,6 +151,12 @@ public class MoveByTouch : MonoBehaviour
         rb.gravityScale = OldGravity;
     }
 
+    public void Land()
+    {
+        LineObject.SetActive(true);
+        rb.AddForce(Vector2.down * 130, ForceMode2D.Impulse);
+    }
+
     public void Jump()
     {
       
@@ -151,14 +181,14 @@ public class MoveByTouch : MonoBehaviour
     private void SingleJump()
     {
 
-        
+        landBtn.SetActive(true);
         //Debug.Log("start time is " + StartTime + "  cur time is " + CurTime);
        _animator.SetBool("Jumping", true);
 
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         //Vector3 curr = transform.position;
         //jumpTarget = new Vector3(curr.x, curr.y + jumpHeight, curr.z);
-        //Managers.Audio.PlaySound(jumpSound);
+        Managers.Audio.PlaySound(jumpSound);
         //shouldJump = true;
     }
 
@@ -176,13 +206,17 @@ public class MoveByTouch : MonoBehaviour
         // allow jumping again whe nhit ground 
         if (col.gameObject.tag == "Ground")
         {
-       
+            landBtn.SetActive(false);
+            LineObject.SetActive(false);
+            DustAnimator.SetTrigger("Land");
             _animator.SetBool("Jumping", false);
             canJump = true;
         }
 
 
     }
+
+   
 
     private IEnumerator Shield()
     {
@@ -197,6 +231,14 @@ public class MoveByTouch : MonoBehaviour
 
     public void AttackOrDefense()
     {
+        if (isRolling)
+        {
+            //UmbrellaSword();
+            StartCoroutine(Shield());
+
+            rb.AddForce(Vector2.right * 100, ForceMode2D.Impulse);
+            return;
+        }
        
         if (dantianController.canUseDanTian())
         {
@@ -209,6 +251,7 @@ public class MoveByTouch : MonoBehaviour
             {
 
                 UmbrellaSword();
+                dantianController.dantianUsed();
             }
 
 
@@ -238,7 +281,19 @@ public class MoveByTouch : MonoBehaviour
 
     private IEnumerator SingleSwordHit(int type)
     {
+        switch (type)
+        {
+            case 0:
+                Managers.Audio.PlaySound(Attack1Sound);
+                break;
+            case 1:
+                Managers.Audio.PlaySound(Attack2Sound);
+                break;
+            case 2:
+                Managers.Audio.PlaySound(Attack3Sound);
+                break;
 
+        }
         _animator.SetTrigger($"Attack{type}");
         yield return new WaitForSeconds(0.1f);
         AttackArea.SetActive(true);

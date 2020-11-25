@@ -7,6 +7,11 @@ public class NextLevelButton : MonoBehaviour
     public void GoToNextLevel()
     {
         Time.timeScale = 1;
-        Managers.mission.GoToNextLevel();
+        Managers.mission.GoToNextTransitionScene();
+    }
+
+    public void ReturnToScreen()
+    {
+        Managers.mission.GoToStartUp();
     }
 }
