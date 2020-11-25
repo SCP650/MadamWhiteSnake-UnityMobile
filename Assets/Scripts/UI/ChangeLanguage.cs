@@ -6,7 +6,7 @@ public class ChangeLanguage : MonoBehaviour
 {
     public Font Chinese;
     public Font English;
-    public Text title;
+    public Text credits;
     public Text start;
     public Text setting;
     public Text thanks;
@@ -17,7 +17,7 @@ public class ChangeLanguage : MonoBehaviour
     public void ToggleLanguage()
     {
         isEnglish = !isEnglish;
-        title.text = isEnglish ? "White Snake" : "白蛇·纸伞";
+        credits.text = isEnglish ? "Credits" : "鸣谢";
         start.text = isEnglish ? "Start Game" : "开始游戏";
         setting.text = isEnglish ? "Settings" : "游戏设置";
         thanks.text = isEnglish ? "Developers" : "开发鸣谢";
@@ -25,7 +25,7 @@ public class ChangeLanguage : MonoBehaviour
         BGMVolumn.text = isEnglish ? "BGM Volume" : "背景音量";
 
      
-        title.font = isEnglish? English:Chinese;
+        credits.font = isEnglish? English:Chinese;
         start.font = isEnglish ? English : Chinese;
         setting.font = isEnglish ? English : Chinese;
         thanks.font = isEnglish ? English : Chinese;
