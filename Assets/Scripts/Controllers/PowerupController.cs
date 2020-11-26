@@ -123,7 +123,7 @@ public class PowerupController : MonoBehaviour
             case PowerUpKinds.MORE_HEALTH:
                 Managers.Audio.PlaySound(healthSound);
                 healthParticle.Play();
-                Managers.Player.ChangeHealth(20);
+                Managers.Player.ChangeHealth(30);
                 break;
             case PowerUpKinds.SPEED_UP:
                 player.GetComponent<PlayerViewHoriMove>().IncreaseSpeedBy(1.5f);
