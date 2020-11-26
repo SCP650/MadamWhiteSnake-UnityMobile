@@ -74,6 +74,7 @@ public class MissionManager : MonoBehaviour, IGameManager
         {
 
             string name = "Transition" + i;
+            curTransition = i;
             curLevel = i-1;
             Debug.Log("Loading " + name);
             SceneManager.LoadScene(name);

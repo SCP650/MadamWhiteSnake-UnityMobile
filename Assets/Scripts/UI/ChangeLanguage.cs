@@ -20,7 +20,7 @@ public class ChangeLanguage : MonoBehaviour
         credits.text = isEnglish ? "Credits" : "鸣谢";
         start.text = isEnglish ? "Start Game" : "开始游戏";
         setting.text = isEnglish ? "Settings" : "游戏设置";
-        thanks.text = isEnglish ? "Developers" : "开发鸣谢";
+        thanks.text = isEnglish ? "Select Level" : "选择关卡";
         SFVolumn.text = isEnglish ? "Sound Effect Volume" : "音效音量";
         BGMVolumn.text = isEnglish ? "BGM Volume" : "背景音量";
 

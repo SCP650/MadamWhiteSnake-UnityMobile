@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSpeed: 20
   shield: {fileID: 7898702684808452887}
-  jumpSound: {fileID: 8300000, guid: 7e79793c8ac5b40a5bca7de5eabc8720, type: 3}
+  jumpSound: {fileID: 8300000, guid: f98b26328a5de43939790261a62b2e0d, type: 3}
   shieldSound: {fileID: 8300000, guid: 06eb4e4fea0dc482ebe502114477d39b, type: 3}
   Attack1Sound: {fileID: 8300000, guid: dae40fa9b14304f0299f26134565c6b2, type: 3}
   Attack2Sound: {fileID: 8300000, guid: 4236f9ce4c3624c369cea0516900e618, type: 3}
@@ -186,6 +186,7 @@ MonoBehaviour:
   IsShield: 1
   AttackArea: {fileID: 1232046608229568588}
   PlayGravity: 1
+  isRolling: 0
 --- !u!114 &1290357092034946028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,8 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  goleft: 0
-  goleft1: 0
 --- !u!114 &1239549507
 MonoBehaviour:
   m_ObjectHideFlags: 0
