@@ -231,9 +231,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 95629011}
-  - component: {fileID: 95629010}
   - component: {fileID: 95629013}
   - component: {fileID: 95629012}
+  - component: {fileID: 95629010}
   m_Layer: 0
   m_Name: TransitionManager
   m_TagString: Untagged
@@ -248,16 +248,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95629009}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe699dbd8cacf41309c688de7efed3b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d930f1022159594f8b1c218d1ba5084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.2
-  fullText: "\u8BB8\u4ED9\u4E0E\u767D\u5A18\u5B50\u8C01\u4E5F\u6CA1\u6709\u60F3\u5230\uFF0C\u8FD9\u7EA2\u7EF8\u7F25\u7F08\u7684\u6708\u8001\u5E99\u7ADF\u662F\u88AB\u6CD5\u6D77\u4F2A\u88C5\u8FC7\u7684\u91D1\u5C71\u5BFA\u5927\u95E8\u3002\u6CD5\u6D77\u631F\u8BB8\u4ED9\u79BB\u53BB\uFF0C\u540C\u65F6\u5728\u91D1\u5C71\u5BFA\u4E0E\u96F7\u5CF0\u5854\u8BBE\u4E0B\u5929\u7F57\u5730\u7F51\uFF0C\u8A93\u8981\u628A\u767D\u5A18\u5B50\u5C31\u6B64\u9547\u538B\u3002\u201C\u8BB8\u90CE\u8BF4\u4E0D\u8BBA\u6211\u662F\u4EBA\u662F\u5996\uFF0C\u4ED6\u90FD\u7231\u6211\u201D\u767D\u5A18\u5B50\u60F3\u7740\uFF0C\u8E0F\u5165\u4E86\u91D1\u5C71\u5BFA\u7684\u5927\u95E8\u3002"
-  text: {fileID: 1979774363}
-  panbai: {fileID: 8300000, guid: 5049ca6b063af4ccf9b6a8c552782291, type: 3}
-  playButton: {fileID: 1979774361}
+  fullTextA: "\u8BB8\u4ED9\u4E0E\u767D\u5A18\u5B50\u8C01\u4E5F\u6CA1\u6709\u60F3\u5230\uFF0C\u8FD9\u7EA2\u7EF8\u7F25\u7F08\u7684\u6708\u8001\u5E99\u7ADF\u662F\u88AB\u6CD5\u6D77\u4F2A\u88C5\u8FC7\u7684\u91D1\u5C71\u5BFA\u5927\u95E8\u3002\u6CD5\u6D77\u631F\u8BB8\u4ED9\u79BB\u53BB\uFF0C\u540C\u65F6\u5728\u91D1\u5C71\u5BFA\u4E0E\u96F7\u5CF0\u5854\u8BBE\u4E0B\u5929\u7F57\u5730\u7F51\uFF0C\u8A93\u8981\u628A\u767D\u5A18\u5B50\u5C31\u6B64\u9547\u538B\u3002\u201C\u8BB8\u90CE\u8BF4\u4E0D\u8BBA\u6211\u662F\u4EBA\u662F\u5996\uFF0C\u4ED6\u90FD\u7231\u6211\u201D\u767D\u5A18\u5B50\u60F3\u7740\uFF0C\u8E0F\u5165\u4E86\u91D1\u5C71\u5BFA\u7684\u5927\u95E8\u3002"
+  textA: {fileID: 1979774363}
+  fullTextB: "\u8BB8\u4ED9\u4E0E\u767D\u5A18\u5B50\u8C01\u4E5F\u6CA1\u6709\u60F3\u5230\uFF0C\u8FD9\u7EA2\u7EF8\u7F25\u7F08\u7684\u6708\u8001\u5E99\u7ADF\u662F\u88AB\u6CD5\u6D77\u4F2A\u88C5\u8FC7\u7684\u91D1\u5C71\u5BFA\u5927\u95E8\u3002\u6CD5\u6D77\u631F\u8BB8\u4ED9\u79BB\u53BB\uFF0C\u540C\u65F6\u5728\u91D1\u5C71\u5BFA\u4E0E\u96F7\u5CF0\u5854\u8BBE\u4E0B\u5929\u7F57\u5730\u7F51\uFF0C\u8A93\u8981\u628A\u767D\u5A18\u5B50\u5C31\u6B64\u9547\u538B\u3002\u201C\u4E0D\u7BA1\u600E\u6837\uFF0C\u603B\u8981\u8FD8\u4ED6\u4E4B\u524D\u7684\u6551\u547D\u4E4B\u6069\u201D\u767D\u5A18\u5B50\u60F3\u7740\uFF0C\u8E0F\u5165\u4E86\u91D1\u5C71\u5BFA\u7684\u5927\u95E8\u3002 "
+  textB: {fileID: 2018749865}
+  panbai: {fileID: 0}
+  playButton: {fileID: 191057489}
+  lookatLevel: 2
   ps: {fileID: 1930291677}
 --- !u!4 &95629011
 Transform:
@@ -464,7 +467,7 @@ RectTransform:
   m_GameObject: {fileID: 314232290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 191057490}
   m_RootOrder: 0
@@ -506,7 +509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5F00\u59CB"
+  m_Text: "\u9047\u6C34\u83AB\u4E89"
 --- !u!222 &314232293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5404,7 +5407,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u8BB8\u4ED9\u4E0E\u767D\u5A18\u5B50\u8C01\u4E5F\u6CA1\u6709\u60F3\u5230\uFF0C\u8FD9\u7EA2\u7EF8\u7F25\u7F08\u7684\u6708\u8001\u5E99\u7ADF\u662F\u88AB\u6CD5\u6D77\u4F2A\u88C5\u8FC7\u7684\u91D1\u5C71\u5BFA\u5927\u95E8\u3002\u6CD5\u6D77\u631F\u8BB8\u4ED9\u79BB\u53BB\uFF0C\u540C\u65F6\u5728\u91D1\u5C71\u5BFA\u4E0E\u96F7\u5CF0\u5854\u8BBE\u4E0B\u5929\u7F57\u5730\u7F51\uFF0C\u8A93\u8981\u628A\u767D\u5A18\u5B50\u5C31\u6B64\u9547\u538B\u3002\u201C\u8BB8\u90CE\u8BF4\u4E0D\u8BBA\u6211\u662F\u4EBA\u662F\u5996\uFF0C\u4ED6\u90FD\u7231\u6211\u201D\u767D\u5A18\u5B50\u60F3\u7740\uFF0C\u8E0F\u5165\u4E86\u91D1\u5C71\u5BFA\u7684\u5927\u95E8\u3002"
+  m_Text: 
 --- !u!222 &1979774364
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5482,7 +5485,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u8BB8\u4ED9\u4E0E\u767D\u5A18\u5B50\u8C01\u4E5F\u6CA1\u6709\u60F3\u5230\uFF0C\u8FD9\u7EA2\u7EF8\u7F25\u7F08\u7684\u6708\u8001\u5E99\u7ADF\u662F\u88AB\u6CD5\u6D77\u4F2A\u88C5\u8FC7\u7684\u91D1\u5C71\u5BFA\u5927\u95E8\u3002\u6CD5\u6D77\u631F\u8BB8\u4ED9\u79BB\u53BB\uFF0C\u540C\u65F6\u5728\u91D1\u5C71\u5BFA\u4E0E\u96F7\u5CF0\u5854\u8BBE\u4E0B\u5929\u7F57\u5730\u7F51\uFF0C\u8A93\u8981\u628A\u767D\u5A18\u5B50\u5C31\u6B64\u9547\u538B\u3002\u201C\u4E0D\u7BA1\u600E\u6837\uFF0C\u603B\u8981\u8FD8\u4ED6\u4E4B\u524D\u7684\u6551\u547D\u4E4B\u6069\u201D\u767D\u5A18\u5B50\u60F3\u7740\uFF0C\u8E0F\u5165\u4E86\u91D1\u5C71\u5BFA\u7684\u5927\u95E8\u3002\r"
+  m_Text: 
 --- !u!222 &2018749866
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5502,6 +5505,7 @@ GameObject:
   - component: {fileID: 2035389901}
   - component: {fileID: 2035389900}
   - component: {fileID: 2035389899}
+  - component: {fileID: 2035389902}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5574,3 +5578,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2035389902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035389898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2

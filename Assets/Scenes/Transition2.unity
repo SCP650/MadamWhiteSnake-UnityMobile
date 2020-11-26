@@ -232,9 +232,8 @@ GameObject:
   m_Component:
   - component: {fileID: 95629011}
   - component: {fileID: 95629012}
-  - component: {fileID: 95629010}
-  - component: {fileID: 95629013}
   - component: {fileID: 95629014}
+  - component: {fileID: 95629013}
   m_Layer: 0
   m_Name: TransitionManager
   m_TagString: Untagged
@@ -242,24 +241,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &95629010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95629009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe699dbd8cacf41309c688de7efed3b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0.2
-  fullText: "\u5C31\u8FD9\u6837\uFF0C\u767D\u5A18\u5B50\u4E0E\u8BB8\u4ED9\u9690\u4E8E\u5E02\u4E95\uFF0C\u76F8\u656C\u5982\u5BBE\uFF0C\u6069\u7231\u975E\u5E38\u3002\u7AEF\u5348\u4F73\u8282\uFF0C\u4E24\u4EBA\u5BF9\u6708\u5C0F\u914C\uFF0C\u767D\u5A18\u5B50\u8BEF\u996E\u96C4\u9EC4\u9152\uFF0C\u5316\u4E3A\u539F\u5F62\uFF0C\u516B\u5C3A\u94F6\u767D\u957F\u86C7\u4E0E\u768E\u768E\u6708\u5149\u76F8\u8F89\u6620\u3002\u8BB8\u4ED9\u770B\u7684\u75F4\u4E86\uFF0C\u4E0D\u6599\u4E00\u76F4\u89CA\u89CE\u767D\u86C7\u5185\u4E39\u7684\u5996\u602A\u4EEC\u8FFD\u6740\u8FC7\u6765\uFF0C\u53EA\u80FD\u4E0E\u767D\u5A18\u5B50\u76F8\u7EA6\u5206\u5934\u9003\u79BB\uFF0C\u76F8\u7EA6\u5728\u6708\u8001\u5E99\u76F8\u89C1"
-  text: {fileID: 1979774363}
-  panbai: {fileID: 8300000, guid: 736f13da1a1464f738af46b1e0061ca7, type: 3}
-  playButton: {fileID: 191057489}
-  ps: {fileID: 1930291677}
 --- !u!4 &95629011
 Transform:
   m_ObjectHideFlags: 0
@@ -297,7 +278,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95629009}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe699dbd8cacf41309c688de7efed3b0, type: 3}
   m_Name: 
@@ -317,9 +298,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 95629009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2384b436f69834b4a9c1ce154e79883f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d930f1022159594f8b1c218d1ba5084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 0.2
+  fullTextA: "\u5C31\u8FD9\u6837\uFF0C\u767D\u5A18\u5B50\u4E0E\u8BB8\u4ED9\u9690\u4E8E\u5E02\u4E95\uFF0C\u76F8\u656C\u5982\u5BBE\uFF0C\u6069\u7231\u975E\u5E38\u3002\u7AEF\u5348\u4F73\u8282\uFF0C\u4E24\u4EBA\u5BF9\u6708\u5C0F\u914C\uFF0C\u767D\u5A18\u5B50\u8BEF\u996E\u96C4\u9EC4\u9152\uFF0C\u5316\u4E3A\u539F\u5F62\uFF0C\u516B\u5C3A\u94F6\u767D\u957F\u86C7\u4E0E\u768E\u768E\u6708\u5149\u76F8\u8F89\u6620\u3002\u8BB8\u4ED9\u770B\u7684\u75F4\u4E86\uFF0C\u4E0D\u6599\u4E00\u76F4\u89CA\u89CE\u767D\u86C7\u5185\u4E39\u7684\u5996\u602A\u4EEC\u8FFD\u6740\u8FC7\u6765\uFF0C\u53EA\u80FD\u4E0E\u767D\u5A18\u5B50\u76F8\u7EA6\u5206\u5934\u9003\u79BB\uFF0C\u76F8\u7EA6\u5728\u6708\u8001\u5E99\u76F8\u89C1"
+  textA: {fileID: 1979774363}
+  fullTextB: "\u5C31\u8FD9\u6837\uFF0C\u767D\u5A18\u5B50\u4E0E\u8BB8\u4ED9\u9690\u4E8E\u5E02\u4E95\uFF0C\u76F8\u656C\u5982\u5BBE\uFF0C\u6069\u7231\u975E\u5E38\u3002\u7AEF\u5348\u4F73\u8282\uFF0C\u4E24\u4EBA\u5BF9\u6708\u5C0F\u914C\uFF0C\u767D\u5A18\u5B50\u8BEF\u996E\u96C4\u9EC4\u9152\uFF0C\u4E94\u810F\u516D\u8151\u4E00\u9635\u7EDE\u75DB\uFF0C\u5316\u4E3A\u516B\u5C3A\u957F\u86C7\u539F\u5F62\u3002\u8BB8\u4ED9\u53D7\u60CA\u5413\u762B\u5750\u5728\u5730\uFF0C\u6B64\u65F6\u4E00\u76F4\u89CA\u89CE\u767D\u86C7\u5185\u4E39\u7684\u5996\u602A\u4EEC\u8FFD\u6740\u8FC7\u6765\uFF0C\u767D\u5A18\u5B50\u53EA\u5F97\u5148\u884C\u9003\u8D70"
+  textB: {fileID: 1870882572}
+  panbai: {fileID: 0}
+  playButton: {fileID: 191057489}
+  lookatLevel: 1
+  ps: {fileID: 1930291677}
 --- !u!1 &191057489
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +467,7 @@ RectTransform:
   m_GameObject: {fileID: 314232290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 191057490}
   m_RootOrder: 0
@@ -519,7 +509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5F00\u59CB"
+  m_Text: "\u9047\u9152\u83AB\u4E71"
 --- !u!222 &314232293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -644,7 +634,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u5C31\u8FD9\u6837\uFF0C\u767D\u5A18\u5B50\u4E0E\u8BB8\u4ED9\u9690\u4E8E\u5E02\u4E95\uFF0C\u76F8\u656C\u5982\u5BBE\uFF0C\u6069\u7231\u975E\u5E38\u3002\u7AEF\u5348\u4F73\u8282\uFF0C\u4E24\u4EBA\u5BF9\u6708\u5C0F\u914C\uFF0C\u767D\u5A18\u5B50\u8BEF\u996E\u96C4\u9EC4\u9152\uFF0C\u4E94\u810F\u516D\u8151\u4E00\u9635\u7EDE\u75DB\uFF0C\u5316\u4E3A\u516B\u5C3A\u957F\u86C7\u539F\u5F62\u3002\u8BB8\u4ED9\u53D7\u60CA\u5413\u762B\u5750\u5728\u5730\uFF0C\u6B64\u65F6\u4E00\u76F4\u89CA\u89CE\u767D\u86C7\u5185\u4E39\u7684\u5996\u602A\u4EEC\u8FFD\u6740\u8FC7\u6765\uFF0C\u767D\u5A18\u5B50\u53EA\u5F97\u5148\u884C\u9003\u8D70"
+  m_Text: 
 --- !u!222 &1870882573
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5495,7 +5485,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u5C31\u8FD9\u6837\uFF0C\u767D\u5A18\u5B50\u4E0E\u8BB8\u4ED9\u9690\u4E8E\u5E02\u4E95\uFF0C\u76F8\u656C\u5982\u5BBE\uFF0C\u6069\u7231\u975E\u5E38\u3002\u7AEF\u5348\u4F73\u8282\uFF0C\u4E24\u4EBA\u5BF9\u6708\u5C0F\u914C\uFF0C\u767D\u5A18\u5B50\u8BEF\u996E\u96C4\u9EC4\u9152\uFF0C\u5316\u4E3A\u539F\u5F62\uFF0C\u516B\u5C3A\u94F6\u767D\u957F\u86C7\u4E0E\u768E\u768E\u6708\u5149\u76F8\u8F89\u6620\u3002\u8BB8\u4ED9\u770B\u7684\u75F4\u4E86\uFF0C\u4E0D\u6599\u4E00\u76F4\u89CA\u89CE\u767D\u86C7\u5185\u4E39\u7684\u5996\u602A\u4EEC\u8FFD\u6740\u8FC7\u6765\uFF0C\u53EA\u80FD\u4E0E\u767D\u5A18\u5B50\u76F8\u7EA6\u5206\u5934\u9003\u79BB\uFF0C\u76F8\u7EA6\u5728\u6708\u8001\u5E99\u76F8\u89C1"
+  m_Text: 
 --- !u!222 &1979774364
 CanvasRenderer:
   m_ObjectHideFlags: 0
