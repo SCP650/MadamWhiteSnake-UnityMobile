@@ -154,7 +154,7 @@ public class MoveByTouch : MonoBehaviour
     public void Land()
     {
         LineObject.SetActive(true);
-        rb.AddForce(Vector2.down * 130, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.down * 140, ForceMode2D.Impulse);
     }
 
     public void Jump()

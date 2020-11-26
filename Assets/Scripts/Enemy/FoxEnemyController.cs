@@ -16,7 +16,7 @@ public class FoxEnemyController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator _animator;
     private bool isRunning;
-    private float baseSpeed = 2f;
+    private float baseSpeed = 2.1f;
     private float oldSpeed;
     private Vector2 RaycastBoxSize;
     // Start is called before the first frame update
