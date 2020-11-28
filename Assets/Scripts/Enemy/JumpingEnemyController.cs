@@ -108,6 +108,7 @@ public class JumpingEnemyController : MonoBehaviour
         {
             //Debug.Log("Jump is true");
             rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
+            rb.AddForce(transform.forward * 5.0f, ForceMode2D.Impulse);
             //Debug.Log("Jump is true");
         }
     }
