@@ -212,11 +212,14 @@ public class MoveByTouch : MonoBehaviour
             _animator.SetBool("Jumping", false);
             canJump = true;
         }
-
+        string whatHitMe = col.gameObject.tag;
+        if (whatHitMe == "HeDeng")
+        {
+            Debug.Log("HeDengDengDeng");
+            rb.AddForce(transform.up * 200.0f, ForceMode2D.Impulse);
+        }
 
     }
-
-   
 
     private IEnumerator Shield()
     {

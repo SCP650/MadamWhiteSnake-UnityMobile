@@ -11,12 +11,16 @@ public class PangBaiTypeWrite : MonoBehaviour
     public GameObject playButton;
     public ParticleSystem ps;
     // Start is called before the first frame update
+    
+
     void Start()
     {
         StartCoroutine(ShowText());
         StartCoroutine(ShowPlayBtn());
         Managers.Audio.StopMusic();
-        Managers.Audio.PlaySound(panbai);
+        Managers.Audio.PlaySound(panbai);      
+        //this.text = fullText.Repalce("<br>", "\n");
+
     }
 
     private IEnumerator ShowText()
