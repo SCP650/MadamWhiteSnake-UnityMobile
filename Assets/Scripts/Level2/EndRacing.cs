@@ -23,7 +23,7 @@ public class EndRacing : MonoBehaviour
         }
         else
         {
-            StartCoroutine(showText("龙舟挑战失败"));
+            //StartCoroutine(showText("龙舟挑战失败"));
         }
         Messenger.Broadcast("Maindragonstop");
     }
