@@ -26,6 +26,7 @@ public class PowerupController : MonoBehaviour
     [SerializeField] AudioClip PickUpSound;
     [SerializeField] AudioClip gasSound;
     [SerializeField] AudioClip healthSound;
+    [SerializeField] AudioClip speedUpSound;
 
     private int firstPower;
     private int secondPower;
@@ -126,8 +127,9 @@ public class PowerupController : MonoBehaviour
                 Managers.Player.ChangeHealth(30);
                 break;
             case PowerUpKinds.SPEED_UP:
-                player.GetComponent<PlayerViewHoriMove>().IncreaseSpeedBy(1.5f);
-                yield return new WaitForSeconds(5);
+                player.GetComponent<PlayerViewHoriMove>().IncreaseSpeedBy(1.8f);
+                Managers.Audio.PlaySound(speedUpSound);
+                yield return new WaitForSeconds(2.5f);
                 player.GetComponent<PlayerViewHoriMove>().ResetSpeed();
                 break;
             case PowerUpKinds.FIRE_BOMB:
