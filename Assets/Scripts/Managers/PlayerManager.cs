@@ -38,7 +38,8 @@ public class PlayerManager : MonoBehaviour, IGameManager
     public void ChangeScore(int value)
     {
         score += value;
-        Messenger.Broadcast(GameEvent.SCORE_UPDATED);
+    
+        Messenger<int>.Broadcast(GameEvent.SCORE_UPDATED,value);
         
     }
     public void ChangeHealth(int value)

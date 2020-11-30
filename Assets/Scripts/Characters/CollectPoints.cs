@@ -25,16 +25,17 @@ public class CollectPoints : MonoBehaviour
     {
         if (collision.gameObject.tag == "Dots")
         {
-            //Debug.Log(currentNum);
+            Debug.Log(currentNum);
+
             currentNum += 2;
-            currentNum = Mathf.Clamp(currentNum,0, maxDanTian + 1);
+            currentNum = Mathf.Clamp(currentNum, 0, maxDanTian + 1);
             Destroy(collision.gameObject);
             Managers.Audio.PlaySound(collectSound);
             updateDanTian();
             Managers.Player.ChangeScore(10);
         }
     }
- 
+
     private void updateDanTian()
     {
         

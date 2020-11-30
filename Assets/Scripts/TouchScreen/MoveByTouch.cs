@@ -203,8 +203,9 @@ public class MoveByTouch : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        string whatHitMe = col.gameObject.tag;
         // allow jumping again whe nhit ground 
-        if (col.gameObject.tag == "Ground")
+        if (whatHitMe == "Ground")
         {
             landBtn.SetActive(false);
             LineObject.SetActive(false);
@@ -212,7 +213,7 @@ public class MoveByTouch : MonoBehaviour
             _animator.SetBool("Jumping", false);
             canJump = true;
         }
-        string whatHitMe = col.gameObject.tag;
+        
         if (whatHitMe == "HeDeng")
         {
             Debug.Log("HeDengDengDeng");
