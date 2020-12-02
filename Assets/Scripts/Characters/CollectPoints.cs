@@ -27,7 +27,7 @@ public class CollectPoints : MonoBehaviour
         {
             Debug.Log(currentNum);
 
-            currentNum += 2;
+            currentNum += 4;
             currentNum = Mathf.Clamp(currentNum, 0, maxDanTian + 1);
             Destroy(collision.gameObject);
             Managers.Audio.PlaySound(collectSound);
