@@ -15070,6 +15070,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 445568586}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &445568588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8719247309957472901, guid: f6da10800a4454832b2975d6f3c0cd69,
+    type: 3}
+  m_PrefabInstance: {fileID: 445568586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &445568589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6214879440035236642, guid: f6da10800a4454832b2975d6f3c0cd69,
+    type: 3}
+  m_PrefabInstance: {fileID: 445568586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &445568590 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8948670029201453817, guid: f6da10800a4454832b2975d6f3c0cd69,
@@ -81138,12 +81150,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2047213907}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &2050361827 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
-    type: 3}
-  m_PrefabInstance: {fileID: 445568586}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2051025117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84114,7 +84120,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthParticle
       value: 
-      objectReference: {fileID: 2050361827}
+      objectReference: {fileID: 445568589}
     - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
         type: 3}
       propertyPath: releasePowerup
@@ -84130,6 +84136,11 @@ PrefabInstance:
       propertyPath: secondPowerImg
       value: 
       objectReference: {fileID: 2018155619}
+    - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
+        type: 3}
+      propertyPath: speedupParticle
+      value: 
+      objectReference: {fileID: 445568588}
     - target: {fileID: 2733171416493660170, guid: 56054cdeedb464799b71cea7ff6cbfa6,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -3646,6 +3646,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3aad12a11a95945bebd2f73da0c172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &80227191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8719247309957472901, guid: f6da10800a4454832b2975d6f3c0cd69,
+    type: 3}
+  m_PrefabInstance: {fileID: 80227189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &80227192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6214879440035236642, guid: f6da10800a4454832b2975d6f3c0cd69,
+    type: 3}
+  m_PrefabInstance: {fileID: 80227189}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &81603664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16370,7 +16382,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthParticle
       value: 
-      objectReference: {fileID: 4469656988839024466}
+      objectReference: {fileID: 80227192}
     - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
         type: 3}
       propertyPath: releasePowerup
@@ -16386,6 +16398,11 @@ PrefabInstance:
       propertyPath: secondPowerImg
       value: 
       objectReference: {fileID: 1118866459}
+    - target: {fileID: 2733171416493660169, guid: 56054cdeedb464799b71cea7ff6cbfa6,
+        type: 3}
+      propertyPath: speedupParticle
+      value: 
+      objectReference: {fileID: 80227191}
     - target: {fileID: 2733171416493660170, guid: 56054cdeedb464799b71cea7ff6cbfa6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82670,12 +82687,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35b513973d6f78e47ac7274e2bbcbefc, type: 3}
---- !u!198 &4469656988839024466 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4469656988768255015, guid: f6da10800a4454832b2975d6f3c0cd69,
-    type: 3}
-  m_PrefabInstance: {fileID: 80227189}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4566585433597448317
 PrefabInstance:
   m_ObjectHideFlags: 0
