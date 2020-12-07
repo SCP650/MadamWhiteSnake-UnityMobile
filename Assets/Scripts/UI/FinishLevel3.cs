@@ -49,7 +49,7 @@ public class FinishLevel3 : MonoBehaviour
             case 0:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "白姑娘……罪灾皆因我而起，如若修行能消解佛门对你的偏见，我也是甘愿的。";
+                textBox.text = "娘子……罪灾皆因我而起，如若修行能消解佛门对你的偏见，我也是甘愿的。";
                 currScene++;
                 break;
             case 1:
@@ -61,7 +61,7 @@ public class FinishLevel3 : MonoBehaviour
             case 2:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "我都听你的。江南梅雨时节，白姑娘又不带伞……";
+                textBox.text = "我都听娘子的。江南梅雨时节，风雨不定，你怎么又不带伞……";
                 option1.SetActive(true);
                 option2.SetActive(true);
                 next.SetActive(false);
@@ -93,7 +93,7 @@ public class FinishLevel3 : MonoBehaviour
             case 1:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "都说妖无情无义，倘若你不思恩情，也就无需救我；倘若你绝情背义，何至水漫金山……白姑娘，是我狭隘了……";
+                textBox.text = "都说妖无情无义，倘若你不思恩情，也就无需救我；倘若你绝情背义，何至水漫金山……娘子，是我狭隘了……";
                 currScene++;
                 break;
             case 2:

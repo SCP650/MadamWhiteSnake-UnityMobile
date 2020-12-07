@@ -54,7 +54,7 @@ public class FinishLevel2 : MonoBehaviour
             case 1:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "你没事就好。今晚夜色迥异，让我好生担心，端午时节本不该邀你出门的……";
+                textBox.text = "你没事就好。今晚夜色迥异，让我好生担心……";
                 currScene = 3;
                 break;
             case 3:
@@ -69,7 +69,7 @@ public class FinishLevel2 : MonoBehaviour
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
                 faHaiImage.SetActive(false);
-                textBox.text = "人又如何？妖又如何？人身妖心者又何其多！怎么修行之人还不如我一介凡夫看得明白？我与白姑娘不过是天地间两抹有缘的精魄罢了。";
+                textBox.text = "人又如何？妖又如何？人身妖心者又何其多！怎么修行之人还不如我一介凡夫看得明白？我与娘子不过是天地间两抹有缘的精魄罢了。";
                 currScene++;
                 break;
             case 5:
@@ -130,7 +130,7 @@ public class FinishLevel2 : MonoBehaviour
             case 1:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "白姑娘，我……";
+                textBox.text = "娘子，我……";
                 currScene = 3;
                 break;
             case 3:
@@ -179,7 +179,7 @@ public class FinishLevel2 : MonoBehaviour
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
                 faHaiImage.SetActive(false);
-                textBox.text = "白姑娘，我对你不住，是我懵懂无知，引来灾祸，你千万保重！";
+                textBox.text = "娘子，我对你不住，是我懵懂无知，引来灾祸，你千万保重！";
                 currScene++;
                 break;
             case 10:
