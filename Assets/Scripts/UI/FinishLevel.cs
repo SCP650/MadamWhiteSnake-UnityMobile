@@ -48,13 +48,13 @@ public class FinishLevel : MonoBehaviour
         {
             case 0:
                 baiImage.SetActive(true);
-                textBox.text = "多谢许郎赠伞之情。";
+                textBox.text = "多谢许郎赠伞之恩。";
                 currScene++;
                 break;
             case 1:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "又见面了...这些和尚为什么追你?";
+                textBox.text = "江南梅雨时节，外出还需小心。白姑娘，这些和尚为什么追你？";
                 option1.SetActive(true);
                 option2.SetActive(true);
                 next.SetActive(false);
@@ -63,7 +63,7 @@ public class FinishLevel : MonoBehaviour
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
                 next.SetActive(true);
-                textBox.text = "我若实情告知，如有冒犯之处，先谢罪为敬。我本是青城山修炼千年的白蛇妖，此次下山是为悬壶救人，积善行德，奈何佛法不容。";
+                textBox.text = "我本是青城山潜心修炼的小白蛇，此次下山是为了悬壶济世，积善行德；奈何佛法不容。";
                 currScene = 6;
                     break;
             case 4:
@@ -76,7 +76,7 @@ public class FinishLevel : MonoBehaviour
             case 5:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "端午在即，自是安康要紧，哪有以众欺寡的道理. 你受伤了？铺里尚有医药二三，粗茶淡饭，如果姑娘不嫌弃...";
+                textBox.text = "端午在即，出家人怎好徒增杀孽！你受伤了？药铺尚有些许医药，如果姑娘不嫌弃……";
                 currScene = 7;
                 break;
             case 6:
@@ -88,7 +88,7 @@ public class FinishLevel : MonoBehaviour
             case 7:
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
-                textBox.text = "多谢许郎收留!";
+                textBox.text = "多谢许郎收留！";
                 NextLevelButton.SetActive(true);
                 next.SetActive(false);
                 break;

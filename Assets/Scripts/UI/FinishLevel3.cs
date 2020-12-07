@@ -49,19 +49,19 @@ public class FinishLevel3 : MonoBehaviour
             case 0:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "这么危险，娘子你何必来救我。";
+                textBox.text = "白姑娘……罪灾皆因我而起，如若修行能消解佛门对你的偏见，我也是甘愿的。";
                 currScene++;
                 break;
             case 1:
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
-                textBox.text = "纵使千难万险，如果我不来救你，我会愧疚一辈子。谢谢你，知道我是妖怪还依然和我在一起。";
+                textBox.text = "我不羡佛也不羡仙，许郎，姻缘天定，谁人能断？";
                 currScene++;
                 break;
             case 2:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "我爱的是你的灵魂，又怎会介意你的皮囊？现在法海已死，娘子，我们回家吧。";
+                textBox.text = "我都听你的。江南梅雨时节，白姑娘又不带伞……";
                 option1.SetActive(true);
                 option2.SetActive(true);
                 next.SetActive(false);
@@ -87,19 +87,19 @@ public class FinishLevel3 : MonoBehaviour
             case 0:
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
-                textBox.text = "看到许郎安然无恙，我就放心了";
+                textBox.text = "什么人间美眷，朝朝暮暮，不过虚情假意罢了。";
                 currScene++;
                 break;
             case 1:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "娘子，我其实是喜欢你的，只是当时一时受惊昏了头，才带法海捉拿你，让你至于这样的危险之中";
+                textBox.text = "都说妖无情无义，倘若你不思恩情，也就无需救我；倘若你绝情背义，何至水漫金山……白姑娘，是我狭隘了……";
                 currScene++;
                 break;
             case 2:
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
-                textBox.text = "许郎，你喜欢的不是我白蛇，是为人身的白娘子罢了。借伞之恩，你予我的救命之恩，今天，从此我们两不相欠，江湖再见罢。";
+                textBox.text = "前世恩，今生缘，缘起缘灭一念间。对于你，我恩情已报，缘已了尽了。";
           
                 currScene++;
                 break;
