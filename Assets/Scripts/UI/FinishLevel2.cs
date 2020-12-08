@@ -101,7 +101,7 @@ public class FinishLevel2 : MonoBehaviour
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(false);
-                textBox.text = "法海带走了许仙，我该怎么做呢？";
+                textBox.text = "法海带走了许仙，我该如何做呢？";
                 option1.SetActive(true);
                 option2.SetActive(true);
                 next.SetActive(false);
@@ -172,7 +172,7 @@ public class FinishLevel2 : MonoBehaviour
             case 8:
                 baiImage.SetActive(false);
                 faHaiImage.SetActive(true);
-                textBox.text = "大胆白蛇！老衲怎可忍你祸乱世间，败坏纲常？ 六道轮回，各有所序。既然如此，许施主，有请了！";
+                textBox.text = "强词夺理！老衲怎可忍你祸乱世间，败坏纲常？ 六道轮回，各有所序。既然如此，许施主，有请了！";
                 currScene++;
                 break;
             case 9:

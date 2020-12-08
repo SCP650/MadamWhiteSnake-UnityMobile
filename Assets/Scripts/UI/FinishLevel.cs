@@ -54,7 +54,7 @@ public class FinishLevel : MonoBehaviour
             case 1:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "江南梅雨时节，外出还需小心。白姑娘，这些和尚为什么追你？";
+                textBox.text = "江南梅雨时节，外出还需小心。白姑娘，这些和尚为何追你？";
                 option1.SetActive(true);
                 option2.SetActive(true);
                 next.SetActive(false);
