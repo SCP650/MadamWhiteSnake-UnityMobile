@@ -19,8 +19,8 @@ public class FinishLevel3 : MonoBehaviour
     {
         EndLevelPanel.SetActive(false);
         currScene = 0;
-        option1.GetComponentInChildren<Text>().text = "好";
-        option2.GetComponentInChildren<Text>().text = "还是算了";
+        option1.GetComponentInChildren<Text>().text = "一起撑伞";
+        option2.GetComponentInChildren<Text>().text = "还伞";
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,7 +61,7 @@ public class FinishLevel3 : MonoBehaviour
             case 2:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "我都听娘子的。江南梅雨时节，风雨不定，你怎么又不带伞……";
+                textBox.text = "我都听娘子的。孰料最后，这把伞到底还是没用来遮雨……";
                 option1.SetActive(true);
                 option2.SetActive(true);
                 next.SetActive(false);
