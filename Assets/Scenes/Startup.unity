@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1043,8 +1043,8 @@ RectTransform:
   m_Father: {fileID: 999257185}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.73, y: 0.4}
-  m_AnchorMax: {x: 0.9, y: 0.45}
+  m_AnchorMin: {x: 0.73, y: 0.38}
+  m_AnchorMax: {x: 0.9, y: 0.43}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
@@ -1758,8 +1758,8 @@ RectTransform:
   m_Father: {fileID: 999257185}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.73, y: 0.5}
-  m_AnchorMax: {x: 0.9, y: 0.55}
+  m_AnchorMin: {x: 0.73, y: 0.45}
+  m_AnchorMax: {x: 0.9, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
@@ -2444,12 +2444,14 @@ MonoBehaviour:
   EnterName: {fileID: 803465651}
   EnterEmail: {fileID: 404211994}
   PlayBtn: {fileID: 1681563152}
-  name: {fileID: 1992371790}
-  email: {fileID: 848638190}
+  name: {fileID: 803465652}
+  email: {fileID: 404211995}
   btns:
   - {fileID: 1482605215}
   - {fileID: 1473016133}
   - {fileID: 2056475881}
+  - {fileID: 952580773}
+  - {fileID: 1939939860}
 --- !u!1 &999257181
 GameObject:
   m_ObjectHideFlags: 0
