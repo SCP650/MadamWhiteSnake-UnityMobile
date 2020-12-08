@@ -30,8 +30,16 @@ public class FinishLevel : MonoBehaviour
             Managers.Audio.StopMusic();
             EndLevelPanel.SetActive(true);
             NextConversation();
+            int score = Managers.Player.score;
+            if (score > PlayerPrefs.GetInt("Level1", 0))
+            {
+                PlayerPrefs.SetInt("Level1", score);
+            }
+            
         }
-       
+
+        
+
     }
 
     public void NextConversation()

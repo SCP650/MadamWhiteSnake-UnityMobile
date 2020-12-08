@@ -154,7 +154,7 @@ public class MoveByTouch : MonoBehaviour
     public void Land()
     {
         LineObject.SetActive(true);
-        rb.AddForce(Vector2.down * 130, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.down * 150, ForceMode2D.Impulse);
     }
 
     public void Jump()
@@ -203,8 +203,9 @@ public class MoveByTouch : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        string whatHitMe = col.gameObject.tag;
         // allow jumping again whe nhit ground 
-        if (col.gameObject.tag == "Ground")
+        if (whatHitMe == "Ground")
         {
             landBtn.SetActive(false);
             LineObject.SetActive(false);
@@ -212,11 +213,14 @@ public class MoveByTouch : MonoBehaviour
             _animator.SetBool("Jumping", false);
             canJump = true;
         }
-
+        
+        if (whatHitMe == "HeDeng")
+        {
+            Debug.Log("HeDengDengDeng");
+            rb.AddForce(transform.up * 200.0f, ForceMode2D.Impulse);
+        }
 
     }
-
-   
 
     private IEnumerator Shield()
     {

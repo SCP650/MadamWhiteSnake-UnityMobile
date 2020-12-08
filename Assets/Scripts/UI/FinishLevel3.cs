@@ -33,6 +33,11 @@ public class FinishLevel3 : MonoBehaviour
             Managers.Audio.StopMusic();
             EndLevelPanel.SetActive(true);
             NextConversation();
+            int score = Managers.Player.score;
+            if (score > PlayerPrefs.GetInt("Level3", 0))
+            {
+                PlayerPrefs.SetInt("Level3", score);
+            }
         }
        
     }
@@ -68,7 +73,7 @@ public class FinishLevel3 : MonoBehaviour
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(false);
             
-                textBox.text = "Beta游戏结束，欲登顶雷峰塔，敬请期待发布版本。在此之前，可再次游玩，试试得到不同的结局哦~";
+                textBox.text = "感谢游玩，欲登顶雷峰塔，敬请期待2.0版本。在此之前，可再次游玩，试试得到不同的结局哦~";
              break;
             
 

@@ -68,6 +68,24 @@ public class MissionManager : MonoBehaviour, IGameManager
 
         }
     }
+    public void GoToTransition(int i)
+    {
+        if (i <= maxLevel)
+        {
+
+            string name = "Transition" + i;
+            curTransition = i;
+            curLevel = i-1;
+            Debug.Log("Loading " + name);
+            SceneManager.LoadScene(name);
+        }
+        else
+        {
+            Messenger.Broadcast(GameEvent.GAME_COMPLETE);
+            Debug.Log("Last Level");
+
+        }
+    }
 
     public void GoToStartUp()
     {

@@ -19,11 +19,12 @@ public class EndRacing : MonoBehaviour
             //collision.gameObject.GetComponent<MoveByTouch>().Jump();
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
             //rb.
-            StartCoroutine(showText("白娘子赢得龙舟赛！"));
+            StartCoroutine(showText("白娘子赢得龙舟赛！"));           
+
         }
-        else
+        if (collision.gameObject.tag == "maindragon")
         {
-            StartCoroutine(showText("龙舟挑战失败"));
+            StartCoroutine(showText("龙舟挑战失败"));           
         }
         Messenger.Broadcast("Maindragonstop");
     }
@@ -33,7 +34,7 @@ public class EndRacing : MonoBehaviour
         hintText.text = text;
         hintText.gameObject.SetActive(true);
         yield return new WaitForSeconds(3);
-        hintText.gameObject.SetActive(false);
+        hintText.gameObject.SetActive(false);        
     }
 }
 

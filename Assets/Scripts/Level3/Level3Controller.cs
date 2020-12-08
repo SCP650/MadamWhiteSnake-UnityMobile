@@ -7,6 +7,7 @@ public class Level3Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Managers.Audio.BGMVolume = 1;
         Managers.Audio.PlayLevelMusic(3);
     }
 

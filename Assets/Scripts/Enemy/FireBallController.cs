@@ -24,6 +24,7 @@ public class FireBallController : MonoBehaviour
         {
 
             Managers.Player.ChangeHealth(-5);
+            Managers.Player.ChangeScore(-50);
             Managers.Audio.PlaySound(playJiao);
         }
 

@@ -15,7 +15,8 @@ struct PowerUpKinds
 public class PowerupController : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] ParticleSystem healthParticle;
+    [SerializeField] GameObject healthParticle;
+    [SerializeField] GameObject speedupParticle;
     [SerializeField] Button releasePowerup;
     [SerializeField] GameObject furnianceAnimation;
     [Tooltip("Refer to PowerUpKinds for index")]
@@ -26,6 +27,7 @@ public class PowerupController : MonoBehaviour
     [SerializeField] AudioClip PickUpSound;
     [SerializeField] AudioClip gasSound;
     [SerializeField] AudioClip healthSound;
+    [SerializeField] AudioClip speedUpSound;
 
     private int firstPower;
     private int secondPower;
@@ -122,12 +124,17 @@ public class PowerupController : MonoBehaviour
         {
             case PowerUpKinds.MORE_HEALTH:
                 Managers.Audio.PlaySound(healthSound);
-                healthParticle.Play();
-                Managers.Player.ChangeHealth(20);
+                healthParticle.SetActive(true);
+                Managers.Player.ChangeHealth(30);
+                yield return new WaitForSeconds(0.5f);
+                healthParticle.SetActive(false);
                 break;
             case PowerUpKinds.SPEED_UP:
-                player.GetComponent<PlayerViewHoriMove>().IncreaseSpeedBy(1.5f);
-                yield return new WaitForSeconds(5);
+                player.GetComponent<PlayerViewHoriMove>().IncreaseSpeedBy(1.8f);
+                Managers.Audio.PlaySound(speedUpSound);
+                speedupParticle.SetActive(true);
+                yield return new WaitForSeconds(2.5f);
+                speedupParticle.SetActive(false);
                 player.GetComponent<PlayerViewHoriMove>().ResetSpeed();
                 break;
             case PowerUpKinds.FIRE_BOMB:

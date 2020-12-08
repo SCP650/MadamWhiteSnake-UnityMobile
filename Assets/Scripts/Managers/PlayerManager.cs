@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
 
     public int health { get; private set; }
     public int maxHealth { get; private set; }
+    public int score { get; private set; }
     private NetworkService _network;
 
     public void Startup(NetworkService network)
@@ -34,7 +35,13 @@ public class PlayerManager : MonoBehaviour, IGameManager
         this.health = health;
         this.maxHealth = maxHealth;
     }
-
+    public void ChangeScore(int value)
+    {
+        score += value;
+    
+        Messenger<int>.Broadcast(GameEvent.SCORE_UPDATED,value);
+        
+    }
     public void ChangeHealth(int value)
     {
         health += value;
@@ -55,6 +62,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
     public void Respawn()
     {
         UpdataData(100, 100);
+        score = 0;
     }
 
 
