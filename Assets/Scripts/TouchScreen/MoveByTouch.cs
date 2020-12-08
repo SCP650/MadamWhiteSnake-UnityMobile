@@ -54,6 +54,41 @@ public class MoveByTouch : MonoBehaviour
     private float followUpThresholh = 1f;
     private int AttackCounter = 0;
 
+    private void Awake()
+    {
+        Messenger.AddListener("KillFaHai", KillFaHaiPlayer);
+    }
+    private void OnDestroy()
+    {
+        Messenger.RemoveListener("KillFaHai", KillFaHaiPlayer);
+    }
+
+    private void KillFaHaiPlayer()
+    {
+        horiSpeed.IncreaseSpeedBy(0);
+        if (IsShield)
+        {
+            StartCoroutine(Shield());
+            dantianController.dantianUsed();
+        }
+        else
+        {
+
+            UmbrellaSword();
+            dantianController.dantianUsed();
+        }
+        
+        StartCoroutine(ResetSpeed());
+
+    }
+
+    IEnumerator ResetSpeed()
+    {
+        yield return new WaitForSeconds(1.5f);
+        horiSpeed.ResetSpeed();
+
+    }
+
     void Start()
     {
 

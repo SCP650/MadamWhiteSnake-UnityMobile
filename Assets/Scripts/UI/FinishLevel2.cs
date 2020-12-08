@@ -20,8 +20,8 @@ public class FinishLevel2 : MonoBehaviour
     {
         EndLevelPanel.SetActive(false);
         currScene = 0;
-        option1.GetComponentInChildren<Text>().text = "救我的爱人，白头偕老"; 
-        option2.GetComponentInChildren<Text>().text = "救我的恩人，报收留之恩, 从此两清";
+        option1.GetComponentInChildren<Text>().text = "解救许郎"; 
+        option2.GetComponentInChildren<Text>().text = "搭救许仙";
         //Managers.mission.SetLevelChoice(false);//for testing only
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,13 +48,13 @@ public class FinishLevel2 : MonoBehaviour
         {
             case 0:
                 baiImage.SetActive(true);
-                textBox.text = "许郎！万幸万幸，你也安然无恙。有没有在这里等很久？";
+                textBox.text = "我来迟了，路上耽搁了一会。是不是在这里等很久了？";
                 currScene++;
                 break;
             case 1:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "还好还好，看到娘子安好我就放心了。不过刚才这月老庙里突然来了一个奇怪的和尚……";
+                textBox.text = "你没事就好。今晚夜色迥异，让我好生担心……";
                 currScene = 3;
                 break;
             case 3:
@@ -62,56 +62,56 @@ public class FinishLevel2 : MonoBehaviour
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(true);
        
-                textBox.text = "多么感人的情人相会，可惜，人妖终究殊途。许仙，这白娘子可是千年蛇妖啊，你可莫被这妖怪迷了眼睛！";
+                textBox.text = "情人相会本是人间喜事，可惜，人妖终究有别。许施主，这白娘子可是千年蛇妖啊，你可莫被这妖怪迷了眼睛！";
                 currScene++;
                 break;
             case 4:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
                 faHaiImage.SetActive(false);
-                textBox.text = "她一见面就告诉我她的真身，但娘子她一心向善，不管他是人是妖，我都爱她。我相约娘子在这月老庙见面，就是为了见证我们的爱情！";
+                textBox.text = "人又如何？妖又如何？人身妖心者又何其多！怎么修行之人还不如我一介凡夫看得明白？我与娘子不过是天地间两抹有缘的精魄罢了。";
                 currScene++;
                 break;
             case 5:
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(true);
-                textBox.text = "月老庙？呵，这不过是我设的障眼法罢了，这其实是我的金山寺！";
+                textBox.text = "你可知伦常乖舛，立见消亡？人妖殊途，你们在月老庙究竟结缘，还是遭劫呢？此处不过是老衲的障眼法罢了。";
                 currScene++;
                 break;
             case 6:
                 baiImage.SetActive(true);
                 faHaiImage.SetActive(false);
-                textBox.text = "什么？法海，我与你无冤无仇，你竟行此不仁不义之事！当真我只会逃跑，拿你没有办法吗！";
+                textBox.text = "我一心向善，一路忍让，高僧又何必苦苦相逼？当真我只会逃跑，拿你没有办法吗！";
                 currScene ++;
                 break;
             case 7:
                 baiImage.SetActive(false);
                 faHaiImage.SetActive(true);
-                textBox.text = "除遍世间妖怪，就是我心所向，佛意所指！贫僧当然知道你法力高强，为了平民百姓，就麻烦许仙你和我走一趟了！";
+                textBox.text = "大胆白蛇！老衲怎可忍你祸乱世间，败坏纲常？六道轮回，各有所序。许施主，有请了！";
                 currScene++;
                 break;
             case 8:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
                 faHaiImage.SetActive(false);
-                textBox.text = "法海你这是绑架无辜平民！放开我！娘子你快跑！";
+                textBox.text = "本是我心摇意动，是劫是缘，我一力承担！";
                 currScene++;
                 break;
             case 9:
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(false);
-                textBox.text = "法海绑架走了许仙，我该怎么做呢？";
+                textBox.text = "法海带走了许仙，我该如何做呢？";
                 option1.SetActive(true);
                 option2.SetActive(true);
                 next.SetActive(false);
                 break;
             case 11:
-                textBox.text = "看来我的去金山寺一趟了, 为了救他我就大开杀戒了";
+                textBox.text = "看来金山寺一行，少不了杀戮了。";
                 NextLevelButton.SetActive(true);
                 break;
             case 12:
-                textBox.text = "看来我的去金山寺一趟了, 但我还是自保要紧。";
+                textBox.text = "金山寺一行还是得小心行事。";
                 NextLevelButton.SetActive(true);
                 break;
 
@@ -124,13 +124,13 @@ public class FinishLevel2 : MonoBehaviour
         {
             case 0:
                 baiImage.SetActive(true);
-                textBox.text = "许郎！万幸万幸，你也安然无恙。没想到会在这月老庙里和你重逢。";
+                textBox.text = "许郎，我终于追上你了！万幸万幸，你安然无恙，是不是吓到你了？";
                 currScene++;
                 break;
             case 1:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
-                textBox.text = "娘子……";
+                textBox.text = "娘子，我……";
                 currScene = 3;
                 break;
             case 3:
@@ -138,65 +138,65 @@ public class FinishLevel2 : MonoBehaviour
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(true);
 
-                textBox.text = "大胆蛇妖！竟敢蛊惑许家公子！";
+                textBox.text = "大胆蛇妖！竟敢蛊惑许施主！";
                 currScene++;
                 break;
             case 4:
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(false);
-                textBox.text = "许郎，这是怎么回事，为什么法海会在这里，这里不是月老庙吗？";
+                textBox.text = "世间多少不平事你不去管，为何苦苦把我俩来缠？";
                 currScene++;
                 break;
             case 5:
                 xuxianImage.SetActive(true);
                 baiImage.SetActive(false);
                 faHaiImage.SetActive(false);
-                textBox.text = "娘子，是我糊涂了，看到你真身后我慌不择路，路上遇到了法海大师……";
+                textBox.text = "人有悔意，天必怜之。人妖殊途，法海大师未尝不是为你我好……";
                 currScene++;
                 break;
             case 6:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(true);
-                textBox.text ="白蛇你还不明白吗？人妖终究殊途！还不快束手就擒！";
+                textBox.text = "笑人生浑如醉乡，回头看无穷惆怅，争惶恐，看空空色色色色空空。许施主已有所了悟，白蛇，勿再痴了。";
                 currScene++;
                 break;
             case 7:
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(false);
-                textBox.text = "法海，我与你无冤无仇，何必对我处处紧逼！当真我只会逃跑，拿你没有办法吗！";
+                textBox.text = "佛说慈悲为怀，普渡众生，为何不能对我慈悲？又为何不肯渡我？";
                 currScene++;
                 break;
             case 8:
                 baiImage.SetActive(false);
                 faHaiImage.SetActive(true);
-                textBox.text = "除遍世间妖怪，就是我心所向，佛意所指！贫僧当然知道你法力高强，为了平民百姓，就麻烦许仙你和我走一趟了！";
+                textBox.text = "强词夺理！老衲怎可忍你祸乱世间，败坏纲常？ 六道轮回，各有所序。既然如此，许施主，有请了！";
                 currScene++;
                 break;
             case 9:
                 baiImage.SetActive(false);
                 xuxianImage.SetActive(true);
                 faHaiImage.SetActive(false);
-                textBox.text = "法海你这是绑架无辜平民！放开我！娘子你快跑！";
+                textBox.text = "娘子，我对你不住，是我懵懂无知，引来灾祸，你千万保重！";
                 currScene++;
                 break;
             case 10:
                 baiImage.SetActive(true);
                 xuxianImage.SetActive(false);
                 faHaiImage.SetActive(false);
-                textBox.text = "法海绑架走了许仙，但是许仙出卖我迎来的法海，我该怎么做呢？";
+                textBox.text = "法海带走了许仙，我该怎么做呢？";
                 option1.SetActive(true);
                 option2.SetActive(true);
                 next.SetActive(false);
                 break;
             case 11:
-                textBox.text = "看来我的去金山寺一趟了, 为了救他我就大开杀戒了";
+                textBox.text = "看来金山寺一行，少不了杀戮了。";
                 NextLevelButton.SetActive(true);
                 break;
             case 12:
-                textBox.text = "看来我的去金山寺一趟了, 但我还是自保要紧。";
+                textBox.text = "金山寺一行还是得小心行事。";
                 NextLevelButton.SetActive(true);
                 break;
 
