@@ -71,7 +71,9 @@ public class PowerupController : MonoBehaviour
     {
         releasePowerup.gameObject.SetActive(true);
         furnianceAnimation.SetActive(true);
+        releasePowerup.interactable = false;
         yield return new WaitForSeconds(1.5f);
+        releasePowerup.interactable = true;
         furnianceAnimation.SetActive(false);
         powerIcon.sprite = sprite;
 
