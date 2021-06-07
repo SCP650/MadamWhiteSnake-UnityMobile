@@ -1,7 +1,7 @@
 # The Legend of the White Snake
 
 This is a mobile game that tells the story of Lady White Snake, a tranditional Chinese folklore!
-You can try our test version (1.12) here: https://testflight.apple.com/join/lNtPudTB
+You can try our released version here: https://apps.apple.com/us/app/%E7%99%BD%E8%9B%87-%E7%BA%B8%E4%BC%9E/id1535362205
 
 ## Privacy Policy
 
